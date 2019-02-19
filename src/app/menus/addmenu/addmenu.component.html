@@ -7,8 +7,10 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="background">
+  <div class="container ">
     <div class="row mt-3 mb-3">
+      <img src="~/assets/background_red.png" alt="">
       <div class="col-sm-5">
         <h2>Valamelyik Étlap</h2>
         <input class="form-control" type="text" name="" value="Valamelyik Étlap">
@@ -16,10 +18,11 @@
     </div>
   </div>
   <div class="colorful-buttons d-flex flex-row justify-content-end ">
-    <button type="button" class="btn btn-outline-secondary mr-2">Vissza</button>
-    <button type="button" class="btn btn-outline-success mr-2">Mentés</button>
-    <button type="button" class="btn btn-outline-warning mr-2">Módosít</button>
+    <button type="button" class="btn btn-light mr-2">Vissza</button>
+    <button type="button" class="btn btn-light mr-2">Mentés</button>
+    <button type="button" class="btn btn-light mr-2">Módosít</button>
   </div>
+</div>
 
 
   <hr>
@@ -34,7 +37,9 @@
             <div class="row justify-content-center">
               <button type="button" class="btn btn-outline-primary mb-3">Teljes nap importálása</button>
             </div>
-            <h5>Reggeli</h5>
+            <div class="breakfast flex-row justify-content-center">
+                <h5>Reggeli</h5>
+            </div>
             <div class="mb-2 d-flex align-items-center">
               <input id="typeahead-basic" type="text" class="form-control form-control-sm" [(ngModel)]="model"
                 [ngbTypeahead]="search" />
@@ -55,7 +60,11 @@
               </div>
             </div>
             <button type="button" class="btn btn-outline-secondary btn-circle">+</button>
-              <h5>Ebéd</h5>
+            <br>
+            <br>
+            <div class="elevenses flex-row justify-content-center">
+              <h5>Tízórai</h5>
+            </div>
             <div class="mb-2 d-flex align-items-center">
               <select class="form-control form-control-sm" name="">
                 <option>Valami</option>
@@ -87,7 +96,63 @@
               </div>
             </div>
             <button type="button" class="btn btn-outline-secondary btn-circle">+</button>
+            <br>
+            <br>
+            <div class="lunch flex-row justify-content-center">
+            <h5>Ebéd</h5>
+            </div>
+            <div class="mb-2 d-flex align-items-center">
+              <select class="form-control form-control-sm" name="">
+                <option>Valami</option>
+              </select>
+              <div class="ml-2 d-flex align-items-center">
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <div class="mb-2 d-flex align-items-center">
+              <select class="form-control form-control-sm" name="">
+                <option>Valami</option>
+              </select>
+              <div class="ml-2 d-flex align-items-center">
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-circle">+</button>
+            <br>
+            <br>
+            <div class="snack flex-row justify-content-center">
+            <h5>Uzsonna</h5>
+            </div>
+            <div class="mb-2 d-flex align-items-center">
+              <select class="form-control form-control-sm" name="">
+                <option>Valami</option>
+              </select>
+              <div class="ml-2 d-flex align-items-center">
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <div class="mb-2 d-flex align-items-center">
+              <select class="form-control form-control-sm" name="">
+                <option>Valami</option>
+              </select>
+              <div class="ml-2 d-flex align-items-center">
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-circle">+</button>
+            <br>
+            <br>
+            <div class="dinner flex-row justify-content-center">
             <h5>Vacsora</h5>
+            </div>
             <div class="mb-2 d-flex align-items-center">
               <select class="form-control form-control-sm" name="">
                 <option>Valami</option>

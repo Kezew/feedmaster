@@ -6,11 +6,13 @@
 h2 {
     font-size: 35px;
     font-weight: bold;
+    color: white;
 }
 
 .colorful-buttons {
         margin-right: 30px;
-        margin-bottom: 10px;    
+        margin-bottom: 10px; 
+        color: white !important;
 }
 
 
@@ -31,4 +33,41 @@ h2 {
     border-radius: 35px;
     font-size: 22px;
     line-height: 1.33;
+}
+
+.breakfast {
+    background-image: url(~/assets/breakfastLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.elevenses {
+    background-image: url(~/assets/applebananaLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.lunch {
+    background-image: url(~/assets/lunchLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.snack {
+    background-image: url(~/assets/lekvaroskenyerLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dinner {
+    background-image: url(~/assets/szendoLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.background {
+    background-image: url(~/assets/background_red.png);
+    background-size: cover;
+    position: static;
+    overflow: auto;
 }
