@@ -5,6 +5,8 @@ import { EditgroupComponent } from './groups/editgroup/editgroup.component';
 import { UserlistComponent } from './admin/userlist/userlist.component';
 import { AdduserComponent } from './admin/userlist/adduser/adduser.component';
 import { FooterComponent } from './footer/footer.component';
+import { AddmenuComponent } from './menus/addmenu/addmenu.component';
+import { MenusComponent } from './menus/menus.component';
 
 
 
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'userlist/adduser', component: AdduserComponent },
   { path: 'groups', component: GroupsComponent },
   { path: 'groups/editgroup', component: EditgroupComponent },
+  { path: 'menus/edit/:id', component: AddmenuComponent },
+  { path: 'menus', component: MenusComponent },
   { path: 'footer', component: FooterComponent },
 ];
 
