@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import "../../variables.scss";
 
 * {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -43,9 +43,7 @@ h1 {
 
 }
 
-.small-background {
-    color: $smallbackgroundcolor;
-}
+
 
 .hero {
     background-image: url(~/assets/orange_wider_background.png);
