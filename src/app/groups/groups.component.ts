@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupsComponent implements OnInit {
 
-  constructor() { }
+  subGroups: boolean;
+
+  constructor() {
+    this.subGroups = false;
+  }
 
   ngOnInit() {
+  }
+
+  openSubGroups() {
+    this.subGroups = true;
+  }
+
+  closeSubGroups() {
+    this.subGroups = false;
   }
 
 }
