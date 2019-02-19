@@ -1,0 +1,87 @@
+#card {
+	width: 400px;
+	height: 600px;
+	margin: 50px;
+	padding: 10px;
+	border: 1px solid rgba(128, 128, 128, 0.712);
+	box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
+	border-radius: 3%;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#title {
+	padding: 10px;
+	padding-bottom: 0;
+	background-image: url("logo.png");
+	background-size: 15%;
+	background-position-x: 95%;
+	background-repeat: no-repeat;
+}
+
+#title h1 {
+	padding-left: 10px;
+	font-size: 40px;
+	font-weight: 500;
+}
+
+.title h1::before {
+	content: "- ";
+}
+
+#title-divider {
+	margin: 0;
+	padding: 0;
+}
+
+#ingredient-list {
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 40%;
+	margin: 10px 0;
+}
+
+.ingredient-item {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+#ingredients-divider {
+	margin: 0;
+	padding: 0;
+}
+
+#nutrition {
+	height: 30%;
+	margin: 10px 0;
+}
+
+.nutrition-item {
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.vertical-line {
+	border-left: 1px solid lightgray;
+	max-width: 0px;
+}
+
+#pie {
+	padding: 10px;
+}
+
+#pie img {
+	width: 100%;
+}
+
+#buttons {
+	display: flex;
+	position: relative;
+	bottom: -30px;
+}
+
+button {
+	background: transparent;
+	border: none;
+	width: 50px;
+	height: 30px;
+}
