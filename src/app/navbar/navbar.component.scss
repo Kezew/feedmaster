@@ -1,0 +1,35 @@
+@import '../../variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+nav {
+    background-color: $modalbackground;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+    .logo img {
+        width: 70px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    
+        @include media-breakpoint-up(md) {
+            width: 15%;
+        }
+        @include media-breakpoint-up(lg) {
+            width: 10%;
+        }
+    }
+
+    button {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0 20px;
+        border: 1px solid $logocolor;
+        
+        a {
+            color: $lettercolor;
+        }
+    }
+
+}
