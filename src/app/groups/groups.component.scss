@@ -1,4 +1,20 @@
-arrow-down-icon{
+@import "../../variables";
+
+.icon {
   border: none;
   background: transparent;
+}
+
+tr.table-tr th {
+  vertical-align: middle;
+  font-weight: normal;
+  color: white;
+}
+
+th button i {
+  color: white;
+}
+
+td i {
+  color: $modalbackground;
 }
