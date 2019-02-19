@@ -1,0 +1,72 @@
+@import "../../styles.scss";
+
+* {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: $lettercolor;
+}
+h1 {
+    color:white;
+}
+
+
+.clickable-card {
+    color: $lettercolor;
+    border: 1px solid $modalbackground;
+}
+
+.bg-logo {
+    background-image: url(~/assets/logo_notext.png);
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    margin-left: 85%;
+    margin-bottom: 5px;
+    background-size: contain;
+}
+
+.clickable-card:hover {
+    color: $lettercolor;
+    box-shadow: 0px 0px 40px  rgba(0, 0, 0, 0.13);
+    z-index: 2;
+    transition: all 300ms ease-in;
+    transform: scale(1.1);
+}
+
+.card-title{
+    color: $logocolor;
+    z-index: 1;
+
+}
+
+.add-recipe-button:focus {
+    color: $lettercolor;
+    z-index: 1;
+
+}
+
+.small-background {
+    color: $smallbackgroundcolor;
+}
+
+.hero {
+    background-image: url(~/assets/orange_wider_background.png);
+    background-size: cover;
+    position: static;
+    overflow: auto;
+}
+
+.text {
+    position: absolute;
+    color: white;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.menuheader {
+    background-color: $modalbackground;
+}
+
+.add-recipe-button:hover {
+    color: white !important;
+}
+
+
