@@ -1,3 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+h1 {
+    color: $modalbackground;
+}
+
+.table-tr {
+    background-color: $modalbackground;
+    color: $logocolor;
+    box-shadow: 3px 3px 2px grey;
+}

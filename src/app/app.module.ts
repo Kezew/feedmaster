@@ -40,7 +40,7 @@ import { CreateIngredientComponent } from './ingredients/create-ingredient/creat
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
