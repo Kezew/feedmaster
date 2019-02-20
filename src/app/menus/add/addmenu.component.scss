@@ -27,12 +27,13 @@ h2 {
 }
 
 .btn-circle-large {
-    width: 50px;
-    height: 50px;
-    padding: 10px 16px;
-    border-radius: 35px;
-    font-size: 22px;
-    line-height: 1.33;
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
 }
 
 .breakfast {
@@ -71,3 +72,30 @@ h2 {
     position: static;
     overflow: auto;
 }
+
+.small-bg {
+    background-image: url(~/assets/logo_pattern.png);
+    overflow: auto;
+    background-repeat: no-repeat;
+}
+
+
+.input-group-text {
+    color: white;
+    background-color: rgba(231, 93, 82, 0.712);
+    border: none;
+}
+
+.input-group {
+    border: none;
+}
+
+h1{
+    color: white;
+    margin-left: 35px;
+}
+
+.btn-success:hover {
+    color: white !important;
+}
+
