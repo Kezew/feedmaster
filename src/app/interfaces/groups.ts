@@ -15,12 +15,11 @@ export interface SubGroup {
   maxDailyPotassium?: number;
   maxDailyCalcium?: number;
   maxDailyMagnesium?: number;
-  allergens: string [];
-  
-
+  allergens: string[];
 }
 
 export interface Group {
   id?: number;
   name: string;
+  subGroups: SubGroup[];
 }
