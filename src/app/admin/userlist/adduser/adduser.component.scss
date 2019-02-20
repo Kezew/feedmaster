@@ -1,5 +1,51 @@
 @import '../../../../variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+
+.full {
+    height: 100vh;
+    background-size: cover;
+    background-image: url('~/assets/login-bg.png');
+    letter-spacing: 0.5px;
+}
+.icon-box img {
+
+
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(md) {
+        width: 15%;
+    }
+    @include media-breakpoint-up(lg) {
+        width: 10%;
+    }
+
+}
 
 .container {
-    color: $modalbackground;
+    width: 80%;
+}
+
+.main-container {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #C7C6C6;
+    background-color: $modalbackground;
+    color: $grey;
+    margin: auto;
+    width: 40%;
+    opacity: 0.9;
+
+    hr {
+        border: 0.5px solid $grey;
+        width: 90%;
+    }
+}
+
+.btn-container {
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
