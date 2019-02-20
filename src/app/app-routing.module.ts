@@ -9,6 +9,7 @@ import { AddmenuComponent } from './menus/add/addmenu.component';
 import { MenusComponent } from './menus/menus.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
+import { RecipeCardComponent } from './recipes/recipe-card/recipe-card.component';
 
 const routes: Routes = [
   { path: 'userlist', component: UserlistComponent },
@@ -22,10 +23,11 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'header', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
+  { path: "recipe-card", component: RecipeCardComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

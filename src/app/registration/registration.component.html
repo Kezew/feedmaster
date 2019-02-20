@@ -1,33 +1,44 @@
-<div class="continer">
-  <div class="d-flex justify-content-center">
-    <h2>Regisztráció</h2>
-  </div>
-  <div class=" d-flex justify-content-center">
-    <form class="w-25 p-3 border border-dark">
-      <div class="egy form-group">
-        <label for="exampleInputUserName">Adja meg felhasználónevét:</label>
-        <input type="username" class="form-control" id="exampleUserName" aria-describedby="userNameHelp"
-          placeholder="Kovács Flóra">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Jelszó:</label>
-        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Jelszó1234">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Jelszó újra:</label>
-        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Jelszó1234">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email cím</label>
-        <!-- <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"> -->
-        <p>useremailcime@email.hu</p>
-        <small id="emailHelp" class="form-text text-muted">(Ellenőrizze, hogy ez az Ön email címe-e)</small>
+<div class="full d-flex justify-content-center">
+  <div class="container">
+    <div class="row justify-content-center login-box">
+      <form class="col-md-6 py-5 border border-dark login">
+        <div class="icon-box mb-3">
+          <img src="assets/logo_notext.png" alt="logo">
+        </div>
+        <h2 class="text-center"><span>Regisztráció</span></h2>
         <hr>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary">Regisztrálok</button>
-      </div>
-    </form>
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="info-box">
+              <div class="form-group">
+                <label for="exampleInputEmail" class="email">Email cím:</label>
+                <p>{{email}}</p>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputName" class="name">Felhasználó név:</label>
+                <p>{{name}}</p>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="exampleInputEmail">Email cím</label>
+              <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                placeholder="emailcimed@gmail.com">
+            </div>
+            -->
+            <div class="form-group p-1">
+              <label for="exampleInputPassword">Jelszó:</label>
+              <input type="password" class="form-control" id="exampleInputPassword" placeholder="Jelszó1234">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Jelszó újra:</label>
+              <input type="password" class="form-control" id="exampleInputPassword" placeholder="Jelszó1234">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-success">Regisztrálok</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-
 </div>
