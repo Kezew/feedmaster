@@ -19,10 +19,6 @@
   font-size: 40px;
   font-weight: 500;
   border-bottom: 1px solid lightgray;
-  background-image: url("/assets/breakfastLogo.png");
-  background-size: 15%;
-  background-position-x: 95%;
-  background-repeat: no-repeat;
 }
 
 .small-title {
@@ -55,6 +51,10 @@
 
 .ingredient-item>* {
   word-wrap: break-word;
+}
+
+.grams::after {
+  content: " g";
 }
 
 #nutrition {
@@ -97,6 +97,10 @@
 
 #reference-person {
   font-size: 24px;
+}
+
+#reference-person>i {
+  margin-right: 5px;
 }
 
 button>i,

@@ -6,7 +6,26 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./recipe-card.component.scss"]
 })
 export class RecipeCardComponent implements OnInit {
-  constructor() {}
+  ingredients;
+  referencePerson;
+
+  constructor() {
+    this.ingredients = [
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75],
+      ["Zabpehely", 75]
+    ];
+    this.referencePerson = "Puhatestű-érzékeny 1";
+  }
 
   ngOnInit() {}
 }
