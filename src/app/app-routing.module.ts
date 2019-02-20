@@ -22,10 +22,11 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'header', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
+  { path: "recipe-card", component: RecipeCardComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

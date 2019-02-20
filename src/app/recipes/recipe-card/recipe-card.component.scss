@@ -1,0 +1,129 @@
+#card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 600px;
+  margin: 50px;
+  padding: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.712);
+  box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
+  border-radius: 4%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #44585a;
+}
+
+#title {
+  margin: 0;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 40px;
+  font-weight: 500;
+  border-bottom: 1px solid lightgray;
+  background-image: url("/assets/breakfastLogo.png");
+  background-size: 15%;
+  background-position-x: 95%;
+  background-repeat: no-repeat;
+}
+
+.small-title {
+  height: 41px;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 1px;
+  font-size: 35px;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  align-self: center;
+}
+
+#ingredients {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 5px;
+  flex-grow: 1;
+}
+
+#ingredient-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.ingredient-item {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.ingredient-item>* {
+  word-wrap: break-word;
+}
+
+#nutrition {
+  min-height: 212px;
+  display: flex;
+  flex-direction: column;
+}
+
+#nutrition-info {
+  border-right: 1px solid lightgray;
+}
+
+#nutrition-list {
+  align-items: center;
+}
+
+.nutrition-item {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.sub-row {
+  font-size: 14px;
+  padding-left: 5px;
+  margin-top: -2px;
+}
+
+#nutrition-pie {
+  padding: 10px;
+}
+
+.pie {
+  width: 100%;
+  height: 150px;
+}
+
+.highcharts-credits {
+  display: none;
+}
+
+#bottom-row {
+  display: flex;
+  min-height: 50px;
+  font-size: 30px;
+  margin: 0 10px;
+  color: #305a68;
+  align-items: center;
+}
+
+#bottom-row button:last-child>i {
+  margin-left: 20px;
+}
+
+#reference-person {
+  font-size: 24px;
+}
+
+button>i,
+#reference-person>i {
+  font-size: 30px;
+  color: #305a68;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+button>i:hover {
+  color: #a7c979;
+}
