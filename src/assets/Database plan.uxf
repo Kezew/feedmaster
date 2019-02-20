@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>128</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*Recepie*
+--
+long recepieID;
+Boolean isDefault;
+String recepieName;
+String referencePerson;
+List&lt;IngredientQuantityInRecepie&gt; ingredients;
+List&lt;Meal&gt; mealsIncluding;
+LocalDateTime lastModified;
+UserEntity userOwned;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>328</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*Meal*
+--
+long mealId;
+WeekDay day;
+MealTime mealTime;
+List&lt;Recepie&gt; recepies;
+List&lt;Menu&gt; menusIncluding;
+LocalDateTime lastModified;
+UserEntity userOwned;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>512</y>
+      <w>168</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*Menu*
+--
+long menuId;
+String menuName;
+List&lt;Meal&gt; meals;
+LocalDateTime lastModified;
+UserEntity userOwned;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>408</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*MealTime*
+--
+BREAKFAST, FORENOON_SNACK, LUNCH, AFTERNOON_SNACK, DINNER
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>56</y>
+      <w>432</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*WeekDay*
+--
+MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>128</y>
+      <w>184</w>
+      <h>488</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*IngredientHundredGram*
+--
+long ingredientId;
+Boolean rawIngredient;
+IngredientType ingredientType;
+String ingredientName;
+double energyKJ;
+double energyKcal;
+double protein;
+double fat;
+double saturatedFat;
+double carbohydrate;
+double sugar;
+int glycemicIndex;
+double fibre;
+double natrium;
+double potassium;
+double calcium;
+double magnesium;
+Boolean allergenMilk;
+Boolean allergenGluten;
+Boolean allergenEgg;
+Boolean allergenShellfish;
+Boolean allergenFish;
+Boolean allergenMolluscs;
+Boolean allergenPeanut;
+Boolean allergenWalnut;
+Boolean allergenSesame;
+Boolean allergenSoy;
+Boolean allergenCelery;
+Boolean allergenMustard;
+Boolean allergenSulpithes;
+Boolean allergenLupin;
+LocalDateTime lastModified;
+UserEntity lastModifier;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>280</y>
+      <w>88</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
+ManyToMany
+fg=orange</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>464</y>
+      <w>88</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+ManyToMany
+fg=orange</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1096</x>
+      <y>576</y>
+      <w>168</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*Group*
+--
+long groupId;
+String groupName;
+List&lt;SubGroup&gt; subGroup;
+LocalDateTime lastModified;
+UserEntity userOwned;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1096</x>
+      <y>192</y>
+      <w>168</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*SubGroup*
+--
+long subGroupId;
+Group group;
+String subGroupName;
+AgeGroup ageGroup;
+int numberOfPersons;
+double maxDailyEnergyKJ;
+double maxDailyEnergyKcal;
+double maxDailyProtein;
+double maxDailyFat;
+double maxDailySaturatedFat;
+double maxDailyCarbohydrate;
+double maxDailySugar;
+int maxGlycemicIndexPerMeal;
+double maxDailyFibre;
+double maxDailyNatrium;
+double maxDailyPotassium;
+double maxDailyCalcium;
+double maxDailyMagnesium;
+List&lt;Allergens&gt; allergens;
+List&lt;SubGroupRecepieHistory&gt; recepieHistory;
+LocalDateTime lastModified;
+UserEntity userOwned;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>0</y>
+      <w>696</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*Allergens*
+--
+MILK, GLUTEN, EGG, SHELLFISH, FISH, MOLLUSCS, PEANUT, WALNUT, SESAME, SOY, CELERY, MUSTARD, SULPITHES, LUPIN
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>192</y>
+      <w>160</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+OneToMany
+fg=orange</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1168</x>
+      <y>520</y>
+      <w>88</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+OneToMany
+fg=orange</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>192</y>
+      <w>168</w>
+      <h>536</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*SubGroupRecepieHistory*
+--
+long subGroupRecepieHistoryId;
+long subGroupId;
+AssigmentStatus status;
+String recepieName;
+MealTime mealTime;
+LocalDate date;
+UserEntity userOwned;
+IngredientType ingredientType;
+String ingredientName;
+double energyKJPerPerson;
+double energyKcalPerPerson;
+double proteinPerPerson;
+double fatPerPerson;
+double saturatedFatPerPerson;
+double carbohydratePerPerson;
+double sugarPerPerson;
+int glycemicIndexPerPerson;
+double fibrePerPerson;
+double natriumPerPerson;
+double potassiumPerPerson;
+double calciumPerPerson;
+double magnesiumPerPerson;
+Boolean allergenMilk;
+Boolean allergenGluten;
+Boolean allergenEgg;
+Boolean allergenShellfish;
+Boolean allergenFish;
+Boolean allergenMolluscs;
+Boolean allergenPeanut;
+Boolean allergenWalnut;
+Boolean allergenSesame;
+Boolean allergenSoy;
+Boolean allergenCelery;
+Boolean allergenMustard;
+Boolean allergenSulpithes;
+Boolean allergenLupin;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>192</y>
+      <w>104</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Copy/Paste
+</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>664</x>
+      <y>256</y>
+      <w>96</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>*Validation*
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>280</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+
+</panel_attributes>
+    <additional_attributes>190.0;10.0;190.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>216</y>
+      <w>184</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*IngredientQuantityInRecepie*
+--
+long Id;
+Recepie recepie;
+IngredientHundredGram ingredient;
+double ingredientQuantityGram;
+--
+public get...();
+public set...();
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>136</y>
+      <w>120</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+OneToMany
+fg=orange</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>136</y>
+      <w>112</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+OneToOne
+fg=orange</panel_attributes>
+    <additional_attributes>50.0;100.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>128</y>
+      <w>816</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>*AgeGroup*
+--
+ONE_TO_THREE, FOUR_TO_SIX, SEVEN_TO_TEN, ELEVEN_TO_FOURTEEN, FIFTEEN_TO_EIGHTTEEN, NINETEEN_TO_SIXTYNINE, OVER_SIXTYNINE;
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>680</y>
+      <w>256</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*LawMinMaxPerDayPerAgeGroup*
+--
+@Id
+AgeGroup ageGroup;
+double minEnergyKcalPerPerson;
+double maxEnergyKcalPerPerson;
+double minNatriumPerPerson;
+double maxNatriumPerPerson;
+--
+public get...();
+public set...();
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>352</x>
+      <y>680</y>
+      <w>256</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>@Entity
+*LawMinMaxTimeOfIngredient*
+--
+@Id
+IngredientType ingredientType;
+int minTimePerDay;
+int maxTimrPerTenDay
+--
+public get...();
+public set...();
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>64</y>
+      <w>672</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>*IngredientType*
+--
+ALCOHOLS, OIL_SEEDS, OTHERS, CEREALS, FRUITS, FISHES, MEATS, LEGUMES, MILKS, EGGS, VEGETABLES, FATS
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>264</y>
+      <w>176</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;540.0;200.0;540.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>264</y>
+      <w>568</w>
+      <h>432</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;520.0;10.0;490.0;690.0;490.0;690.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>272</y>
+      <w>360</w>
+      <h>520</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>430.0;10.0;390.0;10.0;380.0;630.0;10.0;630.0;10.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1152</x>
+      <y>64</y>
+      <w>184</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>*AssigmentStatus*
+--
+VALIDATED, NOT MATCHED
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
