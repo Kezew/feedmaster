@@ -48,4 +48,13 @@
 .btn-container {
     padding-top: 10px;
     padding-bottom: 50px;
+
+    .btn {
+        border: 1px solid $grey;
+        font-weight: bold;
+    }
+
+    .btn-back {
+        color: $grey;
+    }
 }

@@ -8,7 +8,7 @@
       <div class="header row justify-content-center">
 
           <h2>Felhasználó hozzáadása</h2>
-        
+
         <!--
         <div class="col-3 text-right">
           <a class="btn btn-outline-primary" routerLink="/dashboard">Vissza</a>
@@ -37,15 +37,15 @@
 
       <div class="form-group authority-group">
         <label for="inputAuthority">Jogosultság</label>
-        <select class="custom-select my-1 mr-sm-2" id="inputAuthority">
+        <select class="custom-select my-1 mr-sm-2" id="inputAuthority" [(ngModel)]="authority">
           <!--  [(ngModel)]="user.authority" -->
-          <option *ngFor="let a of authorityEnum" [value]="a.key">{{a.value}}</option> <!--   -->
+          <option *ngFor="let a of authority" [value]="a">{{a}}</option> <!--   -->
 
         </select>
       </div>
       <div class="btn-container d-flex justify-content-center justify-content-between">
         <button type="button" class="btn btn-success add-button" (click)="add()">Hozzáadás</button>
-         <a class="btn btn-outline-primary" routerLink="/dashboard">Vissza</a>
+         <a class="btn btn-back btn-outline-primary" routerLink="/dashboard">Vissza</a>
       </div>
       <!--  TODO FOOTER insert -->
 

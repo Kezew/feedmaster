@@ -10,12 +10,14 @@ export class AdduserComponent implements OnInit {
 
     userName: string;
     userEmail: string;
+    authority: [string,string,string];
     isNameInvalid: boolean;
     errors: any;
 
   constructor() {
       this.userName = '';
       this.userEmail = '';
+      this.authority = ["admin","user","dietetic"];
       this.isNameInvalid = false;
       this.errors = {};
    }
