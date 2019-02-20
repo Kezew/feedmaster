@@ -1,15 +1,15 @@
 <div class="container">
   <div id="card" class="container">
-    <h1 id="title" class="breakfast small-logo-right">Zabkása</h1>
+    <h1 id="title" class="small-logo-right" [ngClass]=data.logo>{{ data.title }}</h1>
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
-        <div *ngFor="let i of ingredients" class="ingredient-item row">
+        <div *ngFor="let ingredient of data.ingredients" class="ingredient-item row">
           <div class="col-8">
-            {{ i[0] }}
+            {{ ingredient.name }}
           </div>
           <div class="col-4 grams">
-            {{ i[1] }}
+            {{ ingredient.amount }}
           </div>
         </div>
       </div>
@@ -20,51 +20,51 @@
         <div id="nutrition-list" class="row">
           <div id="nutrition-info" class="col-7">
             <div class="nutrition-item row">
-              <div class="col-8">
+              <div class="col-8 fat">
                 Zsír
               </div>
-              <div class="col-4">
-                1.36g
+              <div class="col-4 grams">
+                {{ data.nutrition.fat }}
               </div>
             </div>
             <div class="nutrition-item row sub-row">
               <div class="col-8">
                 <i class="fas fa-long-arrow-alt-right"></i> ebből telített
               </div>
-              <div class="col-4">
-                0.94g
+              <div class="col-4 grams">
+                {{ data.nutrition.saturatedFat }}
               </div>
             </div>
             <div class="nutrition-item row">
-              <div class="col-8">
+              <div class="col-8 protein">
                 Fehérje
               </div>
-              <div class="col-4">
-                2.28g
+              <div class="col-4 grams">
+                {{ data.nutrition.protein }}
               </div>
             </div>
             <div class="nutrition-item row">
-              <div class="col-8">
+              <div class="col-8 carb">
                 Szénhidrát
               </div>
-              <div class="col-4">
-                12.74g
+              <div class="col-4 grams">
+                {{ data.nutrition.carbs }}
               </div>
             </div>
             <div class="nutrition-item row sub-row">
               <div class="col-8">
                 <i class="fas fa-long-arrow-alt-right"></i> ebből cukor
               </div>
-              <div class="col-4">
-                1.36g
+              <div class="col-4 grams">
+                {{ data.nutrition.sugar }}
               </div>
             </div>
             <div class="nutrition-item row">
               <div class="col-8">
                 Energia
               </div>
-              <div class="col-4">
-                70kcal
+              <div class="col-4 kcal">
+                {{ data.nutrition.kcal }}
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
       </div>
     </div>
     <div id="bottom-row">
-      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ referencePerson }}</span>
+      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ data.referencePerson }}</span>
       <button class=""><i class="fas fa-edit"></i></button>
       <button class=""><i class="fas fa-check"></i></button>
     </div>
