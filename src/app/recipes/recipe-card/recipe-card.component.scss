@@ -1,4 +1,4 @@
-@import 'src/variables';
+@import "src/variables";
 $fat: #bc5f54;
 $protein: #4bb89a;
 $carb: #e4b101;
@@ -53,9 +53,11 @@ $carb: #e4b101;
 .ingredient-item {
   font-size: 20px;
   font-weight: 400;
+  height: 30px;
+  margin-bottom: 1px;
 }
 
-.ingredient-item>* {
+.ingredient-item > * {
   word-wrap: break-word;
 }
 
@@ -115,20 +117,26 @@ $carb: #e4b101;
   align-items: center;
 }
 
-#bottom-row button:last-child>i {
+#bottom-row button {
+  width: 50px;
+  height: 50px;
+}
+
+#bottom-row button:last-child > i {
   margin-left: 20px;
 }
 
 #reference-person {
   font-size: 24px;
+  display: flex;
 }
 
-#reference-person>i {
-  margin-right: 5px;
+#reference-person > i {
+  margin-right: 10px;
 }
 
-button>i,
-#reference-person>i {
+button > i,
+#reference-person > i {
   font-size: 30px;
   color: $modalbackground;
 }
@@ -139,6 +147,57 @@ button {
   padding: 0;
 }
 
-button>i:hover {
+button:focus {
+  outline: 0;
+}
+
+.fa-check:hover,
+.fa-edit:hover {
   color: $logocolor;
+}
+
+// edit mode
+input {
+  font-family: $fontFamily;
+  color: $lettercolor;
+  line-height: 12px;
+  padding: 0;
+  padding-left: 15px;
+  border: none;
+  border-bottom: solid 1px lightgray;
+}
+
+input#title {
+  width: 66%;
+}
+
+#reference-person input {
+  padding-left: 0;
+}
+
+#add-ingredient-button {
+  margin: auto;
+  margin-top: 8px;
+}
+
+#add-ingredient-button > i {
+  font-size: 26px;
+  color: darkgreen;
+}
+
+#add-ingredient-button > i:hover {
+  color: $logocolor;
+}
+
+.delete-button > i {
+  font-size: 22px;
+  color: maroon;
+}
+
+.delete-button > i:hover {
+  color: red;
+}
+
+.fa-times:hover {
+  color: red;
 }

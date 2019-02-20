@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class RecipeCardComponent implements OnInit {
   data;
+  editMode: boolean;
 
   constructor() {
     this.data = {
@@ -37,4 +38,8 @@ export class RecipeCardComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  toggleEditMode(): void {
+    this.editMode = !this.editMode;
+  }
 }
