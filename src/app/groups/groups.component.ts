@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Group } from '../interfaces/groups';
+
 
 @Component({
   selector: 'app-groups',
@@ -8,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class GroupsComponent implements OnInit {
 
   subGroups: boolean;
+  groupList: Group[];
 
   constructor() {
     this.subGroups = false;
+
   }
 
   ngOnInit() {
