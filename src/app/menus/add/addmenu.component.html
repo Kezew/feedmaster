@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <div class="col-sm-5">
+      <h2>Valamelyik Étlap</h2>
+      <input class="form-control" type="text" name="" value="Valamelyik Étlap">
+    </div>
+  </div>
+</div>
+<div class="colorful-buttons d-flex flex-row justify-content-end ">
+  <button type="button" class="btn btn-outline-secondary mr-2">Vissza</button>
+  <button type="button" class="btn btn-outline-success mr-2" >Mentés</button>
+  <button type="button" class="btn btn-outline-warning mr-2">Módosít</button>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 mb-2" *ngFor="let menuItem of menuData.items">
+      <day-column [data]="menuItem" (deleteColumnEvent)="deleteColumn($event)"></day-column>
+    </div>
+    <div class="col-sm-3 mb-2 d-flex align-items-center">
+      <button type="button" class="btn btn-outline-secondary btn-circle-large" (click)="addDayColumn()">+</button>
+    </div>
+  </div>
+</div>

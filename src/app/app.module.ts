@@ -14,12 +14,14 @@ import { AdduserComponent } from './admin/userlist/adduser/adduser.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { MenusComponent } from './menus/menus.component';
-import { AddmenuComponent } from './menus/addmenu/addmenu.component';
+import { DayColumnComponent } from './menus/day-column/day-column.component';
+import { AddmenuComponent } from './menus/add/addmenu.component';
 import { GroupsComponent } from './groups/groups.component';
 import { EditgroupComponent } from './groups/editgroup/editgroup.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { RecipeCardComponent } from './recipes/recipe-card/recipe-card.component';
 import { CreateIngredientComponent } from './ingredients/create-ingredient/create-ingredient.component';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { CreateIngredientComponent } from './ingredients/create-ingredient/creat
     RegistrationComponent,
     RecipesComponent,
     MenusComponent,
+    DayColumnComponent,
     AddmenuComponent,
     GroupsComponent,
     EditgroupComponent,
@@ -48,5 +51,6 @@ import { CreateIngredientComponent } from './ingredients/create-ingredient/creat
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

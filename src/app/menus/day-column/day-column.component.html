@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-body text-center">
+    <h4 class="card-title" style="display: inline-block;">{{ data.dayNumber }}. nap</h4>
+    <button type="button" class="close" aria-label="Close" (click)="deleteColumn()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <hr>
+    <div class="row justify-content-center">
+      <button type="button" class="btn btn-outline-primary mb-3">Teljes nap importálása</button>
+    </div>
+    <h5>Reggeli</h5>
+    <div *ngFor="let breakfast of data.breakfast; let i = index;">
+      <div class="mb-2 d-flex align-items-center">
+        <input id="typeahead-basic" type="text" class="form-control form-control-sm" [ngbTypeahead]="search" [value]="breakfast" (change)="onChange($event, i)" />
+        <div class="ml-2 d-flex align-items-center">
+          <button type="button" class="close" aria-label="Close" (click)="deleteBreakfast(breakfast)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-secondary btn-circle" (click)="addBreakfast()">+</button>
+    <h5>Ebéd</h5>
+    <div *ngFor="let lunch of data.lunch; let i = index;">
+      <div class="mb-2 d-flex align-items-center">
+        <input id="typeahead-basic" type="text" class="form-control form-control-sm" [ngbTypeahead]="search" [value]="lunch" (change)="onChangeLunch($event, i)" />
+        <div class="ml-2 d-flex align-items-center">
+          <button type="button" class="close" aria-label="Close" (click)="deleteLunch(lunch)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-secondary btn-circle" (click)="addLunch()">+</button>
+    <h5>Vacsora</h5>
+    <div *ngFor="let dinner of data.dinner; let i = index;">
+      <div class="mb-2 d-flex align-items-center">
+        <input id="typeahead-basic" type="text" class="form-control form-control-sm" [ngbTypeahead]="search" [value]="dinner" (change)="onChangeLunch($event, i)" />
+        <div class="ml-2 d-flex align-items-center">
+          <button type="button" class="close" aria-label="Close" (click)="deleteDinner(dinner)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-secondary btn-circle" (click)="addDinner()">+</button>
+  </div>
+</div>
