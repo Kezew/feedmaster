@@ -7,6 +7,8 @@ import { AdduserComponent } from './admin/userlist/adduser/adduser.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddmenuComponent } from './menus/addmenu/addmenu.component';
 import { MenusComponent } from './menus/menus.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'menus/edit/:id', component: AddmenuComponent },
   { path: 'menus', component: MenusComponent },
   { path: 'footer', component: FooterComponent },
+  { path: 'header', component: NavbarComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
