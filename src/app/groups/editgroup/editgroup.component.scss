@@ -16,6 +16,28 @@ h2 {
   color: $lettercolor;
 }
 
+.t-header th {
+  &:nth-child(1) {
+    width: 35%;
+  }
+
+  &:nth-child(2) {
+    width: 20%;
+  }
+
+  &:nth-child(3) {
+    width: 15%;
+  }
+
+  &:nth-child(4) {
+    width: 15%;
+  }
+
+  &:nth-child(5) {
+    width: 15%;
+  }
+}
+
 tr {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
@@ -23,14 +45,11 @@ tr {
 
 tr th {
   vertical-align: middle;
-  font-weight: normal;
+  font-weight: bold;
 }
 
-.t-header th {
+.t-header th, i {
   background-color: $logocolor;
-}
-
-.t-header i {
   color: white;
 }
 
