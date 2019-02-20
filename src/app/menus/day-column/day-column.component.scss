@@ -32,3 +32,51 @@ h2 {
     font-size: 22px;
     line-height: 1.33;
 }
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.btn-circle-large {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 22px;
+    line-height: 1.33;
+}
+.breakfast {
+    background-image: url(~/assets/breakfastLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.elevenses {
+    background-image: url(~/assets/applebananaLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.lunch {
+    background-image: url(~/assets/lunchLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.snack {
+    background-image: url(~/assets/lekvaroskenyerLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dinner {
+    background-image: url(~/assets/szendoLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

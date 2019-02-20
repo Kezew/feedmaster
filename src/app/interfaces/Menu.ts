@@ -3,6 +3,8 @@ export interface MenuItem {
   breakfast: String[];
   lunch: String[];
   dinner: String[];
+  snack: String[];
+  ellevenses: String[];
 }
 
 export interface Menu {
