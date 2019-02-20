@@ -28,8 +28,16 @@ export class DayColumnComponent implements OnInit {
     this.data.breakfast.push('');
   }
 
+  addEllevenses() {
+    this.data.ellevenses.push('');
+  }
+
   addLunch() {
     this.data.lunch.push('');
+  }
+
+  addSnack() {
+    this.data.snack.push('');
   }
 
   addDinner() {
@@ -40,8 +48,16 @@ export class DayColumnComponent implements OnInit {
     this.data.breakfast = this.data.breakfast.filter(breakfast => breakfast !== value);
   }
 
+  deleteEllevenses(value) {
+    this.data.ellevenses = this.data.ellevenses.filter(ellevenses => ellevenses !== value);
+  }
+
   deleteLunch(value) {
     this.data.lunch = this.data.lunch.filter(lunch => lunch !== value);
+  }
+
+  deleteSnack(value) {
+    this.data.snack = this.data.snack.filter(snack => snack !== value);
   }
 
   deleteDinner(value) {
@@ -57,8 +73,16 @@ export class DayColumnComponent implements OnInit {
     this.data.breakfast[index] = event.target.value;
   }
 
+  onChangeEllevenses(event, index) {
+    this.data.ellevenses[index] = event.target.value;
+  }
+
   onChangeLunch(event, index) {
     this.data.lunch[index] = event.target.value;
+  }
+
+  onChangeSnack(event, index) {
+    this.data.snack[index] = event.target.value;
   }
 
   onChangeDinner(event, index) {

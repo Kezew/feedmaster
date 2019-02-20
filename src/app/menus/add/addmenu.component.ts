@@ -21,6 +21,8 @@ export class AddmenuComponent implements OnInit {
           breakfast: [],
           lunch: [],
           dinner: [],
+          snack: [],
+          ellevenses : []
         }
       ]
     };
@@ -35,10 +37,19 @@ export class AddmenuComponent implements OnInit {
       breakfast: [],
       lunch: [],
       dinner: [],
+      snack: [],
+      ellevenses : []
     });
   }
 
   deleteColumn(dayNumber) {
     this.menuData.items = this.menuData.items.filter(menuItem => menuItem.dayNumber !== dayNumber);
+    this.refreshDayNumbers();
+  }
+
+  refreshDayNumbers(){
+    for (let i = 0; i < this.menuData.items.length; i++) {
+        this.menuData.items[i].dayNumber = i+1;
+    }
   }
 }
