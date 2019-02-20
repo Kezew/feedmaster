@@ -7,11 +7,46 @@ $fa-font-path: 'assets/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 
 h1 {
-    color: $modalbackground;
+  color: $modalbackground;
 }
 
- .table-tr {
-     background-color: $modalbackground;
-     color: $logocolor;
-     box-shadow: 3px 3px 2px grey;
- }
+.table-tr {
+  background-color: $modalbackground;
+  color: $logocolor;
+  box-shadow: 3px 3px 2px grey;
+}
+
+// predefined logok, pl. class='small-logo-right breakfast' hozzáadja egy címsor jobb oldalához
+.small-logo-right {
+  background-size: 15%;
+  background-position-x: 95%;
+  background-repeat: no-repeat;
+}
+
+.breakfast {
+  background-image: $breakfastLogo;
+}
+
+.apple-banana {
+  background-image: $appleBananaLogo;
+}
+
+.egg {
+  background-image: $eggLogo;
+}
+
+.labos {
+  background-image: $labosLogo;
+}
+
+.lekvaroskenyer {
+  background-image: $lekvaroskenyerLogo;
+}
+
+.lunch {
+  background-image: $lunchLogo;
+}
+
+.szendo {
+  background-image: $szendoLogo;
+}

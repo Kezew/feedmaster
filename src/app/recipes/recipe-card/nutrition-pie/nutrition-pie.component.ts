@@ -22,7 +22,7 @@ export class NutritionPieComponent implements OnInit {
         allowPointSelect: true,
         cursor: "pointer",
         dataLabels: {
-          enabled: true,
+          enabled: false,
           format: "<b>{point.name}</b>: {point.percentage:.1f} %"
         }
       }

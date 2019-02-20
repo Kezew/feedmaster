@@ -1,95 +1,15 @@
 <div class="container">
   <div id="card" class="container">
-    <h1 id="title">Zabkása</h1>
+    <h1 id="title" class="breakfast small-logo-right">Zabkása</h1>
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
-        <div class="ingredient-item row">
+        <div *ngFor="let i of ingredients" class="ingredient-item row">
           <div class="col-8">
-            Zabpehely
+            {{ i[0] }}
           </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely Zabpehely Zabpehely Zabpehely Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Z
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
-          </div>
-        </div>
-        <div class="ingredient-item row">
-          <div class="col-8">
-            Zabpehely
-          </div>
-          <div class="col-4">
-            75g
+          <div class="col-4 grams">
+            {{ i[1] }}
           </div>
         </div>
       </div>
@@ -155,7 +75,7 @@
       </div>
     </div>
     <div id="bottom-row">
-      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i> Glutén-érzékeny 1</span>
+      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ referencePerson }}</span>
       <button class=""><i class="fas fa-edit"></i></button>
       <button class=""><i class="fas fa-check"></i></button>
     </div>
