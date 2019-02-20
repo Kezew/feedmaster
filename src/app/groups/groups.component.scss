@@ -9,7 +9,8 @@ h2 {
   color: $lettercolor;
 }
 
-.add-group {
+.add-group,
+.back-button {
   font-family: 'Open Sans Condensed', sans-serif;
   color: $lettercolor;
 }
@@ -25,7 +26,7 @@ tr th {
 }
 
 .t-header th {
-  background-color:$logocolor;
+  background-color: $logocolor;
 }
 
 .t-header i {

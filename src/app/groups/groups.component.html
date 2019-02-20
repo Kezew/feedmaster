@@ -9,7 +9,7 @@
       <button class="btn btn-outline-success add-group">
         Új csoport létrehozása
       </button>
-      <button class="btn btn-outline-success add-group">
+      <button class="btn btn-outline-success back-button">
         Vissza
       </button>
     </div>
@@ -90,77 +90,5 @@
     </tbody>
   </table>
 
-  <table class="table">
-    <thead>
-      <tr class="t-header">
-        <th scope="col">Mókuska csoport</th>
-        <th scope="col">26 fő</th>
-        <th scope="col">
-          <button class="icon btn" *ngIf="!subGroups" (click)="openSubGroups()"> <i class="fas fa-angle-double-down"></i>
-          </button>
-          <button class="icon btn" *ngIf="subGroups" (click)="closeSubGroups()"> <i class="fas fa-angle-double-right"></i>
-          </button>
-        </th>
-        <th scope="col">
-          <button class="icon btn"> <i class="fas fa-edit"></i>
-          </button>
-        </th>
-        <th scope="col">
-          <button class="icon btn"> <i class="fas fa-trash-alt"></i>
-          </button>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td colspan="5">
-
-          <table class="table table-bordered" *ngIf="subGroups">
-            <thead>
-              <tr class="t-header">
-                <th scope="col"></th>
-                <th scope="col">Korosztály</th>
-                <th scope="col">Hány fő</th>
-                <th scope="col">
-                  <button class="icon btn"> <i class="fas fa-edit"></i>
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>gluténérzékenyek</td>
-                <td>4-5</td>
-                <td>3</td>
-                <td>
-                  <button class="icon btn"> <i class="fas fa-info-circle"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>glutén és laktóz érzékenyek</td>
-                <td>4-5</td>
-                <td>2</td>
-                <td>
-                  <button class="icon btn"> <i class="fas fa-info-circle"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>normál</td>
-                <td>4-5</td>
-                <td>12</td>
-                <td>
-                  <button class="icon btn"> <i class="fas fa-info-circle"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-        </td>
-      </tr>
-    </tbody>
-  </table>
 
 </div>
