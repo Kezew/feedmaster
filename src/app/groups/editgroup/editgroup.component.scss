@@ -1,0 +1,40 @@
+@import "../../../variables";
+
+.header .btn {
+  margin-left: 10px;
+}
+
+h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: $lettercolor;
+}
+
+.add-group,
+.back-button,
+.info-btn {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: $lettercolor;
+}
+
+tr {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+tr th {
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.t-header th {
+  background-color: $logocolor;
+}
+
+.t-header i {
+  color: white;
+}
+
+.icon {
+  border: none;
+  background: transparent;
+}
