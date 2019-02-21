@@ -6,6 +6,11 @@ $fa-font-path: 'assets/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: $lettercolor;
+}
+
 h1 {
   color: $modalbackground;
 }
