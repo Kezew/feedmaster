@@ -25,12 +25,22 @@ nav {
         text-transform: uppercase;
         letter-spacing: 2px;
         padding: 0 20px;
-        border: 1px black solid;
+        border: 1px $logocolor solid;
+        background-color: $modalbackground;
         
         a {
-            color: $lettercolor;
+            color: $grey;
         }
 
+    }
+
+    button:hover{
+        background-color: $logocolor;
+        border: 1px black solid;
+
+        a{
+            color: black;
+        }
     }
 
     .fas {
