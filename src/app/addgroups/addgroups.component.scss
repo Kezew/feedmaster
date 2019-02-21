@@ -1,0 +1,36 @@
+@import "../../variables";
+
+h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: $lettercolor;
+}
+
+.header .btn {
+  margin-left: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: $lettercolor;
+}
+
+.body {
+  margin-bottom: 200px;
+}
+
+.new-row {
+  vertical-align: middle;
+
+  input {
+    margin-right: 10px;
+  }
+
+}
+
+.icon {
+  border: none;
+  background: transparent;
+}
+
+input {
+  margin-bottom: 15px;
+  width: 200px;
+  display: inline-block;
+}
