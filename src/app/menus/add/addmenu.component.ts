@@ -15,6 +15,7 @@ export class AddmenuComponent implements OnInit {
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.menuData = {
+      name: '',
       items: [
         {
           dayNumber: 1,
@@ -22,7 +23,7 @@ export class AddmenuComponent implements OnInit {
           lunch: [],
           dinner: [],
           snack: [],
-          ellevenses: []
+          ellevenses: [],
         }
       ]
     };

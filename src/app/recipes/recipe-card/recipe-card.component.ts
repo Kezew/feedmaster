@@ -42,4 +42,6 @@ export class RecipeCardComponent implements OnInit {
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
+
+  deleteIngredient(ingredient): void {}
 }

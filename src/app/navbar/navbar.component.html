@@ -1,21 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
-    <div class="logo">
-      <a class="navbar-brand" href="#">
-        <img src="assets/logo_withtext.png" width="30" height="30" class="d-inline-block align-top" alt="LTF logo"></a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active m-2">
-         <button class="btn btn-success"><a class="nav-link" href="#">Ételek</a></button> 
+    <a class="navbar-brand" href="#">
+      <img src="assets/logo_withtext.png" width="50" height="50" class="d-inline-block align-top" alt="LTF logo">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': navbarOpen}">
+      <ul class="navbar-nav ml-lg-auto">
+        <li class="nav-item active m-1">
+          <button class="btn btn-success"><a class="nav-link" routerLink="/recipes">Ételek</a></button>
         </li>
-        <li class="nav-item active m-2">
-            <button class="btn btn-success"><a class="nav-link" href="#">Csoportok</a></button> 
+        <li class="nav-item active m-1">
+          <button class="btn btn-success"><a class="nav-link" routerLink="/groups">Csoportok</a></button>
         </li>
-        <li class="nav-item active m-2">
-            <button class="btn btn-success"><a class="nav-link" href="#">Étlapok</a></button> 
+        <li class="nav-item active m-1">
+          <button class="btn btn-success"><a class="nav-link" routerLink="/menus">Étlapok</a></button>
         </li>
+       <li><i class="fas fa-sign-out-alt p-3 mg-1" data-toggle="modal" data-target="#logoutModal"></i></li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">×</span></button>
+        <h4>Kijelentkezés<i class="fa fa-lock"></i></h4>
+      </div>
+      <div class="modal-body">
+        <p><i class="fa fa-question-circle"></i> Biztos kijelentkezik? <br /></p>
+        <div class="actionsBtns">
+          <form action="/logout" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <input type="submit" class="btn btn-default btn-primary" data-dismiss="modal" value="Logout" />
+            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

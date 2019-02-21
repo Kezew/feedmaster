@@ -6,16 +6,6 @@ $fa-font-path: 'assets/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 
-h1 {
-  color: $modalbackground;
-}
-
-.table-tr {
-  background-color: $modalbackground;
-  color: $logocolor;
-  box-shadow: 3px 3px 2px grey;
-}
-
 // predefined logok, pl. class='small-logo-right breakfast' hozzáadja egy címsor jobb oldalához
 .small-logo-right {
   background-size: 15%;

@@ -1,3 +1,4 @@
+<!-- view mode -->
 <div *ngIf="!editMode" class="container">
   <!-- <div class="container"> -->
   <div id="card" class="container">
@@ -94,7 +95,7 @@
         <div *ngFor="let ingredient of data.ingredients" class="ingredient-item row">
           <input class="col-6" [(ngModel)]="ingredient.name">
           <input class="col-2 grams" [(ngModel)]="ingredient.amount">
-          <button class="col-2 delete-button"><i class="fas fa-minus-circle"></i></button>
+          <button class="col-2 delete-button" (click)="deleteIngredient(ingredient)"><i class="fas fa-minus-circle"></i></button>
         </div>
         <div class="ingredient-item row"><button id="add-ingredient-button"><i class="fas fa-plus-circle"></i></button></div>
       </div>
