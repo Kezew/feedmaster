@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
@@ -50,6 +51,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     FormsModule,
     ChartModule

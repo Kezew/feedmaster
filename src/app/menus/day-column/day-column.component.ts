@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { MenuItem } from '../../interfaces/Menu';
+import { MenuItem } from '../../interfaces/menu';
 
 @Component({
   selector: 'day-column',
