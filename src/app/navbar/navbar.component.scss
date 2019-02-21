@@ -33,6 +33,14 @@ nav {
 
     }
 
+    .fas {
+        color: $logocolor;
+        background-color: $modalbackground;
+        border: 1px solid $logocolor;
+        border-radius: 50%;
+        margin-left: 15px;
+    }
+
     .navbar-toggler{
         background-color: $logocolor;
     }
