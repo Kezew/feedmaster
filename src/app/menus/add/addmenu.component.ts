@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Menu } from '../../interfaces/Menu'
-
+import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-addmenu',
   templateUrl: './addmenu.component.html',
   styleUrls: ['./addmenu.component.scss']
 })
 export class AddmenuComponent implements OnInit {
-  public model: any;
+
   public menuData: Menu;
 
 
-  constructor() {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.menuData = {
       items: [
         {
@@ -22,13 +22,14 @@ export class AddmenuComponent implements OnInit {
           lunch: [],
           dinner: [],
           snack: [],
-          ellevenses : []
+          ellevenses: []
         }
       ]
     };
   }
 
   ngOnInit() {
+    console.log(this.router.url.includes('add'));
   }
 
   addDayColumn() {
@@ -38,7 +39,7 @@ export class AddmenuComponent implements OnInit {
       lunch: [],
       dinner: [],
       snack: [],
-      ellevenses : []
+      ellevenses: []
     });
   }
 
@@ -47,9 +48,10 @@ export class AddmenuComponent implements OnInit {
     this.refreshDayNumbers();
   }
 
-  refreshDayNumbers(){
-    for (let i = 0; i < this.menuData.items.length; i++) {
-        this.menuData.items[i].dayNumber = i+1;
-    }
+  refreshDayNumbers() {
+    this.menuData.items = this.menuData.items.map((item, index) => ({
+      ...item,
+      dayNumber: index + 1,
+    }))
   }
 }
