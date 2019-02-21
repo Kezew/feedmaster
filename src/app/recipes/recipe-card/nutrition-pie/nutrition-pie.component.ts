@@ -11,6 +11,9 @@ export class NutritionPieComponent implements OnInit {
     chart: {
       type: "pie"
     },
+    tooltip: {
+      pointFormat: "<b>{point.percentage:.1f}%</b>"
+    },
     title: {
       text: ""
     },
@@ -19,11 +22,11 @@ export class NutritionPieComponent implements OnInit {
     },
     plotOptions: {
       pie: {
-        allowPointSelect: true,
+        size: 100,
+        allowPointSelect: false,
         cursor: "pointer",
         dataLabels: {
-          enabled: false,
-          format: "<b>{point.name}</b>: {point.percentage:.1f} %"
+          enabled: false
         }
       }
     },

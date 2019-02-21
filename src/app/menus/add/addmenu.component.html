@@ -1,18 +1,29 @@
-<div class="background pt-3 pb-3">
+<div class="background pt-4 pb-4">
+  <h1>Új étlap létrehozása</h1>
+</div>
+
+<div class="small-bg pt-4 pb-4">
   <div class="container">
-    <div class="row mt-3 mb-3">
-      <div class="col-sm-5">
-        <input class="form-control" type="text" name="" value="Valamelyik Étlap">
+    <div class="row mt-3 mb-2">
+      <div class="col-sm-3">
+        <input class="form-control" type="text" name="" placeholder="Étlap neve">
       </div>
-      <div class="colorful-buttons text-right col-sm-6">
-        <button type="button" class="btn btn-light mr-2">Vissza</button>
-        <button type="button" class="btn btn-light mr-2">Mentés</button>
-        <button type="button" class="btn btn-light mr-2">Módosít</button>
+      <div class="input-group col-sm-5">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Étlap leírása</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea"
+          placeholder="Itt megadhatod az étlap specifikációját."></textarea>
+      </div>
+      <div class="colorful-buttons text-right col-sm-3">
+        <button type="button" class="btn btn-info mr-2">Vissza</button>
+        <button type="button" class="btn btn-success mr-2">Mentés</button>
+        <button type="button" class="btn btn-danger mr-2">Módosít</button>
       </div>
     </div>
   </div>
-
 </div>
+
 
 <hr>
 
@@ -20,9 +31,11 @@
   <div class="row">
     <div class="col-sm-3 mb-2" *ngFor="let menuItem of menuData.items">
       <day-column [data]="menuItem" (deleteColumnEvent)="deleteColumn($event)"></day-column>
+
     </div>
     <div class="col-sm-3 mb-2 d-flex align-items-center">
-      <button type="button" class="btn btn-outline-secondary btn-circle-large" (click)="addDayColumn()">+</button>
+      <button type="button" class="btn btn-outline-secondary btn-circle-large" (click)="addDayColumn()"><i
+          class="fas fa-plus"></i></button>
     </div>
   </div>
 </div>
