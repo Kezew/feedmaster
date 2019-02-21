@@ -13,7 +13,6 @@ $carb: #e4b101;
   border: 1px solid rgba(128, 128, 128, 0.712);
   box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
   border-radius: 4%;
-  font-family: $fontFamily;
   color: $lettercolor;
 }
 
@@ -57,7 +56,7 @@ $carb: #e4b101;
   margin-bottom: 1px;
 }
 
-.ingredient-item > * {
+.ingredient-item>* {
   word-wrap: break-word;
 }
 
@@ -122,7 +121,7 @@ $carb: #e4b101;
   height: 50px;
 }
 
-#bottom-row button:last-child > i {
+#bottom-row button:last-child>i {
   margin-left: 20px;
 }
 
@@ -131,12 +130,12 @@ $carb: #e4b101;
   display: flex;
 }
 
-#reference-person > i {
+#reference-person>i {
   margin-right: 10px;
 }
 
-button > i,
-#reference-person > i {
+button>i,
+#reference-person>i {
   font-size: 30px;
   color: $modalbackground;
 }
@@ -180,21 +179,21 @@ input#title {
   margin-top: 8px;
 }
 
-#add-ingredient-button > i {
+#add-ingredient-button>i {
   font-size: 26px;
   color: darkgreen;
 }
 
-#add-ingredient-button > i:hover {
+#add-ingredient-button>i:hover {
   color: $logocolor;
 }
 
-.delete-button > i {
+.delete-button>i {
   font-size: 22px;
   color: maroon;
 }
 
-.delete-button > i:hover {
+.delete-button>i:hover {
   color: red;
 }
 

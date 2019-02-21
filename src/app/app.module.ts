@@ -24,6 +24,7 @@ import { RecipeCardComponent } from "./recipes/recipe-card/recipe-card.component
 import { CreateIngredientComponent } from "./ingredients/create-ingredient/create-ingredient.component";
 import { ChartModule } from "angular-highcharts";
 import { NutritionPieComponent } from './recipes/recipe-card/nutrition-pie/nutrition-pie.component';
+import { AddgroupsComponent } from './addgroups/addgroups.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
@@ -45,6 +46,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     IngredientsComponent,
     RecipeCardComponent,
     CreateIngredientComponent,
+    NutritionPieComponent,
+    AddgroupsComponent,
     NutritionPieComponent,
     PageNotFoundComponent
   ],
