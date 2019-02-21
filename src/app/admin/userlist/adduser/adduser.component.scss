@@ -35,10 +35,9 @@
     color: #C7C6C6;
     background-color: $modalbackground;
     color: $grey;
-    margin: auto;
     width: 40%;
+    height: 80%;
     opacity: 0.9;
-
     hr {
         border: 0.5px solid $grey;
         width: 90%;
@@ -57,4 +56,8 @@
     .btn-back {
         color: $grey;
     }
+}
+
+.invalid-feedback {
+    color: yellow;
 }

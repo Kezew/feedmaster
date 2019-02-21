@@ -39,7 +39,6 @@ export class AdduserComponent implements OnInit {
 
   }
 
-
   checkName(): void {
     this.isNameInvalid = (this.userName === '');  // egyyenlő-e az üres string-el ???
   }

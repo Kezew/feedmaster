@@ -1,7 +1,41 @@
 @import '../../../variables';
+// @import '~bootstrap/scss/functions';
+// @import '~bootstrap/scss/variables';
+// @import '~bootstrap/scss/mixins';
+
+.full {
+    height: 100vh;
+    background-size: cover;
+    background-image: url('~/assets/login-bg.png');
+    letter-spacing: 0.5px;
+}
 
 
+.main-container {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #C7C6C6;
+    background-color: $modalbackground;
+    color: $grey;
+    width: 60%;
+    height: 80%;
+    opacity: 0.9;
+}
+.btn {
+    border: 1px solid $grey;
+    font-weight: bold;
+}
 
-.text-center {
-    color: $modalbackground;
+.btn-back {
+    color: $grey;
+}
+
+hr {
+    border: 0.5px solid $grey;
+    width: 90%;
+}
+
+table {
+    margin-top: 30px;
+    color: $grey;
+    width: 80%;
 }
