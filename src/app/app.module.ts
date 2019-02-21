@@ -44,7 +44,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     IngredientsComponent,
     RecipeCardComponent,
     CreateIngredientComponent,
-    NutritionPieComponent
+    NutritionPieComponent,
     PageNotFoundComponent
   ],
   imports: [

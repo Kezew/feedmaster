@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "recipes", component: RecipesComponent },
   { path: "recipe-card", component: RecipeCardComponent },
-  { path: "pie", component: NutritionPieComponent }
+  { path: "pie", component: NutritionPieComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 
