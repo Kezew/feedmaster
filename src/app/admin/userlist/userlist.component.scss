@@ -8,6 +8,7 @@
     background-size: cover;
     background-image: url('~/assets/login-bg.png');
     letter-spacing: 0.5px;
+    color: $grey
 }
 
 
@@ -15,10 +16,11 @@
     font-family: 'Open Sans Condensed', sans-serif;
     color: #C7C6C6;
     background-color: $modalbackground;
-    color: $grey;
     width: 60%;
     height: 80%;
     opacity: 0.9;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px grey;
 }
 .btn {
     border: 1px solid $grey;
@@ -37,5 +39,8 @@ hr {
 table {
     margin-top: 30px;
     color: $grey;
-    width: 80%;
+}
+
+th {
+    text-align: center;
 }
