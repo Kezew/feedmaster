@@ -1,3 +1,8 @@
+@import "src/variables";
+$fat: #bc5f54;
+$protein: #4bb89a;
+$carb: #e4b101;
+
 #card {
   display: flex;
   flex-direction: column;
@@ -8,8 +13,8 @@
   border: 1px solid rgba(128, 128, 128, 0.712);
   box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
   border-radius: 4%;
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #44585a;
+  font-family: $fontFamily;
+  color: $lettercolor;
 }
 
 #title {
@@ -27,8 +32,9 @@
   letter-spacing: 1px;
   font-size: 35px;
   padding: 0 15px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   align-self: center;
+  color: $lettercolor;
 }
 
 #ingredients {
@@ -47,14 +53,20 @@
 .ingredient-item {
   font-size: 20px;
   font-weight: 400;
+  height: 30px;
+  margin-bottom: 1px;
 }
 
-.ingredient-item>* {
+.ingredient-item > * {
   word-wrap: break-word;
 }
 
 .grams::after {
   content: " g";
+}
+
+.kcal::after {
+  content: " kcal";
 }
 
 #nutrition {
@@ -76,10 +88,25 @@
   font-weight: 300;
 }
 
-.sub-row {
+.fat::before {
+  content: "\26AB";
+  color: $fat;
+}
+
+.protein::before {
+  content: "\26AB";
+  color: $protein;
+}
+
+.carb::before {
+  content: "\26AB";
+  color: $carb;
+}
+
+.nutrition-item.sub-row {
   font-size: 14px;
-  padding-left: 5px;
-  margin-top: -2px;
+  margin-top: -1px;
+  padding-left: 3px;
 }
 
 #bottom-row {
@@ -87,26 +114,31 @@
   min-height: 50px;
   font-size: 30px;
   margin: 0 10px;
-  color: #305a68;
   align-items: center;
 }
 
-#bottom-row button:last-child>i {
+#bottom-row button {
+  width: 50px;
+  height: 50px;
+}
+
+#bottom-row button:last-child > i {
   margin-left: 20px;
 }
 
 #reference-person {
   font-size: 24px;
+  display: flex;
 }
 
-#reference-person>i {
-  margin-right: 5px;
+#reference-person > i {
+  margin-right: 10px;
 }
 
-button>i,
-#reference-person>i {
+button > i,
+#reference-person > i {
   font-size: 30px;
-  color: #305a68;
+  color: $modalbackground;
 }
 
 button {
@@ -115,6 +147,57 @@ button {
   padding: 0;
 }
 
-button>i:hover {
-  color: #a7c979;
+button:focus {
+  outline: 0;
+}
+
+.fa-check:hover,
+.fa-edit:hover {
+  color: $logocolor;
+}
+
+// edit mode
+input {
+  font-family: $fontFamily;
+  color: $lettercolor;
+  line-height: 12px;
+  padding: 0;
+  padding-left: 15px;
+  border: none;
+  border-bottom: solid 1px lightgray;
+}
+
+input#title {
+  width: 66%;
+}
+
+#reference-person input {
+  padding-left: 0;
+}
+
+#add-ingredient-button {
+  margin: auto;
+  margin-top: 8px;
+}
+
+#add-ingredient-button > i {
+  font-size: 26px;
+  color: darkgreen;
+}
+
+#add-ingredient-button > i:hover {
+  color: $logocolor;
+}
+
+.delete-button > i {
+  font-size: 22px;
+  color: maroon;
+}
+
+.delete-button > i:hover {
+  color: red;
+}
+
+.fa-times:hover {
+  color: red;
 }
