@@ -11,5 +11,5 @@ export interface Menu {
   name: String;
   description?: String;
   id?: number;
-  items: MenuItem[];
+  items?: MenuItem[];
 }

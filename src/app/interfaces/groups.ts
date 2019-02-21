@@ -1,7 +1,13 @@
+import { AgeGroup } from '../enums/agegroup.enum';
+
 export interface SubGroup {
   id?: number;
+
   name: string;
   numberOfPersons: number;
+  allergens: string[];
+  agegroup: AgeGroup;
+
   maxDailyEnergyKJ?: number;
   maxDailyEnergyKcal?: number;
   maxDailyProtein?: number;
@@ -15,11 +21,13 @@ export interface SubGroup {
   maxDailyPotassium?: number;
   maxDailyCalcium?: number;
   maxDailyMagnesium?: number;
-  allergens: string[];
+
+
 }
 
 export interface Group {
   id?: number;
   name: string;
   subGroups: SubGroup[];
+  isOpen?: boolean;
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
@@ -23,6 +24,7 @@ import { RecipeCardComponent } from "./recipes/recipe-card/recipe-card.component
 import { CreateIngredientComponent } from "./ingredients/create-ingredient/create-ingredient.component";
 import { ChartModule } from "angular-highcharts";
 import { NutritionPieComponent } from './recipes/recipe-card/nutrition-pie/nutrition-pie.component';
+import { AddgroupsComponent } from './addgroups/addgroups.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
@@ -45,11 +47,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RecipeCardComponent,
     CreateIngredientComponent,
     NutritionPieComponent,
+    AddgroupsComponent,
+    NutritionPieComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     FormsModule,
     ChartModule

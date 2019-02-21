@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { Menu } from '../../interfaces/Menu'
+import { Menu } from '../../interfaces/menu'
 import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-addmenu',

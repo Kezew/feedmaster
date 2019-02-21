@@ -17,12 +17,12 @@
     display: block;
     margin: 0 auto;
 
-    @include media-breakpoint-up(md) {
-        width: 15%;
-    }
-    @include media-breakpoint-up(lg) {
-        width: 10%;
-    }
+    // @include media-breakpoint-up(md) {
+    //     width: 15%;
+    // }
+    // @include media-breakpoint-up(lg) {
+    //     width: 10%;
+    // }
 
 }
 
@@ -38,6 +38,9 @@
     width: 40%;
     height: 80%;
     opacity: 0.9;
+    overflow: auto;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px grey;
     hr {
         border: 0.5px solid $grey;
         width: 90%;
