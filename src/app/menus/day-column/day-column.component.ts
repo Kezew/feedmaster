@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { MenuItem } from '../../interfaces/menu';
+import { MenuItem, Mode } from '../../interfaces/menu';
 
 @Component({
   selector: 'day-column',
@@ -12,16 +12,22 @@ export class DayColumnComponent implements OnInit {
   public states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
     'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
     'Guam', 'Hawaii', 'Idaho', 'Illinois'];
+
+  @Input()
+  public mode: Mode;
+
   @Input()
   public data: MenuItem;
 
   @Output()
   public deleteColumnEvent: EventEmitter<number>;
   constructor() {
+
     this.deleteColumnEvent = new EventEmitter();
   }
 
   ngOnInit() {
+    console.log(this.mode);
   }
 
   addBreakfast() {

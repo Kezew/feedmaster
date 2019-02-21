@@ -1,34 +1,27 @@
 <div class="background pt-4 pb-4">
-<div class="container">
-  <div class="row">
-    <div class="col-10">
-      <h1>Új étlap létrehozása</h1>
-    </div>
-    <div class="col-2">
-      <button type="button" class="btn btn-light mr-2 goback-btn" routerLink="/menus/">Vissza</button>
-    </div>
-  </div>
+  <h1 *ngIf="mode == 'add'">Új étlap létrehozása</h1>
+  <h1 *ngIf="mode == 'view'">Étlap</h1>
+  <h1 *ngIf="mode == 'edit'">Étlap Szerkesztése</h1>
 </div>
-</div>
-
-
 
 <div class="small-bg pt-4 pb-4">
   <div class="container">
     <div class="row mt-3 mb-2">
       <div class="col-sm-3">
-        <input class="form-control" type="text" name="" placeholder="Étlap neve">
+        <input class="form-control" type="text" [(ngModel)]="menuData.name" name="" [disabled]="mode == 'view'" placeholder="Étlap neve">
       </div>
       <div class="input-group col-sm-5">
         <div class="input-group-prepend">
           <span class="input-group-text">Étlap leírása</span>
         </div>
         <textarea class="form-control" aria-label="With textarea"
-          placeholder="Itt megadhatod az étlap specifikációját."></textarea>
+          placeholder="Itt megadhatod az étlap specifikációját." [disabled]="mode == 'view'"></textarea>
       </div>
       <div class="colorful-buttons text-right col-sm-3">
-        <button type="button" class="btn btn-danger mr-2">Módosít</button>
-        <button type="button" class="btn btn-danger mr-2">Mentés</button>
+        <button type="button" class="btn btn-info mr-2" routerLink="/menus" *ngIf="mode == 'view' || mode == 'add'">Vissza</button>
+        <button type="button" class="btn btn-info mr-2" (click)="setMode('view')" *ngIf="mode == 'edit'">Vissza</button>
+        <button type="button" class="btn btn-success mr-2">Mentés</button>
+        <button type="button" class="btn btn-danger mr-2" *ngIf="mode == 'view'" (click)="setMode('edit')">Módosít</button>
       </div>
     </div>
   </div>
@@ -40,12 +33,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3 mb-2" *ngFor="let menuItem of menuData.items">
-      <day-column [data]="menuItem" (deleteColumnEvent)="deleteColumn($event)"></day-column>
+      <day-column [data]="menuItem" [mode]="mode" (deleteColumnEvent)="deleteColumn($event)"></day-column>
 
     </div>
-    <div class="col-sm-3 mb-2 d-flex align-items-center">
-      <button type="button" class="btn btn-outline-secondary btn-circle" (click)="addDayColumn()">
-        <i class="fas fa-plus"></i></button>
+    <div class="col-sm-3 mb-2 d-flex align-items-center" *ngIf="mode == 'edit' || mode == 'add'">
+      <button type="button" class="btn btn-outline-secondary btn-circle-large" (click)="addDayColumn()"><i
+          class="fas fa-plus"></i></button>
     </div>
   </div>
 </div>

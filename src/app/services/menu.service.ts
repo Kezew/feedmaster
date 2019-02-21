@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Menu } from '../interfaces/Menu';
+import { Menu } from '../interfaces/menu';
 import { HttpService } from './http.service';
 
 @Injectable({

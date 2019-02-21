@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { Menu } from '../../interfaces/menu'
+import { Menu, Mode} from '../../interfaces/menu';
 import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-addmenu',
@@ -11,26 +11,19 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class AddmenuComponent implements OnInit {
 
   public menuData: Menu;
+  public mode: Mode;
+  public id: number;
+  private cloneMenu : Menu;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.menuData = {
-      name: '',
-      items: [
-        {
-          dayNumber: 1,
-          breakfast: [],
-          lunch: [],
-          dinner: [],
-          snack: [],
-          ellevenses: [],
-        }
-      ]
-    };
+    this.mode = Mode[this.activatedRoute.snapshot.url[1].path];
+    this.menuData = {name: '', items: []};
   }
 
   ngOnInit() {
-    console.log(this.router.url.includes('add'));
+    this.initMenu();
+
   }
 
   addDayColumn() {
@@ -54,5 +47,34 @@ export class AddmenuComponent implements OnInit {
       ...item,
       dayNumber: index + 1,
     }))
+  }
+
+  initMenu(){
+    if(this.mode === Mode.add){
+      this.addDayColumn();
+    } else if(this.mode === Mode.view){
+        this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+        //serviceből lekérés id alapján ezután menuData feltöltése a megkapott adatokkal
+        this.menuData.name = 'Próba étlap';
+        this.menuData.items.push({
+          dayNumber: this.menuData.items.length + 1,
+          breakfast: ['Vajas kenyér', 'kakaó'],
+          lunch: ['Gulyásleves', 'Palacsinta'],
+          dinner: [],
+          snack: [],
+          ellevenses: []
+        });
+
+    }
+  }
+
+  setMode(mode: string){
+    if(mode == Mode.edit){
+      this.cloneMenu = JSON.parse(JSON.stringify(this.menuData));
+    } else if(mode == Mode.view){
+      this.menuData = this.cloneMenu;
+    }
+    this.mode = Mode[mode];
+
   }
 }

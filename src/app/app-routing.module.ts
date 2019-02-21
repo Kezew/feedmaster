@@ -26,7 +26,7 @@ const routes: Routes = [
 
   { path: "menus/add", component: AddmenuComponent },
   //  { path: 'menus/edit/:id', component: AddmenuComponent },
-  //{ path: 'menus/view/:id', component: AddmenuComponent },
+  { path: 'menus/view/:id', component: AddmenuComponent },
   { path: "menus", component: MenusComponent },
   { path: "footer", component: FooterComponent },
   { path: "header", component: NavbarComponent },

@@ -13,3 +13,9 @@ export interface Menu {
   id?: number;
   items?: MenuItem[];
 }
+
+export enum Mode{
+  add = 'add',
+  edit = 'edit',
+  view = 'view'
+}
