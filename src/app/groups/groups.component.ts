@@ -17,20 +17,37 @@ export class GroupsComponent implements OnInit {
     this.groups = [{
       id: 1,
       name: 'Mókuska csoport',
-      subGroups : [{
-        id : 1,
+      subGroups: [{
+        id: 1,
         name: 'normál',
         numberOfPersons: 10,
-        agegroup : AgeGroup.ONE_TO_THREE,
+        agegroup: AgeGroup.ONE_TO_THREE,
         allergens: []
       }, {
-        id : 2,
-        name : "gluténérzékenyek",
+        id: 2,
+        name: "gluténérzékenyek",
         numberOfPersons: 2,
-        agegroup : AgeGroup.ONE_TO_THREE,
+        agegroup: AgeGroup.ONE_TO_THREE,
         allergens: ["glutén"]
       }],
-      isOpen : false
+      isOpen: false
+    },{
+      id: 2,
+      name: 'Pillangó csoport',
+      subGroups: [{
+        id: 1,
+        name: 'normál',
+        numberOfPersons: 8,
+        agegroup: AgeGroup.ONE_TO_THREE,
+        allergens: []
+      }, {
+        id: 2,
+        name: "laktózérzékenyek",
+        numberOfPersons: 3,
+        agegroup: AgeGroup.ONE_TO_THREE,
+        allergens: ["laktóz"]
+      }],
+      isOpen: false
     }];
   }
 
@@ -45,8 +62,12 @@ export class GroupsComponent implements OnInit {
     g.isOpen = false;
   }
 
-  countTotalNumberOfPersons (g : Group) {
-    return 1;
+  countTotalNumberOfPersons(g: Group) {
+    let sum = 0;
+    g.subGroups.forEach(sg => {
+      sum += sg.numberOfPersons;
+    });
+    return sum;
   }
 
 }
