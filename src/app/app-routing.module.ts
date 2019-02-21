@@ -17,7 +17,7 @@ import { RecipesComponent } from "./recipes/recipes.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  { path: "", component: DashboardComponent},
+  { path: "", component: DashboardComponent },
   { path: "userlist", component: UserlistComponent },
   { path: "userlist/adduser", component: AdduserComponent },
   { path: "groups", component: GroupsComponent },

@@ -6,15 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./recipes.component.scss"]
 })
 export class RecipesComponent implements OnInit {
-  collapsed: boolean;
-
-  constructor() {
-    this.collapsed = true;
-  }
+  constructor() {}
 
   ngOnInit() {}
-
-  toggleCollapse(): void {
-    this.collapsed = !this.collapsed;
-  }
 }
