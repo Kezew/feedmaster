@@ -19,15 +19,19 @@
     <thead>
       <tr class="t-header">
         <th scope="col">
-          <input type="text" class="form-control" placeholder="Mókuska csoport">
+          <span *ngIf="!isHeaderEditMode">Mókuska csoport</span>
+          <input *ngIf="isHeaderEditMode" type="text" class="form-control" placeholder="Mókuska csoport">
         </th>
         <th scope="col">
-          <input type="text" class="form-control" placeholder="26 fő">
+          <span *ngIf="!isHeaderEditMode">26 fő</span>
+          <input *ngIf="isHeaderEditMode" type="text" class="form-control" placeholder="26 fő">
         </th>
         <th scope="col">
         </th>
         <th scope="col">
-          <button class="icon btn" routerLink="/groups/editgroup"> <i class="fas fa-edit"></i>
+          <button class="icon btn" *ngIf="!isHeaderEditMode" (click)="editHeader()"> <i class="fas fa-edit"></i>
+          </button>
+          <button class="icon btn" *ngIf="isHeaderEditMode" (click)="saveHeader()"> <i class="fas fa-check"></i>
           </button>
         </th>
         <th scope="col">
@@ -78,3 +82,5 @@
 
 
 </div>
+
+<app-footer></app-footer>

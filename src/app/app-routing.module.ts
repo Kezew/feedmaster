@@ -11,12 +11,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RecipeCardComponent } from './recipes/recipe-card/recipe-card.component';
 import { NutritionPieComponent } from "./recipes/recipe-card/nutrition-pie/nutrition-pie.component";
+import { AddgroupsComponent } from './addgroups/addgroups.component';
 
 const routes: Routes = [
   { path: "userlist", component: UserlistComponent },
   { path: "userlist/adduser", component: AdduserComponent },
   { path: "groups", component: GroupsComponent },
-  { path: "groups/editgroup", component: EditgroupComponent },
+  { path: "groups/editgroup/:id", component: EditgroupComponent },
+  { path: "groups/add", component: AddgroupsComponent },
+
   { path: "menus/add", component: AddmenuComponent },
   //  { path: 'menus/edit/:id', component: AddmenuComponent },
   //{ path: 'menus/view/:id', component: AddmenuComponent },
