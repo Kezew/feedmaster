@@ -51,6 +51,11 @@ nav {
         margin-left: 15px;
     }
 
+    .fas:hover{
+        background-color: $logocolor;
+        color: black;
+    }
+
     .navbar-toggler{
         background-color: $logocolor;
     }
