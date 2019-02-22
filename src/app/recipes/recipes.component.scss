@@ -1,1 +1,53 @@
+@import "src/variables";
 
+.container-fluid {
+  flex-direction: row;
+}
+
+#recipe-selector {
+  flex-direction: column;
+  width: 50%;
+  height: 85vh;
+  padding: 0;
+  background: green;
+}
+
+#filter-bar {
+  width: 100%;
+  height: 15%;
+  background: lightblue;
+}
+
+#recipe-list {
+  display: flex;
+  flex-direction: column;
+  background: lightyellow;
+  flex-grow: 1;
+}
+
+#list-box {
+  flex-grow: 1;
+  overflow-y: scroll;
+  margin: 15px;
+  padding: 15px;
+  border: 1px solid lightgray;
+}
+
+#list-box ul {
+  padding: 0;
+}
+
+#list-box li {
+  list-style-type: none;
+}
+
+
+#recipe-view {
+  width: 100%;
+  background: lightcoral;
+}
+
+#recipe-card {
+  width: 50%;
+  margin: auto;
+}
