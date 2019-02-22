@@ -3,64 +3,68 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
-
 .full {
-    height: 100vh;
-    background-size: cover;
-    background-image: url('~/assets/login-bg.png');
-    letter-spacing: 0.5px;
+  background-size: cover;
+  background-image: url("~/assets/login-bg.png");
+  letter-spacing: 0.5px;
 }
+
 .icon-box img {
-
-
-    height: auto;
-    display: block;
-    margin: 0 auto;
-
-    // @include media-breakpoint-up(md) {
-    //     width: 15%;
-    // }
-    // @include media-breakpoint-up(lg) {
-    //     width: 10%;
-    // }
-
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  // @include media-breakpoint-up(md) {
+  //     width: 15%;
+  // }
+  // @include media-breakpoint-up(lg) {
+  //     width: 10%;
+  // }
 }
 
 .container {
-    width: 80%;
+  width: 80%;
 }
 
 .main-container {
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #C7C6C6;
-    background-color: $modalbackground;
-    color: $grey;
-    width: 40%;
-    height: 80%;
-    opacity: 0.9;
-    overflow: auto;
-    border-radius: 4px;
-    box-shadow: 5px 5px 10px grey;
-    hr {
-        border: 0.5px solid $grey;
-        width: 90%;
-    }
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #C7C6C6;
+  background-color: $modalbackground;
+  color: $grey;
+  width: 40%;
+  opacity: 0.9;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px grey;
+
+  hr {
+    border: 0.5px solid $grey;
+    width: 90%;
+  }
 }
 
 .btn-container {
-    padding-top: 10px;
-    padding-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 50px;
 
-    .btn {
-        border: 1px solid $grey;
-        font-weight: bold;
-    }
+  .btn {
+    border: 1px solid $grey;
+    font-weight: bold;
+  }
 
-    .btn-back {
-        color: $grey;
-    }
+  .btn-back {
+    color: $grey;
+  }
 }
 
 .invalid-feedback {
-    color: yellow;
+  color: yellow;
+}
+
+.success-add {
+  color: LawnGreen;
+  font-weight: bold;
+}
+
+.error-add {
+  color: yellow;
+  font-weight: bold;
 }

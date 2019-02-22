@@ -21,8 +21,6 @@ export interface SubGroup {
   maxDailyPotassium?: number;
   maxDailyCalcium?: number;
   maxDailyMagnesium?: number;
-
-
 }
 
 export interface Group {

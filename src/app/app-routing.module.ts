@@ -15,6 +15,7 @@ import { AddgroupsComponent } from './addgroups/addgroups.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipesComponent } from "./recipes/recipes.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: "footer", component: FooterComponent },
   { path: "header", component: NavbarComponent },
   { path: "login", component: LoginComponent },
+  { path: "registration/:token", component: RegistrationComponent },
   { path: "recipes", component: RecipesComponent },
   { path: "recipe-card", component: RecipeCardComponent },
   { path: "pie", component: NutritionPieComponent },
