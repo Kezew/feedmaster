@@ -2,7 +2,7 @@
 <div *ngIf="!editMode" class="container">
   <!-- <div class="container"> -->
   <div id="card" class="container">
-    <h1 id="title" class="small-logo-right" [ngClass]=data.logo>{{ data.title }}</h1>
+    <h1 id="title">{{ data.title }}</h1>
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
@@ -92,7 +92,7 @@
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
-        <div *ngFor="let ingredient of data.ingredients" class="ingredient-item row">
+        <div *ngFor="let ingredient of data.ingredients" class="ingredient-item edit row">
           <input class="col-6" [(ngModel)]="ingredient.name">
           <input class="col-2 grams" [(ngModel)]="ingredient.amount">
           <button class="col-2 delete-button" (click)="deleteIngredient(ingredient)"><i class="fas fa-minus-circle"></i></button>
@@ -161,8 +161,6 @@
       </div>
     </div>
     <div id="bottom-row">
-      <!-- <i class="fas fa-child" style="margin-right: 5px"></i><input id="reference-person" type="text" class="mr-auto"
-      [(ngModel)]="data.referencePerson"> -->
       <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i><input id="reference-person" type="text"
           class="mr-auto" [(ngModel)]="data.referencePerson"></span>
       <button><i class="fas fa-times" (click)="toggleEditMode()"></i></button>

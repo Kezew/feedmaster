@@ -12,12 +12,7 @@ export class RecipeCardComponent implements OnInit {
   constructor() {
     this.data = {
       title: "Zabkása",
-      logo: "breakfast",
       ingredients: [
-        { name: "Zabpehely", amount: 75 },
-        { name: "Zabpehely", amount: 75 },
-        { name: "Zabpehely", amount: 75 },
-        { name: "Zabpehely", amount: 75 },
         { name: "Zabpehely", amount: 75 },
         { name: "Zabpehely", amount: 75 },
         { name: "Zabpehely", amount: 75 },
@@ -33,7 +28,7 @@ export class RecipeCardComponent implements OnInit {
         sugar: 2.79,
         kcal: 70
       },
-      referencePerson: "Puhatestű-érzékeny 1"
+      referencePerson: "Glutén-érzékeny 1"
     };
   }
 
