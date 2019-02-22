@@ -6,10 +6,15 @@ $fa-font-path: 'assets/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 
+html, body {
+    min-height: 100vh;
+}
+
 body {
   font-family: 'Open Sans Condensed', sans-serif;
   color: $lettercolor;
   padding-bottom: 56px;
+  position: relative;
 }
 
 h1 {
