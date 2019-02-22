@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-registration',
@@ -7,12 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  email:string = 'hajduzita88@gmail.com';
-  name:string = 'Hajdu Zita';
+  user: User;
+  token: string;
 
-  constructor() { }
+  constructor(public route: ActivatedRoute) {
+    this.token = this.route.snapshot.paramMap.get('token');
+
+    this.user = {
+      email: 'hajduzita88@gmail.com',
+      name: 'Hajdu Zita',
+      password: '',
+      password2: ''
+    };
+  }
 
   ngOnInit() {
+    // TODO lekérdezés szerverre
+    /*registrationService.getUserFromToken(this.token).then(user => {
+
+    });
+    */
+  }
+
+  isPasswordValid():boolean {
+    return (this.user.password === this.user.password2);
   }
 
 }

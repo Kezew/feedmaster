@@ -6,10 +6,11 @@ $carb: #e4b101;
 #card {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 600px;
-  margin: 50px;
+  width: 600px;
+  height: 800px;
+  margin: auto;
   padding: 10px;
+  background-color: white;
   border: 1px solid rgba(128, 128, 128, 0.712);
   box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
   border-radius: 4%;
@@ -18,18 +19,22 @@ $carb: #e4b101;
 
 #title {
   margin: 0;
-  height: 50px;
+  height: 60px;
   padding-left: 10px;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 500;
   border-bottom: 1px solid lightgray;
+  background-image: url("/assets/logo_notext.png");
+  background-size: 10%;
+  background-position: 95% 0;
+  background-repeat: no-repeat;
 }
 
 .small-title {
-  height: 41px;
+  height: 65px;
   font-variant-caps: all-small-caps;
   letter-spacing: 1px;
-  font-size: 35px;
+  font-size: 50px;
   padding: 0 15px;
   margin-bottom: 10px;
   align-self: center;
@@ -50,10 +55,9 @@ $carb: #e4b101;
 }
 
 .ingredient-item {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
-  height: 30px;
-  margin-bottom: 1px;
+  height: 50px;
 }
 
 .ingredient-item>* {
@@ -69,7 +73,8 @@ $carb: #e4b101;
 }
 
 #nutrition {
-  min-height: 212px;
+  border-bottom: 1px transparent;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -83,7 +88,7 @@ $carb: #e4b101;
 }
 
 .nutrition-item {
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 300;
 }
 
@@ -103,22 +108,21 @@ $carb: #e4b101;
 }
 
 .nutrition-item.sub-row {
-  font-size: 14px;
+  font-size: 22px;
   margin-top: -1px;
   padding-left: 3px;
 }
 
 #bottom-row {
   display: flex;
-  min-height: 50px;
-  font-size: 30px;
+  min-height: 70px;
+  font-size: 40px;
   margin: 0 10px;
   align-items: center;
 }
 
 #bottom-row button {
-  width: 50px;
-  height: 50px;
+  flex-grow: 1;
 }
 
 #bottom-row button:last-child>i {
@@ -126,8 +130,9 @@ $carb: #e4b101;
 }
 
 #reference-person {
-  font-size: 24px;
+  font-size: 30px;
   display: flex;
+  flex-grow: 2;
 }
 
 #reference-person>i {
@@ -136,7 +141,7 @@ $carb: #e4b101;
 
 button>i,
 #reference-person>i {
-  font-size: 30px;
+  font-size: 40px;
   color: $modalbackground;
 }
 
@@ -157,17 +162,11 @@ button:focus {
 
 // edit mode
 input {
-  font-family: $fontFamily;
   color: $lettercolor;
-  line-height: 12px;
   padding: 0;
   padding-left: 15px;
   border: none;
   border-bottom: solid 1px lightgray;
-}
-
-input#title {
-  width: 66%;
 }
 
 #reference-person input {
