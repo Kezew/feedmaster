@@ -5,25 +5,20 @@
 
 
 .full {
-    height: 100vh;
     background-size: cover;
     background-image: url('~/assets/login-bg.png');
     letter-spacing: 0.5px;
 }
 .icon-box img {
-
-
     height: auto;
     display: block;
     margin: 0 auto;
-
     // @include media-breakpoint-up(md) {
     //     width: 15%;
     // }
     // @include media-breakpoint-up(lg) {
     //     width: 10%;
     // }
-
 }
 
 .container {
@@ -36,9 +31,7 @@
     background-color: $modalbackground;
     color: $grey;
     width: 40%;
-    height: 80%;
     opacity: 0.9;
-    overflow: auto;
     border-radius: 4px;
     box-shadow: 5px 5px 10px grey;
     hr {
@@ -63,4 +56,14 @@
 
 .invalid-feedback {
     color: yellow;
+}
+
+.success-add {
+    color: LawnGreen;
+    font-weight: bold;
+}
+
+.error-add {
+    color: yellow;
+    font-weight: bold;
 }

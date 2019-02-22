@@ -4,7 +4,7 @@
 // @import '~bootstrap/scss/mixins';
 
 .full {
-    height: 100vh;
+    //height: 100vh;
     background-size: cover;
     background-image: url('~/assets/login-bg.png');
     letter-spacing: 0.5px;
@@ -20,7 +20,7 @@
     height: 80%;
     opacity: 0.9;
     border-radius: 4px;
-    box-shadow: 5px 5px 10px grey;
+    box-shadow: 5px 5px 10px  grey;
 }
 .btn {
     border: 1px solid $grey;
@@ -37,8 +37,10 @@ hr {
 }
 
 table {
+    background-color: $logocolor;
     margin-top: 30px;
-    color: $grey;
+    color: $modalbackground;
+    box-shadow: 1px 1px 3px $grey;
 }
 
 th {
