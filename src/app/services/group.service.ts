@@ -11,7 +11,7 @@ export class GroupService {
 
   getGroups(): Promise<Group[]> {
     return new Promise((resolve, reject) => {
-      this.httpService.get("groupsofuser").then(data => {
+      this.httpService.get("/groupsofuser/1?userId=1").then(data => {
         resolve(this.convertGroups(data));
       });
     });

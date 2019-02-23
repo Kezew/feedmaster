@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from '../interfaces/groups';
 import { AgeGroup } from '../enums/agegroup.enum';
+import { Router } from '@angular/router';
+import { GroupService } from '../services/group.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ export class GroupsComponent implements OnInit {
 
   groups: Group[];
 
-  constructor() {
+  constructor(private GroupService: GroupService, private router: Router) {
 
     this.groups = [{
       id: 1,
@@ -52,6 +54,9 @@ export class GroupsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.GroupService.getGroups().then(data => {
+    //   this.groups = data;
+    // })
   }
 
   openSubGroups(g: Group) {
