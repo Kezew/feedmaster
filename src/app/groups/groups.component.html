@@ -32,7 +32,7 @@
           </button>
         </th>
         <th scope="col">
-          <button class="icon btn"> <i class="fas fa-trash-alt"></i>
+          <button class="icon btn" (click)=deleteGroup()> <i class="fas fa-trash-alt"></i>
           </button>
         </th>
       </tr>
@@ -44,7 +44,7 @@
           <table class="table table-bordered" *ngIf="g.isOpen">
             <thead>
               <tr class="t-header">
-                <th scope="col">Érzékenység</th>
+                <th scope="col">Alcsoport</th>
                 <th scope="col">Korosztály</th>
                 <th scope="col">Létszám</th>
                 <th scope="col">
