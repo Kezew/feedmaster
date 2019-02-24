@@ -3,6 +3,8 @@ import { Group } from '../interfaces/groups';
 import { AgeGroup } from '../enums/agegroup.enum';
 import { Router } from '@angular/router';
 import { GroupService } from '../services/group.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GroupDeleteModalComponent } from './group-delete-modal/group-delete-modal.component';
 
 
 @Component({
@@ -14,7 +16,11 @@ export class GroupsComponent implements OnInit {
 
   groups: Group[];
 
-  constructor(private GroupService: GroupService, private router: Router) {
+  constructor(
+      private GroupService: GroupService,
+      private router: Router,
+      private modalService: NgbModal
+  ) {
 
     this.groups = [{
       id: 1,
@@ -73,6 +79,10 @@ export class GroupsComponent implements OnInit {
       sum += sg.numberOfPersons;
     });
     return sum;
+  }
+
+  deleteGroup(){
+      this.modalService.open(GroupDeleteModalComponent).result.then();
   }
 
 }

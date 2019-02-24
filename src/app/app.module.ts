@@ -26,6 +26,7 @@ import { ChartModule } from "angular-highcharts";
 import { NutritionPieComponent } from './recipes/recipe-card/nutrition-pie/nutrition-pie.component';
 import { AddgroupsComponent } from './addgroups/addgroups.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NutritionPieComponent,
     AddgroupsComponent,
     NutritionPieComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GroupDeleteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     ChartModule
   ],
+  entryComponents: [GroupDeleteModalComponent],
+
   providers: [],
   bootstrap: [AppComponent]
 })
