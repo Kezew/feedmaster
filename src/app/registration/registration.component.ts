@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../interfaces/user';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +13,7 @@ export class RegistrationComponent implements OnInit {
   user: User;
   token: string;
 
-  constructor(public route: ActivatedRoute) {
+  constructor(public route: ActivatedRoute, private loginService: LoginService) {
     this.token = this.route.snapshot.paramMap.get('token');
 
     this.user = {
@@ -29,9 +30,15 @@ export class RegistrationComponent implements OnInit {
 
     });
     */
+
+    this.loginService.getUserFromToken().then(user => {
+      this.user = user;
+    });
   }
 
-  isPasswordValid():boolean {
+
+
+  isPasswordValid(): boolean {
     return (this.user.password === this.user.password2);
   }
 
