@@ -6,7 +6,7 @@
       <h2>Csoport szerkesztése</h2>
     </div>
     <div>
-      <button class="btn btn-danger">Csoport törlése</button>
+      <button class="btn btn-danger" (click)="deleteGroup()">Csoport törlése</button>
       <button class="btn btn-success">Csoport mentése</button>
 
       <button class="btn btn-info back-button" routerLink="/groups">
@@ -98,7 +98,7 @@
 
       <div class="form-group row offset-sm-1">
         <div class="addbuttons add col-sm-5 offset-sm-2">
-          <button class="btn btn-outline-danger delete-btn">Alcsoport törlése</button>
+          <button class="btn btn-outline-danger delete-btn" (click)="deleteSubgroup()">Alcsoport törlése</button>
         </div>
       </div>
 
