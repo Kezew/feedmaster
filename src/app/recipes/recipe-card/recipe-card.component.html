@@ -2,16 +2,16 @@
 <div *ngIf="!editMode" class="container">
   <!-- <div class="container"> -->
   <div id="card" class="container">
-    <h1 id="title">{{ data.title }}</h1>
+    <h1 id="title">{{ recipe.recepieName }}</h1>
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
-        <div *ngFor="let ingredient of data.ingredients" class="ingredient-item row">
+        <div *ngFor="let ingredient of recipe.ingredients" class="ingredient-item row">
           <div class="col-6">
-            {{ ingredient.name }}
+            {{ getIngredient(ingredient.ingredientId).ingredientName }}
           </div>
-          <div class="col-2 grams">
-            {{ ingredient.amount }}
+          <div class="col-4 grams">
+            {{ ingredient.ingredientQuantity }}
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
                 Zsír
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.fat }}
+                {{ data.fat | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row sub-row">
@@ -34,7 +34,7 @@
                 <i class="fas fa-long-arrow-alt-right"></i> ebből telített
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.saturatedFat }}
+                {{ data.saturatedFat | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row">
@@ -42,7 +42,7 @@
                 Fehérje
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.protein }}
+                {{ data.protein | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row">
@@ -50,7 +50,7 @@
                 Szénhidrát
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.carbs }}
+                {{ data.carbs | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row sub-row">
@@ -58,7 +58,7 @@
                 <i class="fas fa-long-arrow-alt-right"></i> ebből cukor
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.sugar }}
+                {{ data.sugar | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row">
@@ -66,18 +66,18 @@
                 Energia
               </div>
               <div class="col-4 kcal">
-                {{ data.nutrition.kcal }}
+                {{ data.kcal }}
               </div>
             </div>
           </div>
           <div id="nutrition-pie" class="col">
-            <app-nutrition-pie></app-nutrition-pie>
+            <app-nutrition-pie [data]="data"></app-nutrition-pie>
           </div>
         </div>
       </div>
     </div>
     <div id="bottom-row">
-      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ data.referencePerson }}</span>
+      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ recipe.referencePerson }}</span>
       <button><i class="fas fa-edit" (click)="toggleEditMode()"></i></button>
       <button><i class="fas fa-check"></i></button>
     </div>
@@ -86,18 +86,17 @@
 
 <!-- edit mode -->
 <div *ngIf="editMode" class="container">
-  <!-- <div class="container"> -->
   <div id="card" class="container">
-    <input id="title" type="text" [(ngModel)]="data.title" focus>
+    <input id="title" type="text" [(ngModel)]="recipeClone.recepieName" focus>
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
-        <div *ngFor="let ingredient of data.ingredients" class="ingredient-item edit row">
-          <input class="col-6" [(ngModel)]="ingredient.name">
-          <input class="col-2 grams" [(ngModel)]="ingredient.amount">
-          <button class="col-2 delete-button" (click)="deleteIngredient(ingredient)"><i class="fas fa-minus-circle"></i></button>
+        <div *ngFor="let ingredient of recipeClone.ingredients" class="ingredient-item edit row">
+          <input class="col-6" type="text" [(ngModel)]="getIngredient(ingredient.ingredientId).ingredientName" (input)="calculateNutrition()">
+          <input class="col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition()">
+          <button class="col-2 delete-button" (click)="deleteIngredient(ingredient.ingredientId)"><i class="fas fa-minus-circle"></i></button>
         </div>
-        <div class="ingredient-item row"><button id="add-ingredient-button"><i class="fas fa-plus-circle"></i></button></div>
+        <div class="ingredient-item add-row row"><button id="add-ingredient-button"><i class="fas fa-plus-circle"></i></button></div>
       </div>
     </div>
     <div id="nutrition">
@@ -110,7 +109,7 @@
                 Zsír
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.fat }}
+                {{ data.fat | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row sub-row">
@@ -118,7 +117,7 @@
                 <i class="fas fa-long-arrow-alt-right"></i> ebből telített
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.saturatedFat }}
+                {{ data.saturatedFat | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row">
@@ -126,7 +125,7 @@
                 Fehérje
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.protein }}
+                {{ data.protein | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row">
@@ -134,7 +133,7 @@
                 Szénhidrát
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.carbs }}
+                {{ data.carbs | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row sub-row">
@@ -142,7 +141,7 @@
                 <i class="fas fa-long-arrow-alt-right"></i> ebből cukor
               </div>
               <div class="col-4 grams">
-                {{ data.nutrition.sugar }}
+                {{ data.sugar | number: ".2-2" }}
               </div>
             </div>
             <div class="nutrition-item row">
@@ -150,19 +149,19 @@
                 Energia
               </div>
               <div class="col-4 kcal">
-                {{ data.nutrition.kcal }}
+                {{ data.kcal }}
               </div>
             </div>
           </div>
           <div id="nutrition-pie" class="col">
-            <app-nutrition-pie></app-nutrition-pie>
+            <app-nutrition-pie [data]="data"></app-nutrition-pie>
           </div>
         </div>
       </div>
     </div>
     <div id="bottom-row">
       <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i><input id="reference-person" type="text"
-          class="mr-auto" [(ngModel)]="data.referencePerson"></span>
+          class="mr-auto" [(ngModel)]="recipeClone.referencePerson"></span>
       <button><i class="fas fa-times" (click)="toggleEditMode()"></i></button>
       <button><i class="fas fa-check"></i></button>
     </div>

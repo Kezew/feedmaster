@@ -49,10 +49,12 @@ ul {
   padding-right: 40px;
   overflow-y: scroll;
   margin: 0;
+  flex-grow: 1;
 }
 
 li {
   font-size: 50px;
+  text-transform: capitalize;
 }
 
 li:hover {

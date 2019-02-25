@@ -23,11 +23,13 @@ $carb: #e4b101;
   padding-left: 10px;
   font-size: 50px;
   font-weight: 500;
+  text-transform: capitalize;
   border-bottom: 1px solid lightgray;
   background-image: url("/assets/logo_notext.png");
   background-size: 10%;
   background-position: 95% 0;
   background-repeat: no-repeat;
+  line-height: 59px;
 }
 
 .small-title {
@@ -58,9 +60,16 @@ $carb: #e4b101;
   font-size: 30px;
   font-weight: 400;
   height: 50px;
+  border-bottom: 1px solid transparent;
+
+  &.add-row {
+    padding-top: 10px;
+    height: auto;
+  }
 }
 
-.ingredient-item>* {
+.ingredient-item>div:first-child {
+  text-transform: capitalize;
   word-wrap: break-word;
 }
 
@@ -122,11 +131,8 @@ $carb: #e4b101;
 }
 
 #bottom-row button {
-  flex-grow: 1;
-}
-
-#bottom-row button:last-child>i {
-  margin-left: 20px;
+  width: 80px;
+  text-align: center;
 }
 
 #reference-person {
@@ -163,10 +169,17 @@ button:focus {
 // edit mode
 input {
   color: $lettercolor;
-  padding: 0;
-  padding-left: 15px;
+  padding: 0 15px;
   border: none;
   border-bottom: solid 1px lightgray;
+  text-transform: capitalize;
+  background-color: transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #reference-person input {
@@ -175,7 +188,6 @@ input {
 
 #add-ingredient-button {
   margin: auto;
-  margin-top: 8px;
 }
 
 #add-ingredient-button>i {
