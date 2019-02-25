@@ -33,8 +33,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr class="users-data" *ngFor="let u of users">
+                        <td>{{ u.name }}</td>
+                        <td>{{ u.email }}</td>
+                        <td>{{ u.authority }}</td>
+                    </tr>
                     <tr class="text-center">
-                      <td colspan="5">Nincs felhasználó az adatbázisban</td>
+                      <td colspan="3" *ngIf="users.length == 0">Nincs felhasználó az adatbázisban</td>
                     </tr>
                   </tbody>
                 </table>
