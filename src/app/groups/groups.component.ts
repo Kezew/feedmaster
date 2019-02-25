@@ -18,7 +18,7 @@ export class GroupsComponent implements OnInit {
   groups: Group[];
 
   constructor(
-      private GroupService: GroupService,
+      private groupService: GroupService,
       private router: Router,
       private modalService: NgbModal
   ) {
@@ -63,6 +63,7 @@ export class GroupsComponent implements OnInit {
   ngOnInit() {
     // this.GroupService.getGroups().then(data => {
     //   this.groups = data;
+    //   this.groupService.groups = data;
     // })
   }
 

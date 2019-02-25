@@ -7,6 +7,8 @@ import { HttpService } from './http.service';
 })
 export class GroupService {
 
+    groups: Group[];
+
   constructor(private httpService: HttpService) { }
 
   getGroups(): Promise<Group[]> {

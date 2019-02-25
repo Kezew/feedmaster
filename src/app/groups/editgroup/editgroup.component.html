@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-5 mb-3 header">
-  <div class="row justify-content-between">
-    <div>
+  <div class="row">
+    <div class="col-6">
       <h2>Csoport szerkesztése</h2>
     </div>
-    <div>
+    <div class="col-6 text-right">
       <button class="btn btn-danger" (click)="deleteGroup()">Csoport törlése</button>
       <button class="btn btn-success">Csoport mentése</button>
 
@@ -18,98 +18,118 @@
 
 <div class="container body">
   <form>
-    <div class="form-group row offset-sm-1">
+
+    <div class="form-group row">
       <label for="groupname" class="col-sm-2 col-form-label">Csoport neve</label>
-      <div class="col-sm-5">
+      <div class="col-sm-8">
         <input type="text" class="form-control" id="groupname" placeholder="csoportnév">
       </div>
-    </div>
-
-    <div class="subgroup">
-
-      <div class="form-group row offset-sm-1">
-        <label class="col-sm-2 col-form-label">Alcsoport neve</label>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" placeholder="alcsoportnév">
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1">
-        <label class="col-sm-2 col-form-label">Korosztály</label>
-        <div class="col-sm-5">
-          <select name="agegroup" class="form-control">
-            <option value="">1-3</option>
-            <option value="">4-6</option>
-            <option value="">7-10</option>
-            <option value="">11-14</option>
-            <option value="">15-18</option>
-            <option value="">19-29</option>
-            <option value="">29 fölött</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1">
-        <label class="col-sm-2 col-form-label">Létszám</label>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" placeholder="létszám">
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1 allergens">
-        <label class="col-sm-2 col-form-label">Allergén</label>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" placeholder="allergén">
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1">
-        <div class="addbuttons col-sm-5 offset-sm-2">
-          <button class="btn btn-outline-warning">Allergén hozzáadása</button>
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1 nutritions">
-        <select class="col-sm-2 form-control">
-          <option value="">Energia (KJ)</option>
-          <option value="">Energia (Kcal)</option>
-          <option value="">Fehérje</option>
-          <option value="">Zsír</option>
-          <option value="">Telített zsír</option>
-          <option value="">Szénhidrát</option>
-          <option value="">Cukor</option>
-          <option value="">Glikémiás index/étkezés</option>
-          <option value="">Rost</option>
-          <option value="">Nátrium</option>
-          <option value="">Kálium</option>
-          <option value="">Kálcium</option>
-          <option value="">Magnézium</option>
-        </select>
-        <div class="col-sm-5">
-          <input type="text" class="form-control">
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1">
-        <div class="addbuttons col-sm-5 offset-sm-2">
-          <button class="btn btn-outline-warning">Napi maximum értékek hozzáadása</button>
-        </div>
-      </div>
-
-      <div class="form-group row offset-sm-1">
-        <div class="addbuttons add col-sm-5 offset-sm-2">
-          <button class="btn btn-outline-danger delete-btn" (click)="deleteSubgroup()">Alcsoport törlése</button>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row offset-sm-1">
-      <hr class="col-sm-5 offset-sm-2">
-    </div>
-
-    <div class="form-group row offset-sm-1">
-      <div class="addbuttons add col-sm-5 offset-sm-2">
+      <div class="addbuttons add col-sm-2 text-right">
         <button class="btn btn-outline-warning add-subgroup">Alcsoport hozzáadása</button>
       </div>
     </div>
+
+    <hr>
+
+
+    <div class="row">
+
+      <div class="subgroup col-md-6">
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Alcsoport neve</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="alcsoportnév">
+          </div>
+          <div class="col-sm-2 text-right">
+              <button class="btn btn-outline-danger delete-btn" (click)="deleteSubgroup()">
+                  <i class="fas fa-times"></i>
+              </button>
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Korosztály</label>
+          <div class="col-sm-8">
+            <select name="agegroup" class="form-control">
+              <option value="">1-3</option>
+              <option value="">4-6</option>
+              <option value="">7-10</option>
+              <option value="">11-14</option>
+              <option value="">15-18</option>
+              <option value="">19-29</option>
+              <option value="">29 fölött</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Létszám</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="létszám">
+          </div>
+        </div>
+
+        <div class="form-group row allergens">
+          <label class="col-sm-4 col-form-label">Allergén</label>
+          <div class="col-sm-8">
+            <select name="agegroup" class="form-control">
+              <option value="">Tej</option>
+              <option value="">Glutén</option>
+              <option value="">Tojás</option>
+              <option value="">Rákfélék</option>
+              <option value="">Hal</option>
+              <option value="">Puhatestűek</option>
+              <option value="">Földimogyoró</option>
+              <option value="">Diófélék</option>
+              <option value="">Szezámmag</option>
+              <option value="">Szója</option>
+              <option value="">Zeller</option>
+              <option value="">Mustár</option>
+              <option value="">Szulfit</option>
+              <option value="">Csillagfürt</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="addbuttons col-sm-8 offset-sm-4">
+            <button class="btn btn-outline-warning">Allergén hozzáadása</button>
+          </div>
+        </div>
+
+        <div class="form-group row nutritions">
+          <select class="col-sm-4 form-control">
+            <option value="">Energia (KJ)</option>
+            <option value="">Energia (Kcal)</option>
+            <option value="">Fehérje</option>
+            <option value="">Zsír</option>
+            <option value="">Telített zsír</option>
+            <option value="">Szénhidrát</option>
+            <option value="">Cukor</option>
+            <option value="">Glikémiás index/étkezés</option>
+            <option value="">Rost</option>
+            <option value="">Nátrium</option>
+            <option value="">Kálium</option>
+            <option value="">Kálcium</option>
+            <option value="">Magnézium</option>
+          </select>
+          <div class="col-sm-8">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="addbuttons col-sm-8 offset-sm-4">
+            <button class="btn btn-outline-warning">Napi maximum értékek hozzáadása</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
