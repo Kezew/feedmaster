@@ -27,6 +27,8 @@ import { NutritionPieComponent } from './recipes/recipe-card/nutrition-pie/nutri
 import { AddgroupsComponent } from './addgroups/addgroups.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-delete-modal.component';
+import { SubgroupDeleteModalComponent } from './groups/subgroup-delete-modal/subgroup-delete-modal.component';
+import { SubgroupInfoModalComponent } from './groups/subgroup-info-modal/subgroup-info-modal.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-del
     AddgroupsComponent,
     NutritionPieComponent,
     PageNotFoundComponent,
-    GroupDeleteModalComponent
+    GroupDeleteModalComponent,
+    SubgroupDeleteModalComponent,
+    SubgroupInfoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,11 @@ import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-del
     FormsModule,
     ChartModule
   ],
-  entryComponents: [GroupDeleteModalComponent],
+  entryComponents: [
+      GroupDeleteModalComponent,
+      SubgroupDeleteModalComponent,
+      SubgroupInfoModalComponent
+  ],
 
   providers: [],
   bootstrap: [AppComponent]

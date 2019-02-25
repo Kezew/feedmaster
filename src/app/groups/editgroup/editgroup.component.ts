@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from 'src/app/interfaces/groups';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GroupDeleteModalComponent } from '../group-delete-modal/group-delete-modal.component';
+import { SubgroupDeleteModalComponent } from '../subgroup-delete-modal/subgroup-delete-modal.component';
 
 @Component({
   selector: 'app-editgroup',
@@ -11,7 +14,7 @@ export class EditgroupComponent implements OnInit {
   isHeaderEditMode: boolean;
   group: Group;
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
     this.isHeaderEditMode = false;
   }
 
@@ -24,6 +27,14 @@ export class EditgroupComponent implements OnInit {
 
   saveHeader(){
     this.isHeaderEditMode=false;
+  }
+
+  deleteGroup(){
+      this.modalService.open(GroupDeleteModalComponent).result.then();
+  }
+
+  deleteSubgroup(){
+       this.modalService.open(SubgroupDeleteModalComponent).result.then();
   }
 
 }

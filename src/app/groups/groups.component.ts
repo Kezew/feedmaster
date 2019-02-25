@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { GroupService } from '../services/group.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GroupDeleteModalComponent } from './group-delete-modal/group-delete-modal.component';
+import { SubgroupInfoModalComponent } from './subgroup-info-modal/subgroup-info-modal.component';
 
 
 @Component({
@@ -79,6 +80,10 @@ export class GroupsComponent implements OnInit {
       sum += sg.numberOfPersons;
     });
     return sum;
+  }
+
+  openInfoModal(){
+      this.modalService.open(SubgroupInfoModalComponent).result.then();
   }
 
   deleteGroup(){
