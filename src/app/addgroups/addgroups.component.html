@@ -15,7 +15,7 @@
 </div>
 
 <div class="container body">
-  <form>
+
 
     <div class="form-group row">
       <label for="groupname" class="col-sm-2 col-form-label">Csoport neve</label>
@@ -49,7 +49,7 @@
 
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Korosztály</label>
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <select name="agegroup" class="form-control">
               <option value="">1-3</option>
               <option value="">4-6</option>
@@ -64,14 +64,14 @@
 
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Létszám</label>
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <input type="text" class="form-control" placeholder="létszám">
           </div>
         </div>
 
         <div class="form-group row allergens">
           <label class="col-sm-4 col-form-label">Allergén</label>
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <select name="agegroup" class="form-control">
               <option value="">Tej</option>
               <option value="">Glutén</option>
@@ -88,6 +88,11 @@
               <option value="">Szulfit</option>
               <option value="">Csillagfürt</option>
             </select>
+          </div>
+          <div class="col-sm-2 text-right">
+              <button class="btn btn-outline-secondary delete-btn x-btn">
+                  <i class="fas fa-times"></i>
+              </button>
           </div>
         </div>
 
@@ -113,8 +118,13 @@
             <option value="">Kálcium</option>
             <option value="">Magnézium</option>
           </select>
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <input type="text" class="form-control">
+          </div>
+          <div class="col-sm-2 text-right">
+              <button class="btn btn-outline-secondary delete-btn x-btn">
+                  <i class="fas fa-times"></i>
+              </button>
           </div>
         </div>
 
@@ -128,6 +138,5 @@
 
     </div>
 
-  </form>
 
 </div>

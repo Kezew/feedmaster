@@ -23,17 +23,17 @@
         <th scope="col">{{ g.name }}</th>
         <th scope="col">{{ countTotalNumberOfPersons(g) }}  fő</th>
         <th scope="col">
-          <button class="icon btn" *ngIf="!g.isOpen" (click)="openSubGroups(g)"> <i class="fas fa-angle-double-down"></i>
+          <button class="icon btn" *ngIf="!g.isOpen" (click)="openSubGroups(g)"> <i class="fas fa-caret-down"></i>
           </button>
-          <button class="icon btn" *ngIf="g.isOpen" (click)="closeSubGroups(g)"> <i class="fas fa-angle-double-up"></i>
-          </button>
-        </th>
-        <th scope="col">
-          <button class="icon btn" [routerLink]="['/groups/editgroup', g.id]"> <i class="fas fa-edit"></i>
+          <button class="icon btn" *ngIf="g.isOpen" (click)="closeSubGroups(g)"> <i class="fas fa-caret-up"></i>
           </button>
         </th>
         <th scope="col">
-          <button class="icon btn" (click)=deleteGroup()> <i class="fas fa-trash-alt"></i>
+          <button class="icon btn" [routerLink]="['/groups/editgroup', g.id]"> <i class="fas fa-pen"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button class="icon btn" (click)=deleteGroup()> <i class="fas fa-times"></i>
           </button>
         </th>
       </tr>

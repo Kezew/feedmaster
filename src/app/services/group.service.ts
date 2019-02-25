@@ -7,9 +7,10 @@ import { HttpService } from './http.service';
 })
 export class GroupService {
 
-    groups: Group[];
+  groups: Group[];
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {
+  }
 
   getGroups(): Promise<Group[]> {
     return new Promise((resolve, reject) => {
@@ -65,6 +66,17 @@ export class GroupService {
     }
 
     return groups;
+  }
+
+  getGroupById(id: number): Group {
+    let g: Group;
+    for (let i = 0; i < this.groups.length; i++) {
+      g = this.groups[i];
+      if (g.id === id) {
+        break;
+      }
+    }
+    return g;
   }
 
 }
