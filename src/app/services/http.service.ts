@@ -6,11 +6,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  readonly SERVER_URL = "localhost:5000";
+  readonly SERVER_URL = "http://192.168.1.146:5000";
 
   constructor(private http: HttpClient) { }
 
   get(url: string) : Promise<any> {
     return this.http.get(this.SERVER_URL + url, { withCredentials: true }).toPromise();
+  }
+
+  post(url: string, data: any) : Promise<any> {
+    return this.http.post(this.SERVER_URL + url, data, { withCredentials: true }).toPromise();
+  }
+
+  postFormData(url: string, data: any) : Promise<any> {
+    let fd = new FormData();
+    let keys = Object.keys(data);
+    for(let key of keys) {
+      fd.append(key, data[key]);
+    }
+    return this.http.post(this.SERVER_URL + url, fd, { withCredentials: true }).toPromise();
   }
 }
