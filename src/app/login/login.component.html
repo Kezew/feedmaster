@@ -1,7 +1,7 @@
 <div class="full d-flex justify-content-center">
   <div class="container">
     <div class="row justify-content-center login-box">
-      <form class="col-md-6 py-5 border border-dark login">
+      <div class="col-md-6 py-5 border border-dark login">
         <div class="icon-box mb-3">
           <img src="assets/logo_notext.png" alt="logo">
         </div>
@@ -12,18 +12,21 @@
             <div class="form-group">
               <label for="exampleInputEmail">Email cím</label>
               <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                placeholder="emailcimed@gmail.com">
+                placeholder="emailcimed@gmail.com"  [ngClass]="{ 'is-invalid' : isEmailInvalid }"  [(ngModel)]="user.email">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword">Jelszó</label>
-              <input type="password" class="form-control" id="exampleInputPassword" placeholder="Jelszó1234">
+              <input type="password" class="form-control" id="exampleInputPassword" placeholder="Jelszó1234" [ngClass]="{ 'is-invalid' : isPasswordInvalid }" [(ngModel)]="user.password">
+            </div>
+            <div *ngIf="isLoginInvalid">
+              <p class="passwordError text-center"><span class="p-1">Nem jó jelszót adtál meg!</span></p>
             </div>
             <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-success">Belépés</button>
+              <button type="submit" class="btn btn-success" (click)="login()">Belépés</button>
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
