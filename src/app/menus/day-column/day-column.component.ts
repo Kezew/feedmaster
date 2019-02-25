@@ -9,9 +9,57 @@ import { MenuItem, Mode } from '../../interfaces/menu';
   styleUrls: ['./day-column.component.scss']
 })
 export class DayColumnComponent implements OnInit {
-  public states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
-    'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-    'Guam', 'Hawaii', 'Idaho', 'Illinois'];
+  private recipes = [
+    {
+      recepieID: 1,
+      recepieName: "Random Recept 0",
+      referencePerson: "Reference person 0",
+      ingredients: [
+        {
+          ingredientId: 106,
+          ingredientQuantity: 102.2037286264005
+        },
+        {
+          ingredientId: 74,
+          ingredientQuantity: 6.161488987427121
+        },
+        {
+          ingredientId: 171,
+          ingredientQuantity: 102.85632158540491
+        },
+        {
+          ingredientId: 8,
+          ingredientQuantity: 58.99043482690451
+        }
+      ],
+      lastModified: "2019-02-22T10:02:49",
+      userOwned: "Admin"
+    },
+    {
+      recepieID: 2,
+      recepieName: "Random Recept 1",
+      referencePerson: "Reference person 1",
+      ingredients: [
+        {
+          ingredientId: 68,
+          ingredientQuantity: 122.99772123252772
+        },
+        {
+          ingredientId: 159,
+          ingredientQuantity: 4.2666169886609975
+        },
+        {
+          ingredientId: 177,
+          ingredientQuantity: 140.87370486792022
+        },
+        {
+          ingredientId: 151,
+          ingredientQuantity: 195.6529414670527
+        }
+      ],
+      lastModified: "2019-02-22T10:02:49",
+      userOwned: "Admin"
+    }];
 
   @Input()
   public mode: Mode;
@@ -27,27 +75,27 @@ export class DayColumnComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.mode);
+
   }
 
   addBreakfast() {
-    this.data.breakfast.push('');
+    this.data.breakfast.push(0);
   }
 
   addEllevenses() {
-    this.data.ellevenses.push('');
+    this.data.ellevenses.push(0);
   }
 
   addLunch() {
-    this.data.lunch.push('');
+    this.data.lunch.push(0);
   }
 
   addSnack() {
-    this.data.snack.push('');
+    this.data.snack.push(0);
   }
 
   addDinner() {
-    this.data.dinner.push('');
+    this.data.dinner.push(0);
   }
 
   deleteBreakfast(value) {
@@ -75,9 +123,10 @@ export class DayColumnComponent implements OnInit {
   }
 
 
-  onChange(event, index) {
-    this.data.breakfast[index] = event.target.value;
-  }
+  // onChange(event, index) {
+  //   this.data.breakfast[index] = event.target.value;
+  //   console.log(event);
+  // }
 
   onChangeEllevenses(event, index) {
     this.data.ellevenses[index] = event.target.value;
@@ -100,8 +149,14 @@ export class DayColumnComponent implements OnInit {
       debounceTime(200),
       distinctUntilChanged(),
       map(term => term.length < 1 ? []
-        : this.states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        : this.recipes.filter(v => v.recepieName.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     )
 
+  formatter = (x: { recepieName: string }) => x.recepieName;
+  
+  selectedItem(item, index) {
+    this.data.breakfast[index] = item.item.recepieID;
+
+  }
 
 }
