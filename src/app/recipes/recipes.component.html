@@ -1,3 +1,5 @@
+<app-navbar>
+</app-navbar>
 <div class="container-fluid">
   <div class="row">
     <div id="recipe-selector" class="col d-flex">
@@ -8,23 +10,12 @@
       </div>
       <div id="recipe-list">
         <ul name="recipes" id="recipe-select">
-          <li value="Recept 1">Recept 1</li>
-          <li value="Recept 2">Recept 2</li>
-          <li value="Recept 3">Recept 3</li>
-          <li value="Recept 4">Recept 4</li>
-          <li value="Recept 5">Recept 5</li>
-          <li value="Recept 5">Recept 6</li>
-          <li value="Recept 5">Recept 7</li>
-          <li value="Recept 5">Recept 8</li>
-          <li value="Recept 5">Recept 9</li>
-          <li value="Recept 5">Recept 10</li>
-          <li value="Recept 5">Recept 11</li>
-          <li value="Recept 5">Recept 12</li>
+          <li *ngFor="let recipe of recipes" (click)="setCurrentRecipe(recipe)">{{ recipe.recepieName }}</li>
         </ul>
       </div>
     </div>
     <!-- <div id="recipe-view" class="col">recipeview -->
-    <app-recipe-card id="recipe-card"></app-recipe-card>
+    <app-recipe-card id="recipe-card" [recipe]="currentRecipe"></app-recipe-card>
     <!-- </div> -->
   </div>
 </div>
