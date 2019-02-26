@@ -19,7 +19,7 @@
         <li class="nav-item active m-1">
           <button class="btn btn-success"><a class="nav-link" routerLink="/menus">Étlapok</a></button>
         </li>
-       <li><i class="fas fa-sign-out-alt p-3 mg-1" data-toggle="modal" data-target="#logoutModal"></i></li>
+       <li><button class="logout-button"><i class="fas fa-sign-out-alt p-3 mg-1" (click)="logout()" data-toggle="modal" data-target="#logoutModal"></i></button></li>
       </ul>
     </div>
   </div>

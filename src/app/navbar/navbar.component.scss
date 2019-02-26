@@ -43,16 +43,17 @@ nav {
         }
     }
 
+    .logout-button{
+        border-radius: 50%;
+        padding: 1px 1px;
+    }
     .fas {
         color: $logocolor;
         background-color: $modalbackground;
-        border: 1px solid $logocolor;
-        border-radius: 50%;
-        margin-left: 15px;
+        
     }
 
-    .fas:hover{
-        background-color: $logocolor;
+    .fas:hover{     
         color: black;
     }
 
