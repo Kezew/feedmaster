@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../interfaces/user';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-registration',
@@ -12,34 +13,47 @@ export class RegistrationComponent implements OnInit {
 
   user: User;
   token: string;
+  isLoginInvalid: boolean;
 
-  constructor(public route: ActivatedRoute, private loginService: LoginService) {
+  constructor(public route: ActivatedRoute, private loginService: LoginService, private router: Router) {
     this.token = this.route.snapshot.paramMap.get('token');
-
     this.user = {
       email: 'hajduzita88@gmail.com',
       name: 'Hajdu Zita',
+      name2: '',
       password: '',
       password2: ''
     };
+    this.isLoginInvalid = false;
   }
 
   ngOnInit() {
-    // TODO lekérdezés szerverre
-    /*registrationService.getUserFromToken(this.token).then(user => {
-
-    });
-    */
-
-    this.loginService.getUserFromToken().then(user => {
+    this.loginService.getUserFromToken( this.token ).then(user => {
       this.user = user;
     });
   }
 
-
+  registration(): void {
+    this.isLoginInvalid = false;
+    this.isPasswordValid();
+    this.emptyUserName();
+    if (!this.isPasswordValid && !this.emptyUserName) {
+      this.loginService.registerUser(this.user).then(() => {
+        this.router.navigate(['/dashboard']);
+      }).catch(() => {
+        this.isLoginInvalid = true;
+      });
+    }
+  }
 
   isPasswordValid(): boolean {
     return (this.user.password === this.user.password2);
+  }
+
+  emptyUserName(): void {
+    if (this.user.name2 === '') {
+      this.user.name2 = this.user.name;
+    }
   }
 
 }
