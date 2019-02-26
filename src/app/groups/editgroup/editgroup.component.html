@@ -48,23 +48,18 @@
               <i class="fas fa-times"></i>
             </button>
           </div>
-
         </div>
+
 
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Korosztály</label>
           <div class="col-sm-6">
-            <select name="agegroup" class="form-control">
-              <option value="">1-3</option>
-              <option value="">4-6</option>
-              <option value="">7-10</option>
-              <option value="">11-14</option>
-              <option value="">15-18</option>
-              <option value="">19-29</option>
-              <option value="">29 fölött</option>
+            <select class="form-control" [(ngModel)]="sg.agegroup">
+              <option *ngFor="let enum of ageEnum" value="enum.key">{{enum.value}}</option>
             </select>
           </div>
         </div>
+
 
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Létszám</label>
@@ -73,28 +68,17 @@
           </div>
         </div>
 
-        <div class="form-group row allergens" *ngFor="let a of sg.allergens">
-          <label class="col-sm-4 col-form-label">Allergén</label>
+
+
+        <div class="form-group row allergens" *ngFor="let a of sg.allergens; let i = index; let first = first">
+          <label class="col-sm-4 col-form-label" [ngClass]="{first: first}">Allergének</label>
           <div class="col-sm-6">
-            <select name="agegroup" class="form-control" [(ngModel)]="a">
-              <option value="">Tej</option>
-              <option value="">Glutén</option>
-              <option value="">Tojás</option>
-              <option value="">Rákfélék</option>
-              <option value="">Hal</option>
-              <option value="">Puhatestűek</option>
-              <option value="">Földimogyoró</option>
-              <option value="">Diófélék</option>
-              <option value="">Szezámmag</option>
-              <option value="">Szója</option>
-              <option value="">Zeller</option>
-              <option value="">Mustár</option>
-              <option value="">Szulfit</option>
-              <option value="">Csillagfürt</option>
+            <select class="form-control" [(ngModel)]="sg.allergens[i]">
+              <option *ngFor="let enum of allergenEnum" value="enum.key">{{enum.value}}</option>
             </select>
           </div>
           <div class="col-sm-2 text-right">
-            <button class="btn btn-outline-secondary delete-btn x-btn">
+            <button class="btn btn-outline-secondary delete-btn x-btn" (click)="deleteAllergen(sg, i)">
               <i class="fas fa-times"></i>
             </button>
           </div>
@@ -106,27 +90,16 @@
           </div>
         </div>
 
-        <div class="form-group row nutritions" *ngFor="let n of sg.maxValues">
-          <select class="col-sm-4 form-control">
-            <option value="">Energia (KJ)</option>
-            <option value="">Energia (Kcal)</option>
-            <option value="">Fehérje</option>
-            <option value="">Zsír</option>
-            <option value="">Telített zsír</option>
-            <option value="">Szénhidrát</option>
-            <option value="">Cukor</option>
-            <option value="">Glikémiás index/étkezés</option>
-            <option value="">Rost</option>
-            <option value="">Nátrium</option>
-            <option value="">Kálium</option>
-            <option value="">Kálcium</option>
-            <option value="">Magnézium</option>
+
+        <div class="form-group row nutritions" *ngFor="let n of sg.maxValues; let i = index;">
+          <select class="col-sm-4 form-control" [(ngModel)]="sg.maxValues[i].type">
+            <option *ngFor="let enum of nutritionEnum" value="enum.key">{{enum.value}}</option>
           </select>
           <div class="col-sm-6">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" [(ngModel)]="sg.maxValues[i].value">
           </div>
           <div class="col-sm-2 text-right">
-            <button class="btn btn-outline-secondary delete-btn x-btn">
+            <button class="btn btn-outline-secondary delete-btn x-btn" (click)="deleteNutrition(sg, i)">
               <i class="fas fa-times"></i>
             </button>
           </div>

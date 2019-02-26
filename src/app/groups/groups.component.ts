@@ -66,6 +66,8 @@ export class GroupsComponent implements OnInit {
     //   this.groups = data;
     //   this.groupService.groups = data;
     // })
+
+    this.groupService.groups = this.groups;
   }
 
   openSubGroups(g: Group) {

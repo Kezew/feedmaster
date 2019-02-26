@@ -31,7 +31,7 @@ export interface Group {
   isOpen?: boolean;
 }
 
-export interface maxValue {
+export interface MaxValue {
     type: Nutrition;
     value: number;
 }
@@ -41,7 +41,7 @@ export interface SubGroupDisplay {
     name: string;
     numberOfPersons: number;
     allergens: string[];
-    maxValues: maxValue[];
+    maxValues: MaxValue[];
     agegroup: AgeGroup;
 }
 
