@@ -85,8 +85,8 @@ export class RecipeService {
     ];
     this.recipes = [
       {
-        recepieID: 1,
-        recepieName: "Random Recept 0",
+        recepieID: 5,
+        recepieName: "Random Recept 000",
         referencePerson: "Reference person 0",
         ingredients: [
           {
@@ -110,8 +110,8 @@ export class RecipeService {
         userOwned: "Admin"
       },
       {
-        recepieID: 2,
-        recepieName: "Random Recept 1",
+        recepieID: 8,
+        recepieName: "Random Recept 111",
         referencePerson: "Reference person 1",
         ingredients: [
           {

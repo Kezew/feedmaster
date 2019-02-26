@@ -1,12 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
 import { MenuItem, Mode } from '../../interfaces/menu';
 import { Recipe } from '../../interfaces/recipe';
 import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'day-column',
+  changeDetection: ChangeDetectionStrategy.Default,
   templateUrl: './day-column.component.html',
   styleUrls: ['./day-column.component.scss']
 })
@@ -29,6 +31,9 @@ export class DayColumnComponent implements OnInit {
 
   ngOnInit() {
     this.recipes = this.recipeService.recipes;
+    // setInterval( () => {
+    //   console.log(this.data.breakfast);
+    // }, 3000 );
   }
 
   addBreakfast() {
@@ -40,7 +45,7 @@ export class DayColumnComponent implements OnInit {
   }
 
   addLunch() {
-    this.data.lunch.push(0);
+    this.data.lunch.push(5);
   }
 
   addSnack() {
@@ -81,21 +86,21 @@ export class DayColumnComponent implements OnInit {
   //   console.log(event);
   // }
 
-  onChangeEllevenses(event, index) {
-    this.data.ellevenses[index] = event.target.value;
-  }
-
-  onChangeLunch(event, index) {
-    this.data.lunch[index] = event.target.value;
-  }
-
-  onChangeSnack(event, index) {
-    this.data.snack[index] = event.target.value;
-  }
-
-  onChangeDinner(event, index) {
-    this.data.dinner[index] = event.target.value;
-  }
+  // onChangeEllevenses(event, index) {
+  //   this.data.ellevenses[index] = event.target.value;
+  // }
+  //
+  // onChangeLunch(event, index) {
+  //   this.data.lunch[index] = event.target.value;
+  // }
+  //
+  // onChangeSnack(event, index) {
+  //   this.data.snack[index] = event.target.value;
+  // }
+  //
+  // onChangeDinner(event, index) {
+  //   this.data.dinner[index] = event.target.value;
+  // }
 
   search = (text$: Observable<string>) =>
     text$.pipe(
@@ -107,8 +112,8 @@ export class DayColumnComponent implements OnInit {
 
   formatter = (x: { recepieName: string }) => x.recepieName;
 
-  selectedItem(item, index) {
-    console.log(item, index);
+  selectedItem(item: NgbTypeaheadSelectItemEvent, index: number) {
+    console.log(item.item, index);
     this.data.breakfast[index] = item.item.recepieID;
     console.log(this.data.breakfast);
   }
