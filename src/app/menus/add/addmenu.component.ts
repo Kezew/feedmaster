@@ -61,8 +61,8 @@ export class AddmenuComponent implements OnInit {
         this.menuData.name = 'Próba étlap';
         this.menuData.items.push({
           dayNumber: this.menuData.items.length + 1,
-          breakfast: [1, 2],
-          lunch: [1, 2],
+          breakfast: [5, 8],
+          lunch: [8, 5],
           dinner: [],
           snack: [],
           ellevenses: []
