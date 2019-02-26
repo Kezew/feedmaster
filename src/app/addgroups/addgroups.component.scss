@@ -17,3 +17,19 @@ h2 {
 .x-btn {
     border:none;
 }
+
+.subgroup-box {
+  background-color: #f5faea;
+  padding: 25px;
+  margin: 15px;
+  border-radius: 15px;
+}
+
+.btn-outline-warning {
+  background-color: white;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffbb33;
+  color: white;
+}
