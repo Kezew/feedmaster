@@ -96,7 +96,7 @@
           <input class="col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition()">
           <button class="col-2 delete-button" (click)="deleteIngredient(ingredient.ingredientId)"><i class="fas fa-minus-circle"></i></button>
         </div>
-        <div class="ingredient-item add-row row"><button id="add-ingredient-button"><i class="fas fa-plus-circle"></i></button></div>
+        <div class="ingredient-item add-row row"><button id="add-ingredient-button" (click)="addIngredient()"><i class="fas fa-plus-circle"></i></button></div>
       </div>
     </div>
     <div id="nutrition">
@@ -149,7 +149,7 @@
                 Energia
               </div>
               <div class="col-4 kcal">
-                {{ data.kcal }}
+                {{ data.kcal | number: ".0" }}
               </div>
             </div>
           </div>

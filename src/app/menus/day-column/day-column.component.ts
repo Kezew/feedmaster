@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { MenuItem, Mode } from '../../interfaces/menu';
+import { Recipe } from '../../interfaces/recipe';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'day-column',
@@ -9,9 +11,8 @@ import { MenuItem, Mode } from '../../interfaces/menu';
   styleUrls: ['./day-column.component.scss']
 })
 export class DayColumnComponent implements OnInit {
-  public states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
-    'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-    'Guam', 'Hawaii', 'Idaho', 'Illinois'];
+
+  public recipes : Recipe[];
 
   @Input()
   public mode: Mode;
@@ -21,33 +22,33 @@ export class DayColumnComponent implements OnInit {
 
   @Output()
   public deleteColumnEvent: EventEmitter<number>;
-  constructor() {
+  constructor(private recipeService: RecipeService) {
 
     this.deleteColumnEvent = new EventEmitter();
   }
 
   ngOnInit() {
-    console.log(this.mode);
+    this.recipes = this.recipeService.recipes;
   }
 
   addBreakfast() {
-    this.data.breakfast.push('');
+    this.data.breakfast.push(0);
   }
 
   addEllevenses() {
-    this.data.ellevenses.push('');
+    this.data.ellevenses.push(0);
   }
 
   addLunch() {
-    this.data.lunch.push('');
+    this.data.lunch.push(0);
   }
 
   addSnack() {
-    this.data.snack.push('');
+    this.data.snack.push(0);
   }
 
   addDinner() {
-    this.data.dinner.push('');
+    this.data.dinner.push(0);
   }
 
   deleteBreakfast(value) {
@@ -75,9 +76,10 @@ export class DayColumnComponent implements OnInit {
   }
 
 
-  onChange(event, index) {
-    this.data.breakfast[index] = event.target.value;
-  }
+  // onChange(event, index) {
+  //   this.data.breakfast[index] = event.target.value;
+  //   console.log(event);
+  // }
 
   onChangeEllevenses(event, index) {
     this.data.ellevenses[index] = event.target.value;
@@ -100,8 +102,15 @@ export class DayColumnComponent implements OnInit {
       debounceTime(200),
       distinctUntilChanged(),
       map(term => term.length < 1 ? []
-        : this.states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        : this.recipes.filter(v => v.recepieName.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     )
 
+  formatter = (x: { recepieName: string }) => x.recepieName;
+
+  selectedItem(item, index) {
+    console.log(item, index);
+    this.data.breakfast[index] = item.item.recepieID;
+    console.log(this.data.breakfast);
+  }
 
 }

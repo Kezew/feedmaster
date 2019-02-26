@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 
 import { HttpService } from "./http.service";
-import { Ingredient } from "../interfaces/recipe";
+import { Ingredient, Recipe } from "../interfaces/recipe";
 
 @Injectable({
   providedIn: "root"
 })
 export class RecipeService {
   ingredients: Ingredient[];
+  recipes: Recipe[];
 
   constructor(private httpService: HttpService) {
     this.ingredients = [
@@ -82,6 +83,57 @@ export class RecipeService {
         lastModifierName: "Admin"
       }
     ];
+    this.recipes = [
+      {
+        recepieID: 1,
+        recepieName: "Random Recept 0",
+        referencePerson: "Reference person 0",
+        ingredients: [
+          {
+            ingredientId: 106,
+            ingredientQuantity: 102.2037286264005
+          },
+          {
+            ingredientId: 74,
+            ingredientQuantity: 6.161488987427121
+          },
+          {
+            ingredientId: 171,
+            ingredientQuantity: 102.85632158540491
+          },
+          {
+            ingredientId: 8,
+            ingredientQuantity: 58.99043482690451
+          }
+        ],
+        lastModified: "2019-02-22T10:02:49",
+        userOwned: "Admin"
+      },
+      {
+        recepieID: 2,
+        recepieName: "Random Recept 1",
+        referencePerson: "Reference person 1",
+        ingredients: [
+          {
+            ingredientId: 68,
+            ingredientQuantity: 122.99772123252772
+          },
+          {
+            ingredientId: 159,
+            ingredientQuantity: 4.2666169886609975
+          },
+          {
+            ingredientId: 177,
+            ingredientQuantity: 140.87370486792022
+          },
+          {
+            ingredientId: 151,
+            ingredientQuantity: 195.6529414670527
+          }
+        ],
+        lastModified: "2019-02-22T10:02:49",
+        userOwned: "Admin"
+      }];
   }
 
   loadIngredients(): void {
@@ -94,5 +146,14 @@ export class RecipeService {
     return this.ingredients.find(e => {
       return e.ingredientId === id;
     });
+  }
+
+  getRecipeById(id: number) : Recipe {
+    for (let r of this.recipes) {
+        if (r.recepieID == id) {
+          return r;
+        }
+    }
+    // TODO hibakezelés
   }
 }

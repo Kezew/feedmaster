@@ -1,10 +1,10 @@
 export interface MenuItem {
   dayNumber: number;
-  breakfast: String[];
-  lunch: String[];
-  dinner: String[];
-  snack: String[];
-  ellevenses: String[];
+  breakfast: number[];
+  lunch: number[];
+  dinner: number[];
+  snack: number[];
+  ellevenses: number[];
 }
 
 export interface Menu {

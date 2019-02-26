@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Menu, Mode} from '../../interfaces/menu';
 import {Router, ActivatedRoute} from '@angular/router';
+import{HttpService} from '../../services/http.service';
+import{MenuService} from '../../services/menu.service';
 @Component({
   selector: 'app-addmenu',
   templateUrl: './addmenu.component.html',
@@ -16,7 +16,7 @@ export class AddmenuComponent implements OnInit {
   private cloneMenu : Menu;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpService, private menuService: MenuService) {
     this.mode = Mode[this.activatedRoute.snapshot.url[1].path];
     this.menuData = {name: '', items: []};
   }
@@ -46,7 +46,7 @@ export class AddmenuComponent implements OnInit {
     this.menuData.items = this.menuData.items.map((item, index) => ({
       ...item,
       dayNumber: index + 1,
-    }))
+    }));
   }
 
   initMenu(){
@@ -55,11 +55,14 @@ export class AddmenuComponent implements OnInit {
     } else if(this.mode === Mode.view){
         this.id = +this.activatedRoute.snapshot.paramMap.get('id');
         //serviceből lekérés id alapján ezután menuData feltöltése a megkapott adatokkal
+        // this.http.getMenuIdFive().then((data)=>{
+        //   console.log(JSON.parse(data));
+        // });
         this.menuData.name = 'Próba étlap';
         this.menuData.items.push({
           dayNumber: this.menuData.items.length + 1,
-          breakfast: ['Vajas kenyér', 'kakaó'],
-          lunch: ['Gulyásleves', 'Palacsinta'],
+          breakfast: [1, 2],
+          lunch: [1, 2],
           dinner: [],
           snack: [],
           ellevenses: []

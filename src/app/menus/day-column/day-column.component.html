@@ -24,8 +24,8 @@
     </div>
     <div *ngFor="let breakfast of data.breakfast; let i = index;">
       <div class="mb-2 d-flex align-items-center">
-        <input id="typeahead-basic" type="text" class="form-control form-control-sm" [ngbTypeahead]="search"
-          [value]="breakfast" (change)="onChange($event, i)" [disabled]="mode == 'view'" />
+        <input id="typeahead-format" type="text" class="form-control form-control-sm" [ngbTypeahead]="search"
+          [value]="breakfast | recipeName" [inputFormatter]="formatter" [resultFormatter]="formatter" (selectItem)="selectedItem($event, i)" [disabled]="mode == 'view'" />
         <div class="ml-2 d-flex align-items-center" *ngIf="mode == 'add' || 'edit'">
           <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'"
             (click)="deleteBreakfast(breakfast)">
