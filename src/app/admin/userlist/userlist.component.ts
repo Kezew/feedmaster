@@ -54,6 +54,7 @@ export class UserlistComponent implements OnInit {
       this.userlistService.getUsers().then( users => {
           // ha üres a tömb akkor az a HTML-ben már le van kezelve
           this.users = users;
+          // 
           // TODO hivatkozás azokra ami nekem kell !!!
       } );
   }
