@@ -43,20 +43,16 @@ nav {
         }
     }
 
-    .logout-button{
-        border-radius: 50%;
-        padding: 1px 1px;
-    }
     .fas {
         color: $logocolor;
         background-color: $modalbackground;
-        
+        padding: 10px 0; 
     }
-
     .fas:hover{     
-        color: black;
+       color: black;
+        background-color: $logocolor;
     }
-
+   
     .navbar-toggler{
         background-color: $logocolor;
     }
