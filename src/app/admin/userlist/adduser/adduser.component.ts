@@ -21,7 +21,7 @@ export class AdduserComponent implements OnInit {
   router: Router;
 
   constructor(private adduserService : AdduserService) {
-      this.user = { name : '', email: '', password : '', authority : [''] };
+    this.user = { name : '', email: '', password : '', authority : [''] };
     this.authorities = ['ADMIN', 'FEEDING_MANAGER', 'NUTRITIONIST'];
     this.isNameInvalid = false;
     this.errors = {};
@@ -41,13 +41,13 @@ export class AdduserComponent implements OnInit {
     if (!this.isNameInvalid && !this.errors.email) {
 
       this.adduserService.addUser(this.user).then(() => {
-          this.isSuccessAdd = true;     // üzenet div engedélyezése, hogy sikeres volt
+          this.isSuccessAdd = true;     // üzenet div engedélyezése egyből, hogy sikeres volt
           this.user.name = '';
           this.user.email = '';
           this.user.authority = [''];
           // az input mezők lenullázása
           setTimeout(() => {
-            this.isSuccessAdd = false;
+            this.isSuccessAdd = false;  // 2mp múlva eltüntejük a sikeres hozzásadás div-et a html-ből
           }, 2000);
       });
 

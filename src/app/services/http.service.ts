@@ -6,7 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
+<<<<<<< HEAD
+  readonly SERVER_URL = "http://localhost:5000/";
+=======
   readonly SERVER_URL = "https://mysterious-journey-60687.herokuapp.com";
+>>>>>>> master
 
   constructor(private http: HttpClient) { }
 
