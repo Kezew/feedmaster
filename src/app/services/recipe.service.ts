@@ -133,11 +133,12 @@ export class RecipeService {
         ],
         lastModified: "2019-02-22T10:02:49",
         userOwned: "Admin"
-      }];
+      }
+    ];
   }
 
   loadIngredients(): void {
-    this.httpService.get("ingredients").then(data => {
+    this.httpService.get("/ingredients").then(data => {
       this.ingredients = data;
     });
   }
@@ -148,11 +149,11 @@ export class RecipeService {
     });
   }
 
-  getRecipeById(id: number) : Recipe {
+  getRecipeById(id: number): Recipe {
     for (let r of this.recipes) {
-        if (r.recepieID == id) {
-          return r;
-        }
+      if (r.recepieID == id) {
+        return r;
+      }
     }
     // TODO hibakezelés
   }

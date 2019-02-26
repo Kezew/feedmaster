@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from "@angular/core";
+import { OnInit, Output, Component } from "@angular/core";
 
 import { Recipe } from "src/app/interfaces/recipe";
 import { RecipeService } from "../services/recipe.service";
@@ -10,8 +10,10 @@ import { RecipeService } from "../services/recipe.service";
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
+  filteredRecipes: Recipe[];
   @Output() currentRecipe: Recipe;
-  recipeList: string[];
+  searchRecipe: string;
+  searchReferencePerson: string;
 
   constructor(private recipeService: RecipeService) {
     this.recipes = [
@@ -52,21 +54,28 @@ export class RecipesComponent implements OnInit {
     ];
 
     this.currentRecipe = this.recipes[0];
+
+    this.searchRecipe = "";
+    this.searchReferencePerson = "";
   }
 
   ngOnInit() {
     // this.recipeService.loadIngredients();
-    this.updateRecipeList();
+    this.filteredRecipes = this.recipes.slice(0);
   }
 
   setCurrentRecipe(recipe): void {
     this.currentRecipe = recipe;
   }
 
-  updateRecipeList(): void {
-    this.recipeList = new Array();
-    this.recipes.forEach(e => {
-      this.recipeList.push(e.recepieName);
+  filterRecipes(): void {
+    let srecipe = this.searchRecipe.toLowerCase();
+    let sref = this.searchReferencePerson.toLowerCase();
+    this.filteredRecipes = this.recipes.filter(r => {
+      return (
+        r.recepieName.toLowerCase().indexOf(srecipe) > -1 &&
+        r.referencePerson.toLowerCase().indexOf(sref) > -1
+      );
     });
   }
 }

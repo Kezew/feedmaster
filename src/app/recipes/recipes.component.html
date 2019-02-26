@@ -4,18 +4,22 @@
   <div class="row">
     <div id="recipe-selector" class="col d-flex">
       <div id="filter-bar">
-        <label for="recipe-filter">Keresés</label>
-        <input id="recipe-filter" type="text" placeholder="Recept név">
-        <input id="reference-filter" type=" text" placeholder="Referencia csoport">
+        <div>Keresés</div>
+        <div id="recipe-filter">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Recept név" [(ngModel)]="searchRecipe" (keyup)="filterRecipes()">
+        </div>
+        <div id="reference-filter">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Referencia csoport" [(ngModel)]="searchReferencePerson" (keyup)="filterRecipes()">
+        </div>
       </div>
       <div id="recipe-list">
         <ul name="recipes" id="recipe-select">
-          <li *ngFor="let recipe of recipes" (click)="setCurrentRecipe(recipe)">{{ recipe.recepieName }}</li>
+          <li *ngFor="let recipe of filteredRecipes" (click)="setCurrentRecipe(recipe)">{{ recipe.recepieName }}</li>
         </ul>
       </div>
     </div>
-    <!-- <div id="recipe-view" class="col">recipeview -->
     <app-recipe-card id="recipe-card" [recipe]="currentRecipe"></app-recipe-card>
-    <!-- </div> -->
   </div>
 </div>
