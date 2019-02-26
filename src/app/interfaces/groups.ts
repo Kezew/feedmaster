@@ -1,4 +1,5 @@
 import { AgeGroup } from '../enums/agegroup.enum';
+import { Nutrition } from '../enums/nutrition.enum';
 
 export interface SubGroup {
   id?: number;
@@ -28,4 +29,23 @@ export interface Group {
   name: string;
   subGroups: SubGroup[];
   isOpen?: boolean;
+}
+
+export interface maxValue {
+    type: Nutrition;
+    value: number;
+}
+
+
+export interface SubGroupDisplay {
+    name: string;
+    numberOfPersons: number;
+    allergens: string[];
+    maxValues: maxValue[];
+    agegroup: AgeGroup;
+}
+
+export interface GroupDisplay {
+    name: string;
+    subGroups: SubGroupDisplay[];
 }
