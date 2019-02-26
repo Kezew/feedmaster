@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-delete-modal.component';
 import { SubgroupDeleteModalComponent } from './groups/subgroup-delete-modal/subgroup-delete-modal.component';
 import { SubgroupInfoModalComponent } from './groups/subgroup-info-modal/subgroup-info-modal.component';
+import { RecipeNamePipe } from './pipes/recipe-name.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SubgroupInfoModalComponent } from './groups/subgroup-info-modal/subgrou
     PageNotFoundComponent,
     GroupDeleteModalComponent,
     SubgroupDeleteModalComponent,
-    SubgroupInfoModalComponent
+    SubgroupInfoModalComponent,
+    RecipeNamePipe
   ],
   imports: [
     BrowserModule,
