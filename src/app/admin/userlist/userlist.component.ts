@@ -21,10 +21,10 @@ export class UserlistComponent implements OnInit {
   */
 
   users: User[];
-  isUsersEmpty: boolean;
+
 
   constructor(private userlistService : UserlistService) {
-      this.isUsersEmpty = false;
+
       this.users = [
           {
               name: 'Teszt Elek',
@@ -46,16 +46,15 @@ export class UserlistComponent implements OnInit {
           },
 
       ];
-      this.users = [];
+      // this.users = [];
 
    }
 
   ngOnInit() {
       this.userlistService.getUsers().then( users => {
-          // itt kellene megvizsgálnom, hogy üres-e a users tömb???
-          // ennek alapján isUsersEmpty állítani, vagy nem
+          // ha üres a tömb akkor az a HTML-ben már le van kezelve
           this.users = users;
-          
+          // TODO hivatkozás azokra ami nekem kell !!!
       } );
   }
 
