@@ -13,6 +13,10 @@ export class LoginService {
     return data;
   }
 
+  logoutUser(): Promise<void> {
+    return this.httpService.post('/logout', {});
+  }
+
   loginUser(data: User): Promise<void> {
     return this.httpService.postFormData('/login', data);
   }
