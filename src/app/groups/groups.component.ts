@@ -18,9 +18,9 @@ export class GroupsComponent implements OnInit {
   groups: Group[];
 
   constructor(
-      private GroupService: GroupService,
-      private router: Router,
-      private modalService: NgbModal
+    private groupService: GroupService,
+    private router: Router,
+    private modalService: NgbModal
   ) {
 
     this.groups = [{
@@ -40,7 +40,7 @@ export class GroupsComponent implements OnInit {
         allergens: ["glutén"]
       }],
       isOpen: false
-    },{
+    }, {
       id: 2,
       name: 'Pillangó csoport',
       subGroups: [{
@@ -58,11 +58,13 @@ export class GroupsComponent implements OnInit {
       }],
       isOpen: false
     }];
+
   }
 
   ngOnInit() {
     // this.GroupService.getGroups().then(data => {
     //   this.groups = data;
+    //   this.groupService.groups = data;
     // })
   }
 
@@ -82,12 +84,12 @@ export class GroupsComponent implements OnInit {
     return sum;
   }
 
-  openInfoModal(){
-      this.modalService.open(SubgroupInfoModalComponent).result.then();
+  openInfoModal() {
+    this.modalService.open(SubgroupInfoModalComponent).result.then();
   }
 
-  deleteGroup(){
-      this.modalService.open(GroupDeleteModalComponent).result.then();
+  deleteGroup() {
+    this.modalService.open(GroupDeleteModalComponent).result.then();
   }
 
 }
