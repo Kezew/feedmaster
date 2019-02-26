@@ -62,3 +62,9 @@ h1 {
 .szendo {
   background-image: $szendoLogo;
 }
+
+app-logout-modal {
+  .modal-header {
+    background: pink;
+  }
+}
