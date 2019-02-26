@@ -10,6 +10,7 @@
   width: 50%;
   height: 85vh;
   padding: 0;
+  border-right: 1px solid lightgray;
 }
 
 #filter-bar {
@@ -29,13 +30,32 @@ label {
   color: lightgray;
 }
 
+#filter-bar>* {
+  position: relative;
+  flex-grow: 2;
+  justify-content: space-between;
+}
+
+#filter-bar>div:first-child {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 24px;
+  color: lightgray;
+}
+
+#filter-bar i {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  color: #44585a8c;
+}
+
 #filter-bar input {
   font-size: 24px;
-  flex-grow: 1;
-  width: 100%;
+  text-indent: 28px;
+  width: 90%;
   border: transparent;
   border-bottom: 1px solid lightgray;
-  margin-left: 10px;
 }
 
 #recipe-list {
