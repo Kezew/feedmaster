@@ -17,22 +17,24 @@
 <div class="container body">
 
 
-    <div class="form-group row">
-      <label for="groupname" class="col-sm-2 col-form-label">Csoport neve</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="groupname" placeholder="csoportnév">
-      </div>
-      <div class="addbuttons add col-sm-2 text-right">
-        <button class="btn btn-outline-warning add-subgroup">Alcsoport hozzáadása</button>
-      </div>
+  <div class="form-group row">
+    <label for="groupname" class="col-sm-2 col-form-label">Csoport neve</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="groupname" placeholder="csoportnév">
     </div>
+    <div class="addbuttons add col-sm-2 text-right">
+      <button class="btn btn-outline-warning add-subgroup">Alcsoport hozzáadása</button>
+    </div>
+  </div>
 
-    <hr>
+  <hr>
 
 
-    <div class="row">
+  <div class="row justify-content-between">
 
-      <div class="subgroup col-md-6">
+    <div class="subgroup col-md-6">
+
+      <div class="subgroup-box">
 
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Alcsoport neve</label>
@@ -40,9 +42,9 @@
             <input type="text" class="form-control" placeholder="alcsoportnév">
           </div>
           <div class="col-sm-2 text-right">
-              <button class="btn btn-outline-danger delete-btn" (click)="deleteSubgroup()">
-                  <i class="fas fa-times"></i>
-              </button>
+            <button class="btn btn-danger delete-btn" (click)="deleteSubgroup()">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
 
         </div>
@@ -90,9 +92,9 @@
             </select>
           </div>
           <div class="col-sm-2 text-right">
-              <button class="btn btn-outline-secondary delete-btn x-btn">
-                  <i class="fas fa-times"></i>
-              </button>
+            <button class="btn btn-outline-secondary delete-btn x-btn">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
         </div>
 
@@ -122,9 +124,9 @@
             <input type="text" class="form-control">
           </div>
           <div class="col-sm-2 text-right">
-              <button class="btn btn-outline-secondary delete-btn x-btn">
-                  <i class="fas fa-times"></i>
-              </button>
+            <button class="btn btn-outline-secondary delete-btn x-btn">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
         </div>
 
@@ -135,8 +137,9 @@
         </div>
 
       </div>
-
     </div>
+
+  </div>
 
 
 </div>
