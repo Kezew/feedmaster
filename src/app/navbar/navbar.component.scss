@@ -46,16 +46,13 @@ nav {
     .fas {
         color: $logocolor;
         background-color: $modalbackground;
-        border: 1px solid $logocolor;
-        border-radius: 50%;
-        margin-left: 15px;
+        padding: 10px 0; 
     }
-
-    .fas:hover{
+    .fas:hover{     
+       color: black;
         background-color: $logocolor;
-        color: black;
     }
-
+   
     .navbar-toggler{
         background-color: $logocolor;
     }

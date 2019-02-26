@@ -1,7 +1,7 @@
 <div class="full d-flex justify-content-center">
   <div class="container">
     <div class="row justify-content-center login-box">
-      <form class="col-md-6 py-5 border border-dark login">
+      <div class="col-md-6 py-5 border border-dark login">
         <div class="icon-box mb-3">
           <img src="assets/logo_notext.png" alt="logo">
         </div>
@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
-            <div class="info-box">
+            <div class="info-box d-flex justify-content-between">
               <div class="form-group">
                 <label for="exampleInputEmail" class="email">Email cím:</label>
                 <p>{{user.email}}</p>
@@ -26,6 +26,11 @@
             </div>
             -->
             <div class="form-group p-1">
+              <label for="exampleInputUserName">Új felhasználó név:</label>
+              <input type="text" class="form-control" id="exampleInputUserName" placeholder="makkmarci"
+                [(ngModel)]="user.name2">
+            </div>
+            <div class="form-group p-1">
               <label for="exampleInputPassword">Jelszó:</label>
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Jelszó1234"
                 [(ngModel)]="user.password">
@@ -35,12 +40,15 @@
               <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Jelszó1234"
                 [(ngModel)]="user.password2">
             </div>
+            <div *ngIf="isLoginInvalid">
+              <p class="passwordError text-center"><span class="p-1">Nem egyezik a két jelszó!</span></p>
+            </div>
             <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-success">Regisztrálok</button>
+              <button type="submit" class="btn btn-success" (click)="registration()">Regisztrálok</button>
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

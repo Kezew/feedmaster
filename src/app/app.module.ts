@@ -3,6 +3,7 @@ import { HttpClientModule, HttpParams } from '@angular/common/http';
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -30,6 +31,7 @@ import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-del
 import { SubgroupDeleteModalComponent } from './groups/subgroup-delete-modal/subgroup-delete-modal.component';
 import { SubgroupInfoModalComponent } from './groups/subgroup-info-modal/subgroup-info-modal.component';
 import { RecipeNamePipe } from './pipes/recipe-name.pipe';
+import { LogoutModalComponent } from './navbar/logout-modal/logout-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,20 +59,23 @@ import { RecipeNamePipe } from './pipes/recipe-name.pipe';
     GroupDeleteModalComponent,
     SubgroupDeleteModalComponent,
     SubgroupInfoModalComponent,
-    RecipeNamePipe
+    RecipeNamePipe,
+    LogoutModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    NgSelectModule,
     FormsModule,
     ChartModule,
   ],
   entryComponents: [
       GroupDeleteModalComponent,
       SubgroupDeleteModalComponent,
-      SubgroupInfoModalComponent
+      SubgroupInfoModalComponent,
+      LogoutModalComponent,
   ],
 
   providers: [],

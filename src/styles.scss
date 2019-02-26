@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
+@import "~@ng-select/ng-select/themes/default.theme.css";
 @import '~bootstrap/scss/bootstrap';
 
 $fa-font-path: 'assets/webfonts';
@@ -60,4 +61,27 @@ h1 {
 
 .szendo {
   background-image: $szendoLogo;
+}
+
+app-logout-modal {
+  .modal-header {
+    background: $modalbackground;
+    color: $grey;
+    font-weight: bold;
+  }
+
+  .close{
+    color: white;
+  }
+
+  .back{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: $logocolor;
+    border: 1px solid $logocolor;
+  }
+
+  .back:hover{
+    color: black;
+    background-color: $logocolor;
+  }
 }

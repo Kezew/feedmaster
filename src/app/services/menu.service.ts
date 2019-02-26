@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Menu } from '../interfaces/menu';
+import { Menufromserver } from '../interfaces/menufromserver';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -9,11 +9,11 @@ export class MenuService {
 
   constructor(private httpService : HttpService) { }
 
-  getMenus() : Promise<Menu[]> {
-    return new Promise((resolve, reject) => {
-      this.httpService.get('menus').then( data => {
+  getMenus() : Promise<Menufromserver[]> {
+    return new Promise<Menufromserver[]>((resolve, reject) => {
+      this.httpService.get('menusofuser').then( data => {
         resolve(data);
-      } );
+      }).catch(reject);
     });
   }
 }

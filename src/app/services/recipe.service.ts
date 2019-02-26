@@ -85,8 +85,8 @@ export class RecipeService {
     ];
     this.recipes = [
       {
-        recepieID: 1,
-        recepieName: "Random Recept 0",
+        recepieID: 5,
+        recepieName: "Random Recept 000",
         referencePerson: "Reference person 0",
         ingredients: [
           {
@@ -110,8 +110,8 @@ export class RecipeService {
         userOwned: "Admin"
       },
       {
-        recepieID: 2,
-        recepieName: "Random Recept 1",
+        recepieID: 8,
+        recepieName: "Random Recept 111",
         referencePerson: "Reference person 1",
         ingredients: [
           {
@@ -133,11 +133,12 @@ export class RecipeService {
         ],
         lastModified: "2019-02-22T10:02:49",
         userOwned: "Admin"
-      }];
+      }
+    ];
   }
 
   loadIngredients(): void {
-    this.httpService.get("ingredients").then(data => {
+    this.httpService.get("/ingredients").then(data => {
       this.ingredients = data;
     });
   }
@@ -148,11 +149,11 @@ export class RecipeService {
     });
   }
 
-  getRecipeById(id: number) : Recipe {
+  getRecipeById(id: number): Recipe {
     for (let r of this.recipes) {
-        if (r.recepieID == id) {
-          return r;
-        }
+      if (r.recepieID == id) {
+        return r;
+      }
     }
     // TODO hibakezelés
   }
