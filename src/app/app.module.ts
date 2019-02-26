@@ -3,6 +3,7 @@ import { HttpClientModule, HttpParams } from '@angular/common/http';
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -64,6 +65,7 @@ import { RecipeNamePipe } from './pipes/recipe-name.pipe';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    NgSelectModule,
     FormsModule,
     ChartModule,
   ],
