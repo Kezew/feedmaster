@@ -11,6 +11,7 @@ import { RecipeService } from "../services/recipe.service";
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
   @Output() currentRecipe: Recipe;
+  recipeList: string[];
 
   constructor(private recipeService: RecipeService) {
     this.recipes = [
@@ -55,9 +56,17 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit() {
     // this.recipeService.loadIngredients();
+    this.updateRecipeList();
   }
 
   setCurrentRecipe(recipe): void {
     this.currentRecipe = recipe;
+  }
+
+  updateRecipeList(): void {
+    this.recipeList = new Array();
+    this.recipes.forEach(e => {
+      this.recipeList.push(e.recepieName);
+    });
   }
 }

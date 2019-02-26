@@ -84,9 +84,20 @@ export class RecipeCardComponent implements OnInit, OnChanges {
     this.recipeClone = JSON.parse(JSON.stringify(this.recipe));
   }
 
-  deleteIngredient(id: number): void {
-    this.recipeClone.ingredients.find(e => {
-      return e.ingredientId === id;
+  addIngredient(): void {
+    this.recipeClone.ingredients.push({
+      ingredientId: null,
+      ingredientQuantity: null
     });
+  }
+
+  deleteIngredient(id: number): void {
+    let idx: number;
+    this.recipeClone.ingredients.forEach((e, i) => {
+      if (e.ingredientId === id) {
+        idx = i;
+      }
+    });
+    this.recipeClone.ingredients.splice(idx, 1);
   }
 }
