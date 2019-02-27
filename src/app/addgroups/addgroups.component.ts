@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Group, GroupDisplay, SubGroupDisplay } from '../interfaces/groups';
 import { GroupService } from '../services/group.service';
 import { AgeGroup } from '../enums/agegroup.enum';
-import { SubgroupDeleteModalComponent } from '../groups/subgroup-delete-modal/subgroup-delete-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Nutrition } from '../enums/nutrition.enum';
 
@@ -43,9 +42,8 @@ export class AddgroupsComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteSubgroup() {
-    this.modalService.open(SubgroupDeleteModalComponent).result.then();
-    //TODO
+  deleteSubgroup(i: number): void {
+    this.groupDisplay.subGroups.splice(i, 1);
   }
 
   addSubgroup(): void {
