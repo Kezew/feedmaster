@@ -6,6 +6,8 @@
 nav {
     background-color: $modalbackground;
     font-family: 'Open Sans Condensed', sans-serif;
+    box-shadow: 5px 5px 10px grey;
+
 
     .logo img {
         width: 70px;
@@ -55,7 +57,7 @@ nav {
 
     .logout-btn {
         border: none;
-        
+
         &:hover, &:focus, &:active {
             border: none;
         }
