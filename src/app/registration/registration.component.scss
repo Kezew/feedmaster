@@ -48,6 +48,11 @@ $grey : #C7C6C6;
 
     .info-box{
         border-bottom: 1px solid $grey;
+        margin-bottom: 1rem;
+
+        .form-group {
+            margin-bottom: 0;
+        }
     }
 
     .email, .name{

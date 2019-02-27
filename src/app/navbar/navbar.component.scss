@@ -27,6 +27,7 @@ nav {
         padding: 0 20px;
         border: 1px $logocolor solid;
         background-color: $modalbackground;
+        color: $logocolor;
         
         a {
             color: $grey;
@@ -37,6 +38,7 @@ nav {
     button:hover{
         background-color: $logocolor;
         border: 1px black solid;
+        color: $modalbackground;
 
         a{
             color: black;
@@ -44,16 +46,18 @@ nav {
     }
 
     .fas {
-        color: $logocolor;
-        background-color: $modalbackground;
         padding: 10px 0; 
-    }
-    .fas:hover{     
-       color: black;
-        background-color: $logocolor;
     }
    
     .navbar-toggler{
         background-color: $logocolor;
+    }
+
+    .logout-btn {
+        border: none;
+        
+        &:hover, &:focus, &:active {
+            border: none;
+        }
     }
 }
