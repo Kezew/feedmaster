@@ -1,16 +1,14 @@
-
-  <app-navbar></app-navbar>
-  <div class="hero">
-    <div class="container mt-5 mb-5 pt-3 pb-3">
-      <img src="~/assets/orange_wider_background.png" alt="">
-      <div class="text">
-        <h1>Étlapok</h1>
-      </div>
+<app-navbar></app-navbar>
+<div class="hero">
+  <div class="container mt-5 mb-5 pt-3 pb-3">
+    <div class="text">
+      <h1>Étlapok</h1>
     </div>
   </div>
+</div>
 
 
-
+<div class="small-bg">
   <div class="container mt-5 mb-3">
     <div class="row justify-content-between">
       <div class="col-6">
@@ -23,20 +21,21 @@
       </div>
     </div>
   </div>
-  <hr>
-  <div class="container-fluid mt-4">
-    <div class="row justify-content-center">
-      <div class="card-deck">
+</div>
+<div class="card-container">
+  <div class="container mt-4 justify-content-center">
+    <div class="card-deck">
 
-        <div class="col-auto mb-3" *ngFor="let menu of menus">
-          <div class="card clickable-card" [routerLink]="['/menus/view', menu.id]">
+      <div class="col-auto mt-5 container" *ngFor="let menu of menus">
+        <div class="card clickable-card" [routerLink]="['/menus/view', menu.menuId]">
+          <div class="card-bg">
             <div class="card-body">
-              <h5 class="card-title">{{menu.name}}</h5>
+              <h5 class="card-title">{{menu.menuName}} étlap</h5>
               <hr>
-              <p class="card-text">Menü leírása</p>
-            </div>
-            <div class="bg-logo">
-              <img src="~/assets/logo_notext.png" alt="">
+              <p class="card-text">Átlagos napi energiamennyiség: </p>
+              <p class="card-text-input">{{menu.averageKcalPerDay}} Kcal</p>
+              <div class="bg-logo">
+              </div>
             </div>
           </div>
         </div>
@@ -44,3 +43,4 @@
       </div>
     </div>
   </div>
+</div>

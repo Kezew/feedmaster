@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Kijelentkezés</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>Biztosan ki szeretne lépni?</p>
+</div>
+<div class="modal-footer d-flex justify-content-between">
+  <div class="logo">
+    <img src="assets/logo_withtext.png" width="50" height="50" class="d-inline-block align-top" alt="LTF logo">
+  </div>
+  <div class="buttons">
+    <button type="button" class="btn back m-1" (click)="activeModal.dismiss()">Mégse</button>
+    <button type="button" class="btn btn-danger m-1" (click)="activeModal.close()">Kilépés</button>
+  </div>
+</div>

@@ -13,9 +13,13 @@ export class AdduserService {
 
 
   addUser(user: User) : Promise < object > {
+      // itt csomagoljuk át olyan formátumra ami a szervernek megfelelő formátum
+      // Minta input: {“username”:”Kiss János”,“email”:”teszt@gmail.com”,
+      // ”roles”:”FEEDING_MANAGER”}
       let postData = {
           userName : user.name,
-          
+          emailAddress: user.email,
+          roles: user.authority
       };
     return this.httpService.post( this.endPoint, postData );
 

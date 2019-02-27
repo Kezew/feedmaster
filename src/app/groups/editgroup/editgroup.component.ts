@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Group, GroupDisplay, SubGroupDisplay } from 'src/app/interfaces/groups';
+import { Group, GroupDisplay, SubGroupDisplay, MaxValue } from 'src/app/interfaces/groups';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GroupDeleteModalComponent } from '../group-delete-modal/group-delete-modal.component';
 import { SubgroupDeleteModalComponent } from '../subgroup-delete-modal/subgroup-delete-modal.component';
@@ -18,6 +18,9 @@ export class EditgroupComponent implements OnInit {
   isHeaderEditMode: boolean;
   group: Group;
   groupDisplay: GroupDisplay;
+  allergenEnum: any[];
+  nutritionEnum: any[];
+  ageEnum: any[];
 
 
   constructor(
@@ -26,38 +29,15 @@ export class EditgroupComponent implements OnInit {
     private groupService: GroupService
   ) {
     this.isHeaderEditMode = false;
-
-    this.groupDisplay = {
-      name: "micimackó",
-      subGroups: []
-    }
+    this.allergenEnum = this.groupService.getAllergenArray();
+    this.nutritionEnum = this.groupService.getNutritionArray();
+    this.ageEnum = this.groupService.getAgeGroupArray();
   }
 
   ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.group = this.groupService.getGroupById(id);
-    this.groupDisplay = this.convertGroupToGroupDisplay(this.group);
-
-  }
-
-  convertGroupToGroupDisplay(g: Group): GroupDisplay {
-    let gd: GroupDisplay;
-    gd.name = g.name;
-    gd.subGroups = [];
-
-    //TODO subgroup [] átalakítás!!!
-
-    return gd;
-  }
-
-  convertGroupDisplayToGroup(gd: GroupDisplay): Group {
-    let g: Group;
-    g.name = gd.name;
-    g.subGroups = [];
-
-    //TODO subgroup [] átalakítás!!!
-
-    return g;
+    this.groupDisplay = this.groupService.convertGroupToGroupDisplay(this.group);
   }
 
   editHeader() {
@@ -70,10 +50,12 @@ export class EditgroupComponent implements OnInit {
 
   deleteGroup() {
     this.modalService.open(GroupDeleteModalComponent).result.then();
+    //TODO
   }
 
   deleteSubgroup() {
     this.modalService.open(SubgroupDeleteModalComponent).result.then();
+    //TODO
   }
 
   addSubgroup(): void {
@@ -92,11 +74,19 @@ export class EditgroupComponent implements OnInit {
     sg.allergens.push("");
   }
 
+  deleteAllergen(sg: SubGroupDisplay, i: number) {
+    sg.allergens.splice(i, 1);
+  }
+
   addNutrition(sg: SubGroupDisplay): void {
     sg.maxValues.push({
       type: Nutrition.maxDailyEnergyKJ,
       value: 0
     })
+  }
+
+  deleteNutrition(sg: SubGroupDisplay, i: number) {
+    sg.maxValues.splice(i, 1);
   }
 
 }

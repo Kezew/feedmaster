@@ -13,9 +13,7 @@ h1 {
 .bg-logo {
     background-image: url(~/assets/logo_notext.png);
     background-repeat: no-repeat;
-    opacity: 0.6;
     margin-left: 85%;
-    margin-bottom: 5px;
     background-size: contain;
 }
 
@@ -28,9 +26,10 @@ h1 {
 }
 
 .card-title{
-    color: $logocolor;
+    color: $lettercolor;
     z-index: 1;
-
+    text-align: center;
+    font-weight: bold;
 }
 
 .add-recipe-button:focus {
@@ -38,7 +37,6 @@ h1 {
     z-index: 1;
 
 }
-
 
 
 .hero {
@@ -63,6 +61,31 @@ h1 {
     color: white !important;
 }
 
+.card-text-input {
+    text-align: center;     
+    font-weight: bold;
+}
+
+.card-bg {
+    background-image: url(~/assets/terito.png);
+    background-size: cover;
+    position: static;
+    overflow: auto;
+    background-repeat: no-repeat;
+}
+
+.card-body {
+    background-color: rgba(255, 254, 254, 0.801);
+}
+
+.small-bg {
+    overflow: auto;
+    background-repeat: no-repeat;
+}
+
+.card-container {
+    background-color: rgba(161, 155, 155, 0.13);
+}
 
 
 

@@ -62,3 +62,26 @@ h1 {
 .szendo {
   background-image: $szendoLogo;
 }
+
+app-logout-modal {
+  .modal-header {
+    background: $modalbackground;
+    color: $grey;
+    font-weight: bold;
+  }
+
+  .close{
+    color: white;
+  }
+
+  .back{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: $logocolor;
+    border: 1px solid $logocolor;
+  }
+
+  .back:hover{
+    color: black;
+    background-color: $logocolor;
+  }
+}

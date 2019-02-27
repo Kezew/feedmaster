@@ -31,6 +31,7 @@ import { GroupDeleteModalComponent } from './groups/group-delete-modal/group-del
 import { SubgroupDeleteModalComponent } from './groups/subgroup-delete-modal/subgroup-delete-modal.component';
 import { SubgroupInfoModalComponent } from './groups/subgroup-info-modal/subgroup-info-modal.component';
 import { RecipeNamePipe } from './pipes/recipe-name.pipe';
+import { LogoutModalComponent } from './navbar/logout-modal/logout-modal.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { RecipeNamePipe } from './pipes/recipe-name.pipe';
     GroupDeleteModalComponent,
     SubgroupDeleteModalComponent,
     SubgroupInfoModalComponent,
-    RecipeNamePipe
+    RecipeNamePipe,
+    LogoutModalComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { RecipeNamePipe } from './pipes/recipe-name.pipe';
   entryComponents: [
       GroupDeleteModalComponent,
       SubgroupDeleteModalComponent,
-      SubgroupInfoModalComponent
+      SubgroupInfoModalComponent,
+      LogoutModalComponent,
   ],
 
   providers: [],
