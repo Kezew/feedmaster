@@ -148,8 +148,21 @@ export class RecipeService {
     // TODO hibakezelés
   }
 
-  calculateNutrition(id: number): NutritionData {
-    let r = this.getRecipeById(id);
+  setRecipe(newRecipe: Recipe) {
+    console.log(this.recipes);
+    // let oldRecipe = this.getRecipeById(newRecipe.recepieID);
+    // oldRecipe = newRecipe;
+    let idx = -1;
+    this.recipes.forEach((e, i) => {
+      if (e.recepieID === newRecipe.recepieID) {
+        idx = i;
+      }
+    });
+    this.recipes[idx] = newRecipe;
+    console.log(this.recipes);
+  }
+
+  calculateNutrition(recipe: Recipe): NutritionData {
     let data: NutritionData;
     data = {
       fat: 0,
@@ -160,27 +173,32 @@ export class RecipeService {
       kcal: 0
     };
 
-    r.ingredients.forEach(e => {
-      data.fat =
+    recipe.ingredients.forEach(e => {
+      data.fat +=
         this.getIngredientById(e.ingredientId).fat *
         (e.ingredientQuantity / 100);
-      data.saturatedFat =
+      data.saturatedFat +=
         this.getIngredientById(e.ingredientId).saturatedFat *
         (e.ingredientQuantity / 100);
-      data.protein =
+      data.protein +=
         this.getIngredientById(e.ingredientId).protein *
         (e.ingredientQuantity / 100);
-      data.carbs =
+      data.carbs +=
         this.getIngredientById(e.ingredientId).carbohydrate *
         (e.ingredientQuantity / 100);
-      data.sugar =
+      data.sugar +=
         this.getIngredientById(e.ingredientId).sugar *
         (e.ingredientQuantity / 100);
-      data.kcal =
+      data.kcal +=
         this.getIngredientById(e.ingredientId).energyKcal *
         (e.ingredientQuantity / 100);
     });
 
     return data;
+  }
+
+  calculateNutritionById(id: number): NutritionData {
+    const r = this.getRecipeById(id);
+    return this.calculateNutrition(r);
   }
 }

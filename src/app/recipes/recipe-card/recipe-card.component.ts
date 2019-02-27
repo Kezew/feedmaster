@@ -5,7 +5,8 @@ import {
   Input,
   SimpleChanges,
   Output,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  EventEmitter
 } from "@angular/core";
 import { Recipe, Ingredient, NutritionData } from "src/app/interfaces/recipe";
 import { RecipeService } from "src/app/services/recipe.service";
@@ -21,27 +22,31 @@ export class RecipeCardComponent implements OnInit, OnChanges {
   editMode: boolean;
   recipeClone: Recipe;
   ingredients: Ingredient[];
+  @Output() recipeSaved: EventEmitter<void>;
 
   constructor(private recipeService: RecipeService) {
     this.resetData();
+    this.recipeSaved = new EventEmitter();
   }
 
   ngOnInit() {
-    this.recipeService.calculateNutrition(this.recipe.recepieID);
     this.ingredients = this.recipeService.ingredients;
-    this.data = this.recipeService.calculateNutrition(this.recipe.recepieID);
+    this.calculateNutrition();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
 
   calculateNutrition() {
-    let r: Recipe;
+    this.resetData();
     if (this.editMode) {
-      r = this.recipeClone;
+      this.data = this.recipeService.calculateNutrition(this.recipeClone);
     } else {
-      r = this.recipe;
+      this.data = this.recipeService.calculateNutritionById(
+        this.recipe.recepieID
+      );
     }
-    this.data = this.recipeService.calculateNutrition(r.recepieID);
   }
 
   toggleEditMode(): void {
@@ -49,6 +54,7 @@ export class RecipeCardComponent implements OnInit, OnChanges {
     if (this.editMode) {
       this.cloneRecipe();
     }
+    this.calculateNutrition();
   }
 
   getIngredient(id): Ingredient {
@@ -70,6 +76,12 @@ export class RecipeCardComponent implements OnInit, OnChanges {
       }
     });
     this.recipeClone.ingredients.splice(idx, 1);
+  }
+
+  saveRecipe() {
+    this.recipeService.setRecipe(this.recipeClone);
+    this.toggleEditMode();
+    this.recipeSaved.emit();
   }
 
   private resetData(): void {

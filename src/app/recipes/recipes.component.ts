@@ -27,6 +27,10 @@ export class RecipesComponent implements OnInit {
     this.currentRecipe = this.recipes[0];
   }
 
+  refreshList(): void {
+    console.log("triggered!");
+  }
+
   setCurrentRecipe(recipe): void {
     this.currentRecipe = recipe;
   }
