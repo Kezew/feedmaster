@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from '../interfaces/groups';
-import { AgeGroup } from '../enums/agegroup.enum';
-import { Router } from '@angular/router';
 import { GroupService } from '../services/group.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GroupDeleteModalComponent } from './group-delete-modal/group-delete-modal.component';
@@ -19,66 +17,29 @@ export class GroupsComponent implements OnInit {
 
   constructor(
     private groupService: GroupService,
-    private router: Router,
     private modalService: NgbModal
   ) {
 
-    this.groups = [{
-      id: 1,
-      name: 'Mókuska csoport',
-      subGroups: [{
-        id: 1,
-        name: 'normál',
-        numberOfPersons: 10,
-        agegroup: AgeGroup.ONE_TO_THREE,
-        allergens: []
-      }, {
-        id: 2,
-        name: "gluténérzékenyek",
-        numberOfPersons: 2,
-        agegroup: AgeGroup.ONE_TO_THREE,
-        allergens: ["glutén"]
-      }],
-      isOpen: false
-    }, {
-      id: 2,
-      name: 'Pillangó csoport',
-      subGroups: [{
-        id: 1,
-        name: 'normál',
-        numberOfPersons: 8,
-        agegroup: AgeGroup.ONE_TO_THREE,
-        allergens: []
-      }, {
-        id: 2,
-        name: "laktózérzékenyek",
-        numberOfPersons: 3,
-        agegroup: AgeGroup.ONE_TO_THREE,
-        allergens: ["laktóz"]
-      }],
-      isOpen: false
-    }];
+    this.groups = [];
 
   }
 
   ngOnInit() {
-    // this.GroupService.getGroups().then(data => {
-    //   this.groups = data;
-    //   this.groupService.groups = data;
-    // })
-
-    this.groupService.groups = this.groups;
+    this.groupService.getGroups().then(data => {
+      this.groups = data;
+      this.groupService.groups = data;
+    });
   }
 
-  openSubGroups(g: Group) {
+  openSubGroups(g: Group): void {
     g.isOpen = true;
   }
 
-  closeSubGroups(g: Group) {
+  closeSubGroups(g: Group): void {
     g.isOpen = false;
   }
 
-  countTotalNumberOfPersons(g: Group) {
+  countTotalNumberOfPersons(g: Group): number {
     let sum = 0;
     g.subGroups.forEach(sg => {
       sum += sg.numberOfPersons;
@@ -86,11 +47,11 @@ export class GroupsComponent implements OnInit {
     return sum;
   }
 
-  openInfoModal() {
+  openInfoModal(): void {
     this.modalService.open(SubgroupInfoModalComponent).result.then();
   }
 
-  deleteGroup() {
+  deleteGroup(): void {
     this.modalService.open(GroupDeleteModalComponent).result.then();
   }
 

@@ -5,7 +5,7 @@ import { GroupDeleteModalComponent } from '../group-delete-modal/group-delete-mo
 import { SubgroupDeleteModalComponent } from '../subgroup-delete-modal/subgroup-delete-modal.component';
 import { AgeGroup } from 'src/app/enums/agegroup.enum';
 import { Nutrition } from 'src/app/enums/nutrition.enum';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GroupService } from 'src/app/services/group.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class EditgroupComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private route: ActivatedRoute,
+    private router: Router,
     private groupService: GroupService
   ) {
     this.isHeaderEditMode = false;
@@ -36,24 +37,31 @@ export class EditgroupComponent implements OnInit {
 
   ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.group = this.groupService.getGroupById(id);
-    this.groupDisplay = this.groupService.convertGroupToGroupDisplay(this.group);
+    try {
+      this.group = this.groupService.getGroupById(id);
+      this.groupDisplay = this.groupService.convertGroupToGroupDisplay(this.group);
+      setInterval(() => {
+        console.log(this.groupDisplay.subGroups[0].allergens);
+      }, 2000);
+    } catch (e) {
+      this.router.navigate(['/groups']);
+    }
   }
 
-  editHeader() {
+  editHeader(): void {
     this.isHeaderEditMode = true;
   }
 
-  saveHeader() {
+  saveHeader(): void {
     this.isHeaderEditMode = false;
   }
 
-  deleteGroup() {
+  deleteGroup(): void {
     this.modalService.open(GroupDeleteModalComponent).result.then();
     //TODO
   }
 
-  deleteSubgroup() {
+  deleteSubgroup(): void {
     this.modalService.open(SubgroupDeleteModalComponent).result.then();
     //TODO
   }
@@ -74,7 +82,7 @@ export class EditgroupComponent implements OnInit {
     sg.allergens.push("");
   }
 
-  deleteAllergen(sg: SubGroupDisplay, i: number) {
+  deleteAllergen(sg: SubGroupDisplay, i: number): void {
     sg.allergens.splice(i, 1);
   }
 
@@ -85,8 +93,12 @@ export class EditgroupComponent implements OnInit {
     })
   }
 
-  deleteNutrition(sg: SubGroupDisplay, i: number) {
+  deleteNutrition(sg: SubGroupDisplay, i: number): void {
     sg.maxValues.splice(i, 1);
+  }
+
+  trackFn(index: number): number {
+    return index;
   }
 
 }

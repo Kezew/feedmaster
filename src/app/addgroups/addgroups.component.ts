@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Group, GroupDisplay, SubGroupDisplay } from '../interfaces/groups';
 import { GroupService } from '../services/group.service';
 import { AgeGroup } from '../enums/agegroup.enum';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Nutrition } from '../enums/nutrition.enum';
 
 @Component({
@@ -18,7 +17,7 @@ export class AddgroupsComponent implements OnInit {
   nutritionEnum: any[];
   ageEnum: any[];
 
-  constructor(private modalService: NgbModal, private groupService: GroupService) {
+  constructor(private groupService: GroupService) {
     let sg: SubGroupDisplay;
     sg = {
       name: "",
@@ -62,7 +61,7 @@ export class AddgroupsComponent implements OnInit {
     sg.allergens.push("");
   }
 
-  deleteAllergen(sg: SubGroupDisplay, i: number) {
+  deleteAllergen(sg: SubGroupDisplay, i: number): void {
     sg.allergens.splice(i, 1);
   }
 
@@ -73,8 +72,12 @@ export class AddgroupsComponent implements OnInit {
     })
   }
 
-  deleteNutrition(sg: SubGroupDisplay, i: number) {
+  deleteNutrition(sg: SubGroupDisplay, i: number): void {
     sg.maxValues.splice(i, 1);
+  }
+
+  trackFn(index: number): number {
+    return index;
   }
 
 }
