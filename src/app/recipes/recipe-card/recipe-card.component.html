@@ -91,9 +91,11 @@
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">
-        <div *ngFor="let ingredient of recipeClone.ingredients" class="ingredient-item edit row">
-          <input class="col-6" type="text" [(ngModel)]="getIngredient(ingredient.ingredientId).ingredientName" (input)="calculateNutrition()">
-          <input class="col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition()">
+        <div *ngFor="let ingredient of recipeClone.ingredients; let i = index;" class="ingredient-item edit row">
+          <!-- <input class="col-6" type="text" [(ngModel)]="getIngredient(ingredient.ingredientId).ingredientName" (input)="calculateNutrition()"> -->
+          <ng-select class="col-6" [clearable]="false" [(ngModel)]="recipeClone.ingredients[i].ingredientId" bindLabel="ingredientName"
+            bindValue="ingredientId" [items]="ingredients"></ng-select>
+          <input class=" col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition(recipeClone.recepieID)">
           <button class="col-2 delete-button" (click)="deleteIngredient(ingredient.ingredientId)"><i class="fas fa-minus-circle"></i></button>
         </div>
         <div class="ingredient-item add-row row"><button id="add-ingredient-button" (click)="addIngredient()"><i class="fas fa-plus-circle"></i></button></div>

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { HttpService } from "./http.service";
-import { Ingredient, Recipe } from "../interfaces/recipe";
+import { Ingredient, Recipe, NutritionData } from "../interfaces/recipe";
 
 @Injectable({
   providedIn: "root"
@@ -85,53 +85,37 @@ export class RecipeService {
     ];
     this.recipes = [
       {
-        recepieID: 5,
-        recepieName: "Random Recept 000",
-        referencePerson: "Reference person 0",
+        recepieID: 1,
+        recepieName: "Boros sör",
+        referencePerson: "Alkeszok 1",
         ingredients: [
           {
-            ingredientId: 106,
-            ingredientQuantity: 102.2037286264005
+            ingredientId: 1,
+            ingredientQuantity: 300
           },
           {
-            ingredientId: 74,
-            ingredientQuantity: 6.161488987427121
-          },
-          {
-            ingredientId: 171,
-            ingredientQuantity: 102.85632158540491
-          },
-          {
-            ingredientId: 8,
-            ingredientQuantity: 58.99043482690451
+            ingredientId: 2,
+            ingredientQuantity: 100
           }
         ],
-        lastModified: "2019-02-22T10:02:49",
+        lastModified: "2019-02-22T12:04:42",
         userOwned: "Admin"
       },
       {
-        recepieID: 8,
-        recepieName: "Random Recept 111",
-        referencePerson: "Reference person 1",
+        recepieID: 2,
+        recepieName: "Sörös bor",
+        referencePerson: "Alkeszok 2",
         ingredients: [
           {
-            ingredientId: 68,
-            ingredientQuantity: 122.99772123252772
+            ingredientId: 1,
+            ingredientQuantity: 100
           },
           {
-            ingredientId: 159,
-            ingredientQuantity: 4.2666169886609975
-          },
-          {
-            ingredientId: 177,
-            ingredientQuantity: 140.87370486792022
-          },
-          {
-            ingredientId: 151,
-            ingredientQuantity: 195.6529414670527
+            ingredientId: 2,
+            ingredientQuantity: 300
           }
         ],
-        lastModified: "2019-02-22T10:02:49",
+        lastModified: "2019-02-22T12:04:42",
         userOwned: "Admin"
       }
     ];
@@ -143,6 +127,12 @@ export class RecipeService {
     });
   }
 
+  loadRecipes(): void {
+    this.httpService.get("/recipes").then(data => {
+      this.recipes = data;
+    });
+  }
+
   getIngredientById(id: number): Ingredient {
     return this.ingredients.find(e => {
       return e.ingredientId === id;
@@ -151,10 +141,46 @@ export class RecipeService {
 
   getRecipeById(id: number): Recipe {
     for (let r of this.recipes) {
-      if (r.recepieID == id) {
+      if (r.recepieID === id) {
         return r;
       }
     }
     // TODO hibakezelés
+  }
+
+  calculateNutrition(id: number): NutritionData {
+    let r = this.getRecipeById(id);
+    let data: NutritionData;
+    data = {
+      fat: 0,
+      saturatedFat: 0,
+      protein: 0,
+      carbs: 0,
+      sugar: 0,
+      kcal: 0
+    };
+
+    r.ingredients.forEach(e => {
+      data.fat =
+        this.getIngredientById(e.ingredientId).fat *
+        (e.ingredientQuantity / 100);
+      data.saturatedFat =
+        this.getIngredientById(e.ingredientId).saturatedFat *
+        (e.ingredientQuantity / 100);
+      data.protein =
+        this.getIngredientById(e.ingredientId).protein *
+        (e.ingredientQuantity / 100);
+      data.carbs =
+        this.getIngredientById(e.ingredientId).carbohydrate *
+        (e.ingredientQuantity / 100);
+      data.sugar =
+        this.getIngredientById(e.ingredientId).sugar *
+        (e.ingredientQuantity / 100);
+      data.kcal =
+        this.getIngredientById(e.ingredientId).energyKcal *
+        (e.ingredientQuantity / 100);
+    });
+
+    return data;
   }
 }

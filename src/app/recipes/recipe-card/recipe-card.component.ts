@@ -4,7 +4,8 @@ import {
   OnChanges,
   Input,
   SimpleChanges,
-  Output
+  Output,
+  ChangeDetectionStrategy
 } from "@angular/core";
 import { Recipe, Ingredient, NutritionData } from "src/app/interfaces/recipe";
 import { RecipeService } from "src/app/services/recipe.service";
@@ -19,58 +20,28 @@ export class RecipeCardComponent implements OnInit, OnChanges {
   @Output() data: NutritionData;
   editMode: boolean;
   recipeClone: Recipe;
+  ingredients: Ingredient[];
 
   constructor(private recipeService: RecipeService) {
     this.resetData();
   }
 
   ngOnInit() {
-    this.calculateNutrition();
+    this.recipeService.calculateNutrition(this.recipe.recepieID);
+    this.ingredients = this.recipeService.ingredients;
+    this.data = this.recipeService.calculateNutrition(this.recipe.recepieID);
   }
 
   ngOnChanges(changes: SimpleChanges): void {}
 
-  private resetData(): void {
-    this.data = {
-      fat: 0,
-      saturatedFat: 0,
-      protein: 0,
-      carbs: 0,
-      sugar: 0,
-      kcal: 0
-    };
-  }
-
-  private calculateNutrition(): void {
-    this.resetData();
+  calculateNutrition() {
     let r: Recipe;
     if (this.editMode) {
       r = this.recipeClone;
     } else {
       r = this.recipe;
     }
-    r.ingredients.forEach(e => {
-      this.data.fat +=
-        this.getIngredient(e.ingredientId).fat * (e.ingredientQuantity / 100);
-      this.data.saturatedFat +=
-        this.getIngredient(e.ingredientId).saturatedFat *
-        (e.ingredientQuantity / 100);
-      this.data.protein +=
-        this.getIngredient(e.ingredientId).protein *
-        (e.ingredientQuantity / 100);
-      this.data.carbs +=
-        this.getIngredient(e.ingredientId).carbohydrate *
-        (e.ingredientQuantity / 100);
-      this.data.sugar +=
-        this.getIngredient(e.ingredientId).sugar * (e.ingredientQuantity / 100);
-      this.data.kcal +=
-        this.getIngredient(e.ingredientId).energyKcal *
-        (e.ingredientQuantity / 100);
-    });
-  }
-
-  getIngredient(id): Ingredient {
-    return this.recipeService.getIngredientById(id);
+    this.data = this.recipeService.calculateNutrition(r.recepieID);
   }
 
   toggleEditMode(): void {
@@ -80,8 +51,8 @@ export class RecipeCardComponent implements OnInit, OnChanges {
     }
   }
 
-  cloneRecipe(): void {
-    this.recipeClone = JSON.parse(JSON.stringify(this.recipe));
+  getIngredient(id): Ingredient {
+    return this.recipeService.getIngredientById(id);
   }
 
   addIngredient(): void {
@@ -99,5 +70,20 @@ export class RecipeCardComponent implements OnInit, OnChanges {
       }
     });
     this.recipeClone.ingredients.splice(idx, 1);
+  }
+
+  private resetData(): void {
+    this.data = {
+      fat: 0,
+      saturatedFat: 0,
+      protein: 0,
+      carbs: 0,
+      sugar: 0,
+      kcal: 0
+    };
+  }
+
+  private cloneRecipe(): void {
+    this.recipeClone = JSON.parse(JSON.stringify(this.recipe));
   }
 }
