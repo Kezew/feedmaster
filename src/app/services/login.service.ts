@@ -7,17 +7,55 @@ import { HttpService } from './http.service';
 })
 export class LoginService {
 
-  constructor(private httpService: HttpService) { }
+  loggedInRoles : string[];
 
-  private userReg(data: any): User {
-    return data;
+  constructor(private httpService: HttpService) {
+    this.loggedInRoles = null;
   }
 
+  getLoggedInRoles(): Promise<string[]> {
+    return new Promise((resolve, reject) => {
+      if (this.loggedInRoles !== null) {
+        resolve(this.loggedInRoles);
+      } else {
+        this.httpService.get('/checkroles').then( roles => {
+          this.loggedInRoles = roles;
+          resolve(roles);
+        } ).catch( () => {
+          this.loggedInRoles = [];
+          resolve(this.loggedInRoles);
+        });
+      }
+    });
+  }
+  setLoggedInRoles(rs : string[]) : void {
+    this.loggedInRoles = rs;
+  }
+  clearLoggedInRoles() : void {
+    this.loggedInRoles = [];
+  }
+  hasRole(r: string): Promise<boolean> {
+    return new Promise( resolve => {
+      this.getLoggedInRoles().then(currentRoles => {
+        resolve( currentRoles.indexOf(r) != -1 );
+      });
+    } );
+  }
+  hasAnyRole(): Promise<boolean> {
+    return new Promise( resolve => {
+      this.getLoggedInRoles().then(currentRoles => {
+        resolve( currentRoles.length > 0 );
+      });
+    } );
+  }
+
+  //LOGOUT
   logoutUser(): Promise<void> {
     return this.httpService.post('/logout', {});
   }
 
-  loginUser(data: User): Promise<void> {
+  //LOGIN
+  loginUser(data: User): Promise<string[]> {
     return this.httpService.postFormData('/login', data);
   }
   
@@ -30,6 +68,7 @@ export class LoginService {
     });
   }
 
+  //REGISTRATION
   registerUser(user: User) : Promise<void> {
     let postData = {
       emailAddress : user.email,

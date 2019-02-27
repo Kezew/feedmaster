@@ -12,12 +12,17 @@ import { LoginService } from '../services/login.service';
 export class NavbarComponent implements OnInit {
 
   navbarOpen: boolean = false;
+  isAdmin$: Promise<boolean>;
+  isLoggedIn$: Promise<boolean>;
 
   constructor(
     private modalService: NgbModal,
     private loginService: LoginService,
     private router: Router
-  ) { }
+  ) {
+    this.isAdmin$ = this.loginService.hasRole('ADMIN');
+    this.isLoggedIn$ = this.loginService.hasAnyRole();
+  }
 
   ngOnInit() {
   }
@@ -30,6 +35,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.modalService.open(LogoutModalComponent).result.then( () => {
       this.loginService.logoutUser().then(() => {
+        this.loginService.clearLoggedInRoles();
         this.router.navigate(['/login']);
       });
     } );

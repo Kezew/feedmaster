@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
     this.checkEmail();
     this.checkPassword();
     if(! this.isEmailInvalid && ! this.isPasswordInvalid){
-      this.loginService.loginUser(this.user).then(()=>{
+      this.loginService.loginUser(this.user).then( roles =>{
+        this.loginService.setLoggedInRoles(roles);
         this.router.navigate(['/dashboard']);
       }).catch(() => {
         this.isLoginInvalid = true;
@@ -49,6 +50,6 @@ export class LoginComponent implements OnInit {
    
   checkPassword() : void {
     this.isPasswordInvalid = (this.user.password === '');
-    }
+  }
 
 }

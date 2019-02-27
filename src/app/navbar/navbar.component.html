@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
       <img src="assets/logo_withtext.png" width="50" height="50" class="d-inline-block align-top" alt="LTF logo">
     </a>
     <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
@@ -10,6 +10,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': navbarOpen}">
       <ul class="navbar-nav ml-lg-auto">
+        <li class="nav-item active m-1" *ngIf="isAdmin$ | async">
+          <button class="btn btn-success"><a class="nav-link" routerLink="/userlist">Felhasználók</a></button>
+        </li>
         <li class="nav-item active m-1">
           <button class="btn btn-success"><a class="nav-link" routerLink="/recipes">Ételek</a></button>
         </li>
@@ -19,7 +22,12 @@
         <li class="nav-item active m-1">
           <button class="btn btn-success"><a class="nav-link" routerLink="/menus">Étlapok</a></button>
         </li>
-       <li class="d-flex align-items-center"><button class="btn logout-btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i></button></li>
+        <li class="d-flex align-items-center" *ngIf="isLoggedIn$">
+        <button class="btn logout-btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i></button>
+        </li>
+        <li class="d-flex align-items-center" *ngIf="! isLoggedIn$">
+          <button class="btn logout-btn" routerLink="/login"><i class="fas fa-sign-in-alt"></i></button>
+        </li>
       </ul>
     </div>
   </div>

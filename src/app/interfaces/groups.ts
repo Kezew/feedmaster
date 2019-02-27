@@ -6,7 +6,9 @@ export interface SubGroup {
 
   name: string;
   numberOfPersons: number;
+
   allergens: string[];
+
   agegroup: AgeGroup;
 
   maxDailyEnergyKJ?: number;
