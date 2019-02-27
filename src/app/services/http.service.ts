@@ -5,9 +5,10 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
-  readonly SERVER_URL = "http://localhost:5000";
+  // readonly SERVER_URL = "http://localhost:5000";
 
   readonly SERVER_URL = "https://mysterious-journey-60687.herokuapp.com";
+
   constructor(private http: HttpClient) {}
 
   get(url: string): Promise<any> {
