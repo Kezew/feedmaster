@@ -11,7 +11,7 @@ export class MenuService {
 
   getMenus() : Promise<Menufromserver[]> {
     return new Promise<Menufromserver[]>((resolve, reject) => {
-      this.httpService.get('menusofuser').then( data => {
+      this.httpService.get('/menusofuser').then( data => {
         resolve(data);
       }).catch(reject);
     });
