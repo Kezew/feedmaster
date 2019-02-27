@@ -27,7 +27,7 @@
     <div class="card-deck">
 
       <div class="col-auto mt-5 container" *ngFor="let menu of menus">
-        <div class="card clickable-card" [routerLink]="['/menus/view', menu.id]">
+        <div class="card clickable-card" [routerLink]="['/menus/view', menu.menuId]">
           <div class="card-bg">
             <div class="card-body">
               <h5 class="card-title">{{menu.menuName}} étlap</h5>
