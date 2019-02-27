@@ -16,11 +16,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipesComponent } from "./recipes/recipes.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { RegistrationComponent } from './registration/registration.component';
+import { AdminAuthGuard } from './auth/admin-auth.guard';
 
 const routes: Routes = [
-  { path: "", component: DashboardComponent },
-  { path: "userlist", component: UserlistComponent },
-  { path: "userlist/adduser", component: AdduserComponent },
+  { path: "", component: DashboardComponent, pathMatch: 'full' },
+  { path: "userlist", component: UserlistComponent, canActivate: [AdminAuthGuard] },
+  { path: "userlist/adduser", component: AdduserComponent, canActivate: [AdminAuthGuard] },
   { path: "groups", component: GroupsComponent },
   { path: "groups/editgroup/:id", component: EditgroupComponent },
   { path: "groups/add", component: AddgroupsComponent },
