@@ -7,7 +7,7 @@
         <div>Keresés</div>
         <div id="recipe-filter">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Recept név" [(ngModel)]="searchRecipe" (keyup)="filterRecipes()">
+          <input type="text" placeholder="Név" [(ngModel)]="searchRecipe" (keyup)="filterRecipes()">
         </div>
         <div id="reference-filter">
           <i class="fas fa-search"></i>
@@ -15,11 +15,13 @@
         </div>
       </div>
       <div id="recipe-list">
+        <div id="title-bar"><span class="mr-auto">Ételek</span><button (click)="newRecipe()"><i class="fas fa-plus-circle"></i>Új
+            étel</button></div>
         <ul name="recipes" id="recipe-select">
           <li *ngFor="let recipe of filteredRecipes" (click)="setCurrentRecipe(recipe)">{{ recipe.recepieName }}</li>
         </ul>
       </div>
     </div>
-    <app-recipe-card id="recipe-card" [recipe]="currentRecipe"></app-recipe-card>
+    <app-recipe-card *ngIf="isDataLoaded" id="recipe-card" class="col" [recipe]="currentRecipe" (recipeSaved)="refreshList()"></app-recipe-card>
   </div>
 </div>

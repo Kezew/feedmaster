@@ -1,53 +1,55 @@
 <!-- TODO NAVBAR   ??? ez kell egyáltalán ???? -->
 <app-navbar></app-navbar>
-<div class="full  py-4 d-flex justify-content-center">
-  <div class="main-container">
+<div class="hero">
+  <div class="full py-4 d-flex justify-content-center">
 
-    <div class="container mt-3 mb-3">
-
-      <div class="header row justify-content-center">
-        <h2>Felhasználó hozzáadása</h2>
-        <div>
-        <i class="col-4 fas fa-users-cog"></i>
+    <div class="main-container justify-content-center">
+      <div class="container mt-3 mb-3">
+        <div class="header row justify-content-center">
+          <div class="mt-3">
+            <h2>Felhasználó hozzáadása</h2>
+          </div>
         </div>
+
+
+        <div class="row success-add justify-content-center" *ngIf="isSuccessAdd">sikeres hozzáadás</div>
+        <div class="row error-add justify-content-center" *ngIf="isErrorAdd">sikertelen hozzáadás</div>
+      </div>
+      <hr>
+
+      <div class="container input-fields">
+        <div class="form-group name-group">
+          <label for="inputName">Név</label>
+          <input type="name" class="form-control" id="inputName" [ngClass]="{'is-invalid' : isNameInvalid }"
+            [(ngModel)]="user.name" (blur)="checkName()" placeholder="név">
+          <!--  [ngClass]="{'is-invalid' : isNameInvalid }" [(ngModel)]="user.name" (blur)="checkName()" -->
+          <div class="invalid-feedback">Kérlek, add meg a neved!</div>
+        </div>
+        <div class="form-group email-group">
+          <label for="inputEmail">E-mail cím</label>
+          <input type="email" class="form-control" id="inputEmail" [ngClass]="{ 'is-invalid' : errors.email }"
+            [(ngModel)]="user.email" (blur)="checkEmail()" placeholder="emailcimed@gmail.com">
+          <!--  [ngClass]="{ 'is-invalid' : errors.email }" id="inputEmail" [(ngModel)]="user.email" (blur)="checkEmail()" -->
+          <div class="invalid-feedback" *ngIf="errors.emailEmpty">Adj meg email címet</div>
+          <div class="invalid-feedback" *ngIf="errors.emailInvalid">Nem megfelő email</div>
+        </div>
+        <!-- TODO  -->
+        <div class="form-group authority-group">
+          <label for="inputAuthority">Jogosultság</label>
+          <select class="custom-select my-1 mr-sm-2" id="inputAuthority" [(ngModel)]="user.authority">
+            <!--  [(ngModel)]="user.authority" -->
+            <option *ngFor="let a of authorities" [value]="a">{{a}}</option> <!--   -->
+
+          </select>
+        </div>
+        <div class="btn-container d-flex justify-content-center justify-content-between">
+          <a class="btn btn-back btn-outline-light" routerLink="/userlist">Vissza a listára</a>
+          <button type="button" class="btn btn-success add-button" (click)="add()">Hozzáadás</button>
+
+        </div>
+
       </div>
 
-
-      <div class="row success-add justify-content-center" *ngIf="isSuccessAdd">sikeres hozzáadás</div>
-      <div class="row error-add justify-content-center" *ngIf="isErrorAdd">sikertelen hozzáadás</div>
     </div>
-    <hr>
-
-    <div class="container input-fields">
-      <div class="form-group name-group">
-        <label for="inputName">Név</label>
-        <input type="name" class="form-control" id="inputName" [ngClass]="{'is-invalid' : isNameInvalid }" [(ngModel)]="user.name" (blur)="checkName()" placeholder="név">
-        <!--  [ngClass]="{'is-invalid' : isNameInvalid }" [(ngModel)]="user.name" (blur)="checkName()" -->
-        <div class="invalid-feedback">Kérlek, add meg a neved!</div>
-      </div>
-      <div class="form-group email-group">
-        <label for="inputEmail">E-mail cím</label>
-        <input type="email" class="form-control" id="inputEmail" [ngClass]="{ 'is-invalid' : errors.email }" [(ngModel)]="user.email" (blur)="checkEmail()" placeholder="emailcimed@gmail.com">
-        <!--  [ngClass]="{ 'is-invalid' : errors.email }" id="inputEmail" [(ngModel)]="user.email" (blur)="checkEmail()" -->
-        <div class="invalid-feedback" *ngIf="errors.emailEmpty">Adj meg email címet</div>
-        <div class="invalid-feedback" *ngIf="errors.emailInvalid">Nem megfelő email</div>
-      </div>
-      <!-- TODO  -->
-      <div class="form-group authority-group">
-        <label for="inputAuthority">Jogosultság</label>
-        <select class="custom-select my-1 mr-sm-2" id="inputAuthority" [(ngModel)]="user.authority">
-          <!--  [(ngModel)]="user.authority" -->
-          <option *ngFor="let a of authorities" [value]="a">{{a}}</option> <!--   -->
-
-        </select>
-      </div>
-      <div class="btn-container d-flex justify-content-center justify-content-between">
-        <a class="btn btn-back btn-outline-primary" routerLink="/userlist">Vissza a listára</a>
-        <button type="button" class="btn btn-success add-button" (click)="add()">Hozzáadás</button>
-
-      </div>
-
-    </div>
-
   </div>
 </div>

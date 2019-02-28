@@ -3,9 +3,16 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
-.full {
-  background-size: cover;
+
+.hero {
   background-image: url("~/assets/login-bg.png");
+  background-size: contain;
+  height: 100vh;
+  position: static;
+  overflow: auto;
+}
+
+.full {
   letter-spacing: 0.5px;
 }
 
@@ -26,7 +33,6 @@
 }
 
 .main-container {
-  font-family: 'Open Sans Condensed', sans-serif;
   color: #C7C6C6;
   background-color: $modalbackground;
   color: $grey;
@@ -58,6 +64,7 @@
 .fas {
     //color: LawnGreen;
     color: $logocolor;
+    size: contain;
 }
 
 .invalid-feedback {

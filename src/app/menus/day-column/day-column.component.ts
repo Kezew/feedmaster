@@ -156,7 +156,6 @@ export class DayColumnComponent implements OnInit {
           this.dayNutrition.carbs += currentNutritionData.carbs;
           this.dayNutrition.sugar += currentNutritionData.sugar;
           this.dayNutrition.kcal += currentNutritionData.kcal;
-
         }
       )
     };
