@@ -20,6 +20,7 @@ export class EditgroupComponent implements OnInit {
   groupDisplay: GroupDisplay;
   allergenEnum: any[];
   nutritionEnum: any[];
+  nutritionDisplayEnum: any[];
   ageEnum: any[];
 
 
@@ -32,6 +33,7 @@ export class EditgroupComponent implements OnInit {
     this.isHeaderEditMode = false;
     this.allergenEnum = this.groupService.getAllergenArray();
     this.nutritionEnum = this.groupService.getNutritionArray();
+    this.nutritionDisplayEnum = this.groupService.getNutritionDisplayArray();
     this.ageEnum = this.groupService.getAgeGroupArray();
   }
 
@@ -40,7 +42,6 @@ export class EditgroupComponent implements OnInit {
     try {
       this.group = this.groupService.getGroupById(id);
       this.groupDisplay = this.groupService.convertGroupToGroupDisplay(this.group);
-      
     } catch (e) {
       this.router.navigate(['/groups']);
     }
