@@ -15,7 +15,11 @@ export class RegistrationComponent implements OnInit {
   token: string;
   isLoginInvalid: boolean;
 
-  constructor(public route: ActivatedRoute, private loginService: LoginService, private router: Router) {
+  constructor(
+    public route: ActivatedRoute,
+    private loginService: LoginService,
+    private router: Router) {
+      
     this.token = this.route.snapshot.paramMap.get('token');
     this.user = {
       email: 'hajduzita88@gmail.com',
@@ -28,7 +32,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.getUserFromToken( this.token ).then(user => {
+    this.loginService.getUserFromToken(this.token).then(user => {
       this.user = user;
     });
   }

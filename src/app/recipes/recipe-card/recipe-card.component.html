@@ -95,7 +95,7 @@
           <!-- <input class="col-6" type="text" [(ngModel)]="getIngredient(ingredient.ingredientId).ingredientName" (input)="calculateNutrition()"> -->
           <ng-select class="col-6" [clearable]="false" [(ngModel)]="recipeClone.ingredients[i].ingredientId" bindLabel="ingredientName"
             bindValue="ingredientId" [items]="ingredients"></ng-select>
-          <input class=" col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition(recipeClone.recepieID)">
+          <input class=" col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition()">
           <button class="col-2 delete-button" (click)="deleteIngredient(ingredient.ingredientId)"><i class="fas fa-minus-circle"></i></button>
         </div>
         <div class="ingredient-item add-row row"><button id="add-ingredient-button" (click)="addIngredient()"><i class="fas fa-plus-circle"></i></button></div>
@@ -165,7 +165,7 @@
       <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i><input id="reference-person" type="text"
           class="mr-auto" [(ngModel)]="recipeClone.referencePerson"></span>
       <button><i class="fas fa-times" (click)="toggleEditMode()"></i></button>
-      <button><i class="fas fa-check"></i></button>
+      <button><i class="fas fa-check" (click)="saveRecipe()"></i></button>
     </div>
   </div>
 </div>
