@@ -79,7 +79,6 @@
     <div id="bottom-row">
       <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ recipe.referencePerson }}</span>
       <button><i class="fas fa-edit" (click)="toggleEditMode()"></i></button>
-      <button><i class="fas fa-check"></i></button>
     </div>
   </div>
 </div>
@@ -87,7 +86,7 @@
 <!-- edit mode -->
 <div *ngIf="editMode" class="container">
   <div id="card" class="container">
-    <input id="title" type="text" [(ngModel)]="recipeClone.recepieName" focus>
+    <input id="title" type="text" [(ngModel)]="recipeClone.recepieName" autofocus>
     <div id="ingredients">
       <span class="small-title">Hozzávalók</span>
       <div id="ingredient-list" class="container">

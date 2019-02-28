@@ -1,4 +1,11 @@
-import { OnInit, Output, Component } from "@angular/core";
+import {
+  OnInit,
+  Output,
+  Component,
+  OnChanges,
+  SimpleChange,
+  SimpleChanges
+} from "@angular/core";
 
 import { Recipe } from "src/app/interfaces/recipe";
 import { RecipeService } from "../services/recipe.service";
@@ -21,7 +28,8 @@ export class RecipesComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.recipeService.loadIngredients();
+    this.recipeService.loadIngredients();
+    this.recipeService.loadRecipes();
     this.recipes = this.recipeService.recipes;
     this.filteredRecipes = this.recipes.slice(0);
     this.currentRecipe = this.recipes[0];
@@ -29,6 +37,10 @@ export class RecipesComponent implements OnInit {
 
   refreshList(): void {
     console.log("triggered!");
+    this.filteredRecipes = this.recipes;
+    this.currentRecipe = this.recipeService.getRecipeById(
+      this.currentRecipe.recepieID
+    );
   }
 
   setCurrentRecipe(recipe): void {

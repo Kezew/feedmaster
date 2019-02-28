@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
     this.isLoginInvalid = false;
     this.checkEmail();
     this.checkPassword();
-    if(! this.isEmailInvalid && ! this.isPasswordInvalid){
-      this.loginService.loginUser(this.user).then( roles =>{
+    if (!this.isEmailInvalid && !this.isPasswordInvalid) {
+      this.loginService.loginUser(this.user).then(roles => {
         this.loginService.setLoggedInRoles(roles);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['']);
       }).catch(() => {
         this.isLoginInvalid = true;
       });
@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
 
   checkEmail(): void {
     const emailRegEx = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-    this.isEmailInvalid = ! emailRegEx.test(this.user.email);
+    this.isEmailInvalid = !emailRegEx.test(this.user.email);
   }
-   
-  checkPassword() : void {
+
+  checkPassword(): void {
     this.isPasswordInvalid = (this.user.password === '');
   }
 
