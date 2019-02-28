@@ -42,13 +42,14 @@ export class AddgroupsComponent implements OnInit {
   ngOnInit() {
   }
 
-  addGroup(){
+  addGroup() {
 
-      this.groupService.postGroup(this.group).then(()=>{
-          this.router.navigate(['/groups']);
-      });
+    this.group = this.groupService.convertGroupDisplayToGroup(this.groupDisplay);
+    this.groupService.postGroup(this.group).then(() => {
+      this.router.navigate(['/groups']);
+    });
 
-      //TODO adatellenőrzés
+    //TODO adatellenőrzés
   }
 
   deleteSubgroup(i: number): void {
@@ -79,7 +80,7 @@ export class AddgroupsComponent implements OnInit {
     sg.maxValues.push({
       type: Nutrition.maxDailyEnergyKJ,
       value: 0
-  });
+    });
   }
 
   deleteNutrition(sg: SubGroupDisplay, i: number): void {

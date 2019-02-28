@@ -292,11 +292,49 @@ export class GroupService {
   }
 
   convertGroupDisplayToGroup(gd: GroupDisplay): Group {
-    let g: Group;
-    g.name = gd.name;
-    g.subGroups = [];
-
-    //TODO subgroup [] átalakítás!!!
+    let g: Group = {
+      name: gd.name,
+      subGroups: []
+    }
+    for (let i = 0; i < gd.subGroups.length; i++) {
+      let sgDisplay: SubGroupDisplay = gd.subGroups[i];
+      let sg: SubGroup = {
+        name: sgDisplay.name,
+        numberOfPersons: sgDisplay.numberOfPersons,
+        allergens: sgDisplay.allergens,
+        agegroup: sgDisplay.agegroup
+      }
+      for (let j = 0; j < sgDisplay.maxValues.length; j++) {
+        let maxV: MaxValue = sgDisplay.maxValues[j];
+        if (maxV.type === Nutrition.maxDailyEnergyKJ) {
+          sg.maxDailyEnergyKJ = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyEnergyKcal) {
+          sg.maxDailyEnergyKcal = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyProtein) {
+          sg.maxDailyProtein = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyFat) {
+          sg.maxDailyFat = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailySaturatedFat) {
+          sg.maxDailySaturatedFat = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyCarbohydrate) {
+          sg.maxDailyCarbohydrate = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailySugar) {
+          sg.maxDailySugar = maxV.value;
+        } else if (maxV.type === Nutrition.maxGlycemicIndexPerMeal) {
+          sg.maxGlycemIndexPerMeal = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyFibre) {
+          sg.maxDailyFibre = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyNatrium) {
+          sg.maxDailyNatrium = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyPotassium) {
+          sg.maxDailyPotassium = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyCalcium) {
+          sg.maxDailyCalcium = maxV.value;
+        } else if (maxV.type === Nutrition.maxDailyMagnesium) {
+          sg.maxDailyMagnesium = maxV.value;
+        }
+      }
+    }
 
     return g;
   }
