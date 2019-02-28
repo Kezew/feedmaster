@@ -35,6 +35,7 @@ export class HttpService {
   }
 
   put(data:any, url?: string):Promise<any>{
+    console.log(data);
     return this.http.put(this.SERVER_URL + url, data, {withCredentials: true}).toPromise();
   }
 }

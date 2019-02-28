@@ -39,7 +39,8 @@ export class MenuService {
     });
   }
 
-  changeMenu(menu: Menu): Promise<any>{
+  changeMenu(menuCard: Menu): Promise<any>{
+    let menu = JSON.parse(JSON.stringify(menuCard));
     let days:string[] = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
     let serverData = {
       menuId: null,
@@ -63,6 +64,6 @@ export class MenuService {
       serverData.weekDays[days[index]] = menuItem;
     });
 
-    return this.httpService.put(serverData);
+    return this.httpService.put(serverData, '/updatemenu');
   }
 }
