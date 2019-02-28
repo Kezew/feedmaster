@@ -69,7 +69,7 @@ export class AddgroupsComponent implements OnInit {
     sg.maxValues.push({
       type: Nutrition.maxDailyEnergyKJ,
       value: 0
-    })
+  });
   }
 
   deleteNutrition(sg: SubGroupDisplay, i: number): void {

@@ -24,29 +24,29 @@ export class UserlistComponent implements OnInit {
 
 
   constructor(private userlistService : UserlistService) {
-
-      this.users = [
-          {
-              name: 'Teszt Elek',
-              email: 'tesztelek@gmail.com',
-              password: '',
-              authority: ['ADMIN'],
-          },
-          {
-              name: 'Tank Aranka',
-              email: 'tankaranka@gmail.com',
-              password: '',
-              authority: ['FEEDING_MANAGER'],
-          },
-          {
-              name: 'Fá Zoltán',
-              email: 'fazoltan@gmail.com',
-              password: '',
-              authority: ['NUTRITIONIST'],
-          },
-
-      ];
-      // this.users = [];
+      // TODO del fix data
+      // this.users = [
+      //     {
+      //         name: 'Teszt Elek',
+      //         email: 'tesztelek@gmail.com',
+      //         password: '',
+      //         authority: ['ADMIN'],
+      //     },
+      //     {
+      //         name: 'Tank Aranka',
+      //         email: 'tankaranka@gmail.com',
+      //         password: '',
+      //         authority: ['FEEDING_MANAGER'],
+      //     },
+      //     {
+      //         name: 'Fá Zoltán',
+      //         email: 'fazoltan@gmail.com',
+      //         password: '',
+      //         authority: ['NUTRITIONIST'],
+      //     },
+      //
+      // ];
+      this.users = [];
 
    }
 
@@ -54,7 +54,7 @@ export class UserlistComponent implements OnInit {
       this.userlistService.getUsers().then( users => {
           // ha üres a tömb akkor az a HTML-ben már le van kezelve
           this.users = users;
-          // 
+          //
           // TODO hivatkozás azokra ami nekem kell !!!
       } );
   }
