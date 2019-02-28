@@ -27,13 +27,13 @@ export class AddmenuComponent implements OnInit {
   }
 
   addDayColumn() {
-    this.menuData.items.push({
+    this.cloneMenu.items.push({
       dayNumber: this.menuData.items.length + 1,
-      breakfast: [],
-      lunch: [],
-      dinner: [],
-      snack: [],
-      ellevenses: []
+      breakfastRecipeIDs: [],
+      lunchRecipeIDs: [],
+      dinnerSnackRecipeIDs: [],
+      afternoonSnackRecipeIDs: [],
+      forenoonSnackRecipeIDs: []
     });
   }
 
@@ -61,11 +61,11 @@ export class AddmenuComponent implements OnInit {
         this.menuData.name = 'Próba étlap';
         this.menuData.items.push({
           dayNumber: this.menuData.items.length + 1,
-          breakfast: [5, 8],
-          lunch: [8, 5],
-          dinner: [],
-          snack: [],
-          ellevenses: []
+          breakfastRecipeIDs: [1,2],
+          lunchRecipeIDs: [],
+          dinnerSnackRecipeIDs: [],
+          afternoonSnackRecipeIDs: [],
+          forenoonSnackRecipeIDs: []
         });
 
     }
@@ -75,7 +75,7 @@ export class AddmenuComponent implements OnInit {
     if(mode == Mode.edit){
       this.cloneMenu = JSON.parse(JSON.stringify(this.menuData));
     } else if(mode == Mode.view){
-      this.menuData = this.cloneMenu;
+      
     }
     this.mode = Mode[mode];
 

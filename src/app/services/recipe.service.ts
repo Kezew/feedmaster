@@ -117,8 +117,82 @@ export class RecipeService {
         ],
         lastModified: "2019-02-22T12:04:42",
         userOwned: "Admin"
-      }
-    ];
+      },
+      {
+        recepieID: 9,
+        recepieName: "Random Recept 222",
+        referencePerson: "Reference person 1",
+        ingredients: [
+          {
+            ingredientId: 68,
+            ingredientQuantity: 122.99772123252772
+          },
+          {
+            ingredientId: 159,
+            ingredientQuantity: 4.2666169886609975
+          },
+          {
+            ingredientId: 177,
+            ingredientQuantity: 140.87370486792022
+          },
+          {
+            ingredientId: 151,
+            ingredientQuantity: 195.6529414670527
+          }
+        ],
+        lastModified: "2019-02-22T10:02:49",
+        userOwned: "Admin"
+      },
+      {
+        recepieID: 7,
+        recepieName: "Random Recept 333",
+        referencePerson: "Reference person 1",
+        ingredients: [
+          {
+            ingredientId: 68,
+            ingredientQuantity: 122.99772123252772
+          },
+          {
+            ingredientId: 159,
+            ingredientQuantity: 4.2666169886609975
+          },
+          {
+            ingredientId: 177,
+            ingredientQuantity: 140.87370486792022
+          },
+          {
+            ingredientId: 151,
+            ingredientQuantity: 195.6529414670527
+          }
+        ],
+        lastModified: "2019-02-22T10:02:49",
+        userOwned: "Admin"
+      },
+      {
+        recepieID: 6,
+        recepieName: "Random Recept 444",
+        referencePerson: "Reference person 1",
+        ingredients: [
+          {
+            ingredientId: 68,
+            ingredientQuantity: 122.99772123252772
+          },
+          {
+            ingredientId: 159,
+            ingredientQuantity: 4.2666169886609975
+          },
+          {
+            ingredientId: 177,
+            ingredientQuantity: 140.87370486792022
+          },
+          {
+            ingredientId: 151,
+            ingredientQuantity: 195.6529414670527
+          }
+        ],
+        lastModified: "2019-02-22T10:02:49",
+        userOwned: "Admin"
+      }];
   }
 
   loadIngredients(): void {
@@ -161,22 +235,22 @@ export class RecipeService {
     };
 
     r.ingredients.forEach(e => {
-      data.fat =
+      data.fat +=
         this.getIngredientById(e.ingredientId).fat *
         (e.ingredientQuantity / 100);
-      data.saturatedFat =
+      data.saturatedFat +=
         this.getIngredientById(e.ingredientId).saturatedFat *
         (e.ingredientQuantity / 100);
-      data.protein =
+      data.protein +=
         this.getIngredientById(e.ingredientId).protein *
         (e.ingredientQuantity / 100);
-      data.carbs =
+      data.carbs +=
         this.getIngredientById(e.ingredientId).carbohydrate *
         (e.ingredientQuantity / 100);
-      data.sugar =
+      data.sugar +=
         this.getIngredientById(e.ingredientId).sugar *
         (e.ingredientQuantity / 100);
-      data.kcal =
+      data.kcal +=
         this.getIngredientById(e.ingredientId).energyKcal *
         (e.ingredientQuantity / 100);
     });
