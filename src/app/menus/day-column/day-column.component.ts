@@ -148,8 +148,8 @@ export class DayColumnComponent implements OnInit {
 
     for (let meal in this.data) {
       if(meal != 'dayNumber'){
-        this.data[meal].forEach((e:number)=>{
-          let currentNutritionData = this.recipeService.calculateNutrition(e);
+        this.data[meal].forEach((e)=>{
+          let currentNutritionData = this.recipeService.calculateNutritionById(e);
           this.dayNutrition.fat += currentNutritionData.fat;
           this.dayNutrition.saturatedFat += currentNutritionData.saturatedFat;
           this.dayNutrition.protein += currentNutritionData.protein;
