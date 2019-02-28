@@ -3,6 +3,7 @@ import { Group, GroupDisplay, SubGroupDisplay } from '../interfaces/groups';
 import { GroupService } from '../services/group.service';
 import { AgeGroup } from '../enums/agegroup.enum';
 import { Nutrition } from '../enums/nutrition.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addgroups',
@@ -17,7 +18,7 @@ export class AddgroupsComponent implements OnInit {
   nutritionEnum: any[];
   ageEnum: any[];
 
-  constructor(private groupService: GroupService) {
+  constructor(private groupService: GroupService, private router: Router) {
     let sg: SubGroupDisplay;
     sg = {
       name: "",
@@ -39,6 +40,15 @@ export class AddgroupsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  addGroup(){
+
+      this.groupService.postGroup(this.group).then(()=>{
+          this.router.navigate(['/groups']);
+      });
+
+      //TODO adatellenőrzés
   }
 
   deleteSubgroup(i: number): void {

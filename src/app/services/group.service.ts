@@ -18,19 +18,24 @@ export class GroupService {
   getGroups(): Promise<Group[]> {
     return new Promise((resolve, reject) => {
       this.httpService.get("/groupsofuser").then(data => {
-        resolve(this.convertGroups(data));
+        resolve(this.getConvert(data));
       });
     });
   }
 
-  postGroup() {
-    //TODO
+  postGroup(group: Group): Promise<object> {
+    let data = [];
+    data = this.postConvert(group);
+    return this.httpService.post("newsubgroup", data);
   }
 
+  putGroup(group: Group): Promise<object> {
 
+    let data = [];
+    return this.httpService.post("updatesubgroup", data);
+  }
 
-
-  private convertGroups(data: any[]): Group[] {
+  private getConvert(data: any[]): Group[] {
     let groups: Group[] = [];
     for (let i = 0; i < data.length; i++) {
 
@@ -91,6 +96,87 @@ export class GroupService {
       }
     }
     return groups;
+  }
+
+  private postConvert(group: Group): any[] {
+    let data: any[] = [];
+
+    for (let i = 0; i < group.subGroups.length; i++) {
+      let sg = group.subGroups[i];
+      let d = {
+        mainGroupId: group.id,
+        groupName: group.name,
+        subGroupId: "",
+        subGroupName: sg.name,
+        ageGroup: sg.agegroup,
+        numberOfPersons: sg.numberOfPersons,
+        maxDailyEnergyKJ: 0,
+        maxDailyEnergyKcal: 0,
+        maxDailyProtein: 0,
+        maxDailyFat: 0,
+        maxDailySaturatedFat: 0,
+        maxDailyCarbohydrate: 0,
+        maxDailySugar: 0,
+        maxGlycemicIndexPerMeal: 0,
+        maxDailyFibre: 0,
+        maxDailyNatrium: 0,
+        maxDailyPotassium: 0,
+        maxDailyCalcium: 0,
+        maxDailyMagnesium: 0,
+        allergens: []
+      }
+
+      if (sg.maxDailyEnergyKJ) {
+        d.maxDailyEnergyKJ = sg.maxDailyEnergyKJ;
+      }
+      if (sg.maxDailyEnergyKcal) {
+        d.maxDailyEnergyKcal = sg.maxDailyEnergyKcal;
+      }
+      if (sg.maxDailyProtein) {
+        d.maxDailyProtein = sg.maxDailyProtein;
+      }
+      if (sg.maxDailyFat) {
+        d.maxDailyFat = sg.maxDailyFat;
+      }
+      if (sg.maxDailySaturatedFat) {
+        d.maxDailySaturatedFat = sg.maxDailySaturatedFat;
+      }
+      if (sg.maxDailyCarbohydrate) {
+        d.maxDailyCarbohydrate = sg.maxDailyCarbohydrate;
+      }
+      if (sg.maxDailySugar) {
+        d.maxDailySugar = sg.maxDailySugar;
+      }
+      if (sg.maxGlycemIndexPerMeal) {
+        d.maxGlycemicIndexPerMeal = sg.maxGlycemIndexPerMeal;
+      }
+      if (sg.maxDailyFibre) {
+        d.maxDailyFibre = sg.maxDailyFibre;
+      }
+      if (sg.maxDailyNatrium) {
+        d.maxDailyNatrium = sg.maxDailyNatrium;
+      }
+      if (sg.maxDailyPotassium) {
+        d.maxDailyPotassium = sg.maxDailyPotassium;
+      }
+      if (sg.maxDailyCalcium) {
+        d.maxDailyCalcium = sg.maxDailyCalcium;
+      }
+      if (sg.maxDailyMagnesium) {
+        d.maxDailyMagnesium = sg.maxDailyMagnesium;
+      }
+
+      for (let j = 0; j < sg.allergens.length; j++) {
+        let a: {} = {
+          allergen: sg.allergens[j]
+        };
+        d.allergens.push(a)
+      }
+
+      data.push(d);
+    }
+
+    return data;
   }
 
   getGroupById(id: number): Group {
