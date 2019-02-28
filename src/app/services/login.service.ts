@@ -80,4 +80,6 @@ export class LoginService {
     return this.httpService.post('/verify-registration', postData);
   }
 
+  
+
 }
