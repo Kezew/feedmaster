@@ -8,8 +8,8 @@ export interface MenuItem {
 }
 
 export interface Menu {
-  name: String;
-  description?: String;
+  name: string;
+  description?: string;
   id?: number;
   items?: MenuItem[];
 }

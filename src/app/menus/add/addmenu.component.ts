@@ -81,6 +81,13 @@ export class AddmenuComponent implements OnInit {
 
     }
     this.mode = Mode[mode];
+  }
+
+  saveMenu(): void{
+    this.menuService.changeMenu(this.cloneMenu).then(() =>{
+      this.menuData = this.cloneMenu;
+      this.setMode(Mode.view);
+    });
 
   }
 }

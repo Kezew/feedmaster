@@ -32,10 +32,37 @@ export class MenuService {
           menu.items[Day[key.toLowerCase()]] = data.weekDays[key];
           menu.items[Day[key.toLowerCase()]].dayNumber = Day[key.toLowerCase()] +1;
         }
-        
+
         resolve(menu);
 
       }).catch(reject);
     });
+  }
+
+  changeMenu(menu: Menu): Promise<any>{
+    let days:string[] = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
+    let serverData = {
+      menuId: null,
+      menuName: '',
+      weekDays: {
+         MONDAY: {},
+         TUESDAY: {},
+         WEDNESDAY: {},
+         THURSDAY: {},
+         FRIDAY: {},
+         SATURDAY: {},
+         SUNDAY: {}
+      },
+      lastModified: '',
+      userOwned: ''
+    };
+    serverData.menuName = menu.name;
+    serverData.menuId = menu.id;
+    menu.items.forEach((menuItem, index)=> {
+      delete menuItem.dayNumber;
+      serverData.weekDays[days[index]] = menuItem;
+    });
+
+    return this.httpService.put(serverData);
   }
 }
