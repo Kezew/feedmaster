@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Group, SubGroup, GroupDisplay, SubGroupDisplay, MaxValue } from '../interfaces/groups';
 import { HttpService } from './http.service';
-import { Nutrition } from '../enums/nutrition.enum';
+import { Nutrition, NutritionDisplay } from '../enums/nutrition.enum';
 import { Allergen } from '../enums/allergen.enum';
 import { AgeGroup } from '../enums/agegroup.enum';
 
@@ -26,13 +26,13 @@ export class GroupService {
   postGroup(group: Group): Promise<object> {
     let data = [];
     data = this.postConvert(group);
-    return this.httpService.post("newsubgroup", data);
+    return this.httpService.post("/newsubgroup", data);
   }
 
   putGroup(group: Group): Promise<object> {
-
     let data = [];
-    return this.httpService.post("updatesubgroup", data);
+    data = this.postConvert(group);
+    return this.httpService.post("/updatesubgroup", data);
   }
 
   private getConvert(data: any[]): Group[] {
@@ -106,7 +106,7 @@ export class GroupService {
       let d = {
         mainGroupId: group.id,
         groupName: group.name,
-        subGroupId: "",
+        subGroupId: sg.id ? sg.id : "",
         subGroupName: sg.name,
         ageGroup: sg.agegroup,
         numberOfPersons: sg.numberOfPersons,
@@ -353,6 +353,15 @@ export class GroupService {
     const nutritionEnum = [];
     for (let enumKey of enumKeys) {
       nutritionEnum.push({ key: enumKey, value: Nutrition[enumKey] });
+    }
+    return nutritionEnum;
+  }
+
+  getNutritionDisplayArray(): any[] {
+    const enumKeys = Object.keys(NutritionDisplay);
+    const nutritionEnum = [];
+    for (let enumKey of enumKeys) {
+      nutritionEnum.push({ key: enumKey, value: NutritionDisplay[enumKey] });
     }
     return nutritionEnum;
   }
