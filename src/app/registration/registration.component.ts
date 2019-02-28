@@ -22,8 +22,8 @@ export class RegistrationComponent implements OnInit {
       
     this.token = this.route.snapshot.paramMap.get('token');
     this.user = {
-      email: 'hajduzita88@gmail.com',
-      name: 'Hajdu Zita',
+      email: '',
+      name: '',
       name2: '',
       password: '',
       password2: ''
@@ -34,6 +34,9 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     this.loginService.getUserFromToken(this.token).then(user => {
       this.user = user;
+    }).catch(() => {
+      // TODO hibatípus ellenőrzése
+      this.router.navigate(['/login']);
     });
   }
 
