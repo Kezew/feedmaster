@@ -10,200 +10,29 @@ export class RecipeService {
   ingredients: Ingredient[];
   recipes: Recipe[];
 
-  constructor(private httpService: HttpService) {
-    this.ingredients = [
-      {
-        ingredientId: 1,
-        rawIngredient: true,
-        ingredientType: "ALCOHOLS",
-        ingredientName: "barnasör",
-        energyKJ: 214,
-        energyKcal: 51,
-        protein: 1,
-        fat: 0,
-        saturatedFat: 0,
-        carbohydrate: 5.9,
-        sugar: 0,
-        glycemicIndex: 7,
-        fibre: 0,
-        natrium: 0.003,
-        potassium: 0.05,
-        calcium: 0.003,
-        magnesium: 0,
-        allergenMilk: false,
-        allergenGluten: false,
-        allergenEgg: false,
-        allergenShellfish: false,
-        allergenFish: false,
-        allergenMolluscs: false,
-        allergenPeanut: false,
-        allergenWalnut: false,
-        allergenSesame: false,
-        allergenSoy: false,
-        allergenCelery: false,
-        allergenMustard: false,
-        allergenSulpithes: true,
-        allergenLupin: false,
-        lastModified: "2019-02-22T12:04:40",
-        lastModifierName: "Admin"
-      },
-      {
-        ingredientId: 2,
-        rawIngredient: true,
-        ingredientType: "ALCOHOLS",
-        ingredientName: "fehérbor",
-        energyKJ: 315,
-        energyKcal: 75,
-        protein: 1.5,
-        fat: 0,
-        saturatedFat: 0,
-        carbohydrate: 3,
-        sugar: 0,
-        glycemicIndex: 3,
-        fibre: 0,
-        natrium: 0.002,
-        potassium: 0.082,
-        calcium: 0.009,
-        magnesium: 0.01,
-        allergenMilk: false,
-        allergenGluten: false,
-        allergenEgg: false,
-        allergenShellfish: false,
-        allergenFish: false,
-        allergenMolluscs: false,
-        allergenPeanut: false,
-        allergenWalnut: false,
-        allergenSesame: false,
-        allergenSoy: false,
-        allergenCelery: false,
-        allergenMustard: false,
-        allergenSulpithes: true,
-        allergenLupin: false,
-        lastModified: "2019-02-22T12:04:40",
-        lastModifierName: "Admin"
-      }
-    ];
-    this.recipes = [
-      {
-        recepieID: 1,
-        recepieName: "Boros sör",
-        referencePerson: "Alkeszok 1",
-        ingredients: [
-          {
-            ingredientId: 1,
-            ingredientQuantity: 300
-          },
-          {
-            ingredientId: 2,
-            ingredientQuantity: 100
-          }
-        ],
-        lastModified: "2019-02-22T12:04:42",
-        userOwned: "Admin"
-      },
-      {
-        recepieID: 2,
-        recepieName: "Sörös bor",
-        referencePerson: "Alkeszok 2",
-        ingredients: [
-          {
-            ingredientId: 1,
-            ingredientQuantity: 100
-          },
-          {
-            ingredientId: 2,
-            ingredientQuantity: 300
-          }
-        ],
-        lastModified: "2019-02-22T12:04:42",
-        userOwned: "Admin"
-      },
-      {
-        recepieID: 9,
-        recepieName: "Random Recept 222",
-        referencePerson: "Reference person 1",
-        ingredients: [
-          {
-            ingredientId: 68,
-            ingredientQuantity: 122.99772123252772
-          },
-          {
-            ingredientId: 159,
-            ingredientQuantity: 4.2666169886609975
-          },
-          {
-            ingredientId: 177,
-            ingredientQuantity: 140.87370486792022
-          },
-          {
-            ingredientId: 151,
-            ingredientQuantity: 195.6529414670527
-          }
-        ],
-        lastModified: "2019-02-22T10:02:49",
-        userOwned: "Admin"
-      },
-      {
-        recepieID: 7,
-        recepieName: "Random Recept 333",
-        referencePerson: "Reference person 1",
-        ingredients: [
-          {
-            ingredientId: 68,
-            ingredientQuantity: 122.99772123252772
-          },
-          {
-            ingredientId: 159,
-            ingredientQuantity: 4.2666169886609975
-          },
-          {
-            ingredientId: 177,
-            ingredientQuantity: 140.87370486792022
-          },
-          {
-            ingredientId: 151,
-            ingredientQuantity: 195.6529414670527
-          }
-        ],
-        lastModified: "2019-02-22T10:02:49",
-        userOwned: "Admin"
-      },
-      {
-        recepieID: 6,
-        recepieName: "Random Recept 444",
-        referencePerson: "Reference person 1",
-        ingredients: [
-          {
-            ingredientId: 68,
-            ingredientQuantity: 122.99772123252772
-          },
-          {
-            ingredientId: 159,
-            ingredientQuantity: 4.2666169886609975
-          },
-          {
-            ingredientId: 177,
-            ingredientQuantity: 140.87370486792022
-          },
-          {
-            ingredientId: 151,
-            ingredientQuantity: 195.6529414670527
-          }
-        ],
-        lastModified: "2019-02-22T10:02:49",
-        userOwned: "Admin"
-      }];
-  }
+  constructor(private httpService: HttpService) {}
 
-  loadIngredients(): void {
-    this.httpService.get("/ingredients").then(data => {
-      this.ingredients = data;
+  loadIngredients(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.httpService
+        .get("/ingredients")
+        .then(data => {
+          this.ingredients = data;
+          resolve();
+        })
+        .catch(reject);
     });
   }
 
-  loadRecipes(): void {
-    this.httpService.get("/recipes").then(data => {
-      this.recipes = data;
+  loadRecipes(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.httpService
+        .get("/recipes")
+        .then(data => {
+          this.recipes = data;
+          resolve();
+        })
+        .catch(reject);
     });
   }
 
