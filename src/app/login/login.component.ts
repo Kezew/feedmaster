@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     if (!this.isEmailInvalid && !this.isPasswordInvalid) {
       this.loginService.loginUser(this.user).then(roles => {
         this.loginService.setLoggedInRoles(roles);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['']);
       }).catch(() => {
         this.isLoginInvalid = true;
       });
