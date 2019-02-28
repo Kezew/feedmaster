@@ -39,4 +39,8 @@ export class HttpService {
       .post(this.SERVER_URL + url, fd, { withCredentials: true })
       .toPromise();
   }
+
+  put(data:any, url?: string):Promise<any>{
+    return this.http.put(this.SERVER_URL + url, data, {withCredentials: true}).toPromise();
+  }
 }

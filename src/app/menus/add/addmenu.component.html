@@ -23,7 +23,7 @@
       <div class="colorful-buttons text-right col-sm-3">
         <button type="button" class="btn btn-info mr-2" routerLink="/menus" *ngIf="mode == 'view' || mode == 'add'">Vissza</button>
         <button type="button" class="btn btn-info mr-2" (click)="setMode('view')" *ngIf="mode == 'edit'">Vissza</button>
-        <button type="button" class="btn btn-success mr-2">Mentés</button>
+        <button type="button" class="btn btn-success mr-2" *ngIf="mode == 'edit'  || mode == 'add'" (click) = "saveMenu()">Mentés</button>
         <button type="button" class="btn btn-danger mr-2" *ngIf="mode == 'view'" (click)="setMode('edit')">Módosít</button>
       </div>
     </div>
@@ -36,7 +36,7 @@
 <div class="container-fluid">
   <div class="row" *ngIf="mode == 'view'">
     <div class="col-sm-3 mb-2" *ngFor="let menuItem of menuData.items">
-      <day-column [data]="menuItem" [mode]="mode" (deleteColumnEvent)="deleteColumn($event)"></day-column>
+      <day-column [data]="menuItem" [mode]="mode" ></day-column>
     </div>
     <div class="col-sm-3 mb-2 d-flex align-items-center" *ngIf="mode == 'edit' || mode == 'add'">
       <button type="button" class="btn btn-outline-secondary btn-circle-large" (click)="addDayColumn()"><i
