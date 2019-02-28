@@ -40,9 +40,7 @@ export class EditgroupComponent implements OnInit {
     try {
       this.group = this.groupService.getGroupById(id);
       this.groupDisplay = this.groupService.convertGroupToGroupDisplay(this.group);
-      setInterval(() => {
-        console.log(this.groupDisplay.subGroups[0].allergens);
-      }, 2000);
+      
     } catch (e) {
       this.router.navigate(['/groups']);
     }
