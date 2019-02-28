@@ -17,8 +17,8 @@ export class AdduserService {
       // Minta input: {“username”:”Kiss János”,“email”:”teszt@gmail.com”,
       // ”roles”:”FEEDING_MANAGER”}
       let postData = {
-          userName : user.name,
-          emailAddress: user.email,
+          username : user.name,
+          email: user.email,
           roles: user.authority
       };
     return this.httpService.post( this.endPoint, postData );

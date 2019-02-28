@@ -17,21 +17,44 @@ export class GroupService {
 
   getGroups(): Promise<Group[]> {
     return new Promise((resolve, reject) => {
-      this.httpService.get("/groupsofuser/1?userId=1").then(data => {
+      this.httpService.get("/groupsofuser").then(data => {
         resolve(this.convertGroups(data));
       });
     });
   }
+
+  postGroup() {
+    //TODO
+  }
+
+
+
 
   private convertGroups(data: any[]): Group[] {
     let groups: Group[] = [];
     for (let i = 0; i < data.length; i++) {
 
       let g: Group;
+
+      g = {
+        name: "",
+        id: 0,
+        subGroups: []
+      }
+
       g.id = data[i].mainGroupId;
       g.name = data[i].groupName;
 
       let gs: SubGroup;
+
+      gs = {
+        name: "",
+        numberOfPersons: 0,
+        allergens: [],
+        agegroup: AgeGroup.ONE_TO_THREE
+      }
+
+
       gs.id = data[i].mainGroupId;
       gs.name = data[i].subGroupName;
       gs.numberOfPersons = data[i].numberOfPersons;
