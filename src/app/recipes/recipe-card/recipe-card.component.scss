@@ -6,20 +6,21 @@ $carb: #e4b101;
 #card {
   display: flex;
   flex-direction: column;
-  width: 600px;
-  height: 800px;
+  justify-content: space-between;
+  width: 100%;
   margin: auto;
   padding: 10px;
-  background-color: white;
-  border: 1px solid rgba(128, 128, 128, 0.712);
-  box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
-  border-radius: 4%;
+  background-color: transparent;
+  // border: 1px solid rgba(128, 128, 128, 0.712);
+  // box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
+  // border-radius: 4%;
   color: $lettercolor;
 }
 
 #title {
+  background-color: lightblue;
   margin: 0;
-  height: 60px;
+  height: 10%;
   padding-left: 10px;
   font-size: 50px;
   font-weight: 500;
@@ -44,11 +45,12 @@ $carb: #e4b101;
 }
 
 #ingredients {
+  background-color: lightgreen;
   display: flex;
   flex-direction: column;
+  height: 40%;
   border-bottom: 1px solid lightgray;
   padding-bottom: 5px;
-  flex-grow: 1;
 }
 
 #ingredient-list {
@@ -82,10 +84,11 @@ $carb: #e4b101;
 }
 
 #nutrition {
+  background-color: lightcoral;
   border-bottom: 1px transparent;
-  min-height: 300px;
   display: flex;
   flex-direction: column;
+  height: 40%;
 }
 
 #nutrition-info {
@@ -99,6 +102,10 @@ $carb: #e4b101;
 .nutrition-item {
   font-size: 28px;
   font-weight: 300;
+
+  &>:last-child {
+    flex-grow: 1;
+  }
 }
 
 .fat::before {
@@ -123,8 +130,9 @@ $carb: #e4b101;
 }
 
 #bottom-row {
+  background-color: lightseagreen;
   display: flex;
-  min-height: 70px;
+  height: 10%;
   font-size: 40px;
   margin: 0 10px;
   align-items: center;
