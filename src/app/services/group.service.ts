@@ -101,13 +101,12 @@ export class GroupService {
   private postConvert(group: Group): any[] {
     let data: any[] = [];
 
-
     for (let i = 0; i < group.subGroups.length; i++) {
       let sg = group.subGroups[i];
       let d = {
         mainGroupId: group.id,
         groupName: group.name,
-        subGroupId: "",
+        subGroupId: sg.id ? sg.id : "",
         subGroupName: sg.name,
         ageGroup: sg.agegroup,
         numberOfPersons: sg.numberOfPersons,

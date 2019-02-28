@@ -23,12 +23,6 @@ export class HttpService {
       .toPromise();
   }
 
-  put(url: string, data: any): Promise<any> {
-    return this.http
-      .put(this.SERVER_URL + url, data, { withCredentials: true })
-      .toPromise();
-  }
-
   postFormData(url: string, data: any): Promise<any> {
     let fd = new FormData();
     let keys = Object.keys(data);
@@ -40,7 +34,7 @@ export class HttpService {
       .toPromise();
   }
 
-  put(data:any, url?: string):Promise<any>{
-    return this.http.put(this.SERVER_URL + url, data, {withCredentials: true}).toPromise();
+  put(data: any, url?: string): Promise<any> {
+    return this.http.put(this.SERVER_URL + url, data, { withCredentials: true }).toPromise();
   }
 }
