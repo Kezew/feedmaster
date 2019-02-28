@@ -19,7 +19,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AdminAuthGuard } from './auth/admin-auth.guard';
 
 const routes: Routes = [
-  { path: "", component: DashboardComponent, pathMatch: 'full' },
+  { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
+  { path: "dashboard", component: DashboardComponent },
   { path: "userlist", component: UserlistComponent, canActivate: [AdminAuthGuard] },
   { path: "userlist/adduser", component: AdduserComponent, canActivate: [AdminAuthGuard] },
   { path: "groups", component: GroupsComponent },
