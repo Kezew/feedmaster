@@ -222,10 +222,7 @@ export class RecipeService {
     // TODO hibakezelés
   }
 
-  setRecipe(newRecipe: Recipe) {
-    console.log(this.recipes);
-    // let oldRecipe = this.getRecipeById(newRecipe.recepieID);
-    // oldRecipe = newRecipe;
+  setRecipe(newRecipe: Recipe): void {
     let idx = -1;
     this.recipes.forEach((e, i) => {
       if (e.recepieID === newRecipe.recepieID) {
@@ -233,7 +230,10 @@ export class RecipeService {
       }
     });
     this.recipes[idx] = newRecipe;
-    console.log(this.recipes);
+  }
+
+  addRecipe(newRecipe: Recipe): void {
+    this.recipes.push(newRecipe);
   }
 
   calculateNutrition(recipe: Recipe): NutritionData {

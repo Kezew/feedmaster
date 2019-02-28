@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
 
   navbarOpen: boolean = false;
   isAdmin$: Promise<boolean>;
+  //isNutritionist$: Promise<boolean>;
+  //isFeedingManager$ : Promise<boolean>;
   isLoggedIn$: Promise<boolean>;
 
   constructor(
@@ -21,6 +23,8 @@ export class NavbarComponent implements OnInit {
     private router: Router
   ) {
     this.isAdmin$ = this.loginService.hasRole('ADMIN');
+    //this.isNutritionist$ = this.loginService.hasRole('NUTRITIONIST');
+    //this.isFeedingManager$ = this.loginService.hasRole('');
     this.isLoggedIn$ = this.loginService.hasAnyRole();
   }
 

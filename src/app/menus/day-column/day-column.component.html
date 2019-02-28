@@ -1,7 +1,8 @@
 <div class="card">
   <div class="card-body text-center">
     <h4 class="card-title" style="display: inline-block;">{{ data.dayNumber }}. nap</h4>
-    <button type="button" class="close" aria-label="Close" (click)="deleteColumn()" *ngIf="mode == 'add' || mode == 'edit'">
+    <button type="button" class="close" aria-label="Close" (click)="deleteColumn()"
+      *ngIf="mode == 'add' || mode == 'edit'">
       <span aria-hidden="true">&times;</span>
     </button>
 
@@ -17,7 +18,8 @@
         <h5>Reggeli</h5>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'" (click)="addBreakfast()"><i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'"
+          (click)="addBreakfast()"><i class="fas fa-plus"></i></button>
       </div>
     </div>
     <ul class="list-group" *ngIf="mode == 'view'">
@@ -26,12 +28,14 @@
     <ng-container *ngIf="mode == 'add' || mode == 'edit'">
       <div *ngFor="let b of data.breakfastRecipeIDs; let i = index; trackBy:trackByFn">
         <div class="mb-2 d-flex align-items-center">
-          <ng-select [(ngModel)]="data.breakfastRecipeIDs[i]" [items]="recipes" bindLabel="recepieName" bindValue="recepieID" (change)="calculateDayNutrition()">
+          <ng-select [(ngModel)]="data.breakfastRecipeIDs[i]" [items]="recipes" bindLabel="recepieName"
+            bindValue="recepieID" (change)="calculateDayNutrition()">
             <!-- <ng-option *ngFor="let recipe of recipes" [value]="recipe.recepieID">{{recipe.recipeName}}</ng-option>
           <ng-option [value]="'custom'">Custom</ng-option> -->
           </ng-select>
           <div class="ml-2 d-flex align-items-center" *ngIf="mode == 'add' || 'edit'">
-            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'" (click)="deleteBreakfast(b)">
+            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'"
+              (click)="deleteBreakfast(b)">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -44,7 +48,8 @@
         <h5>Tízórai</h5>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'" (click)="addEllevenses()"><i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'"
+          (click)="addEllevenses()"><i class="fas fa-plus"></i></button>
       </div>
     </div>
     <ul class="list-group" *ngIf="mode == 'view'">
@@ -53,12 +58,14 @@
     <ng-container *ngIf="mode == 'add' || mode == 'edit'">
       <div *ngFor="let ellevenses of data.forenoonSnackRecipeIDs; let i = index; trackBy:trackByFn">
         <div class="mb-2 d-flex align-items-center">
-          <ng-select [(ngModel)]="data.forenoonSnackRecipeIDs[i]" [items]="recipes" bindLabel="recepieName" bindValue="recepieID" (change)="calculateDayNutrition()">
+          <ng-select [(ngModel)]="data.forenoonSnackRecipeIDs[i]" [items]="recipes" bindLabel="recepieName"
+            bindValue="recepieID" (change)="calculateDayNutrition()">
             <!-- <ng-option *ngFor="let recipe of recipes" [value]="recipe.recepieID">{{recipe.recipeName}}</ng-option>
           <ng-option [value]="'custom'">Custom</ng-option> -->
           </ng-select>
           <div class="ml-2 d-flex align-items-center">
-            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'" (click)="deleteEllevenses(ellevenses)">
+            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'"
+              (click)="deleteEllevenses(ellevenses)">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -71,7 +78,8 @@
         <h5>Ebéd</h5>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'" (click)="addLunch()"><i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'"
+          (click)="addLunch()"><i class="fas fa-plus"></i></button>
       </div>
     </div>
     <ul class="list-group" *ngIf="mode == 'view'">
@@ -80,9 +88,11 @@
     <ng-container *ngIf="mode == 'add' || mode == 'edit'">
       <div *ngFor="let lunch of data.lunchRecipeIDs; let i = index; trackBy:trackByFn">
         <div class="mb-2 d-flex align-items-center">
-          <ng-select [(ngModel)]="data.lunchRecipeIDs[i]" [items]="recipes" bindLabel="recepieName" bindValue="recepieID" [compareWith]="selectedFn" (change)="calculateDayNutrition()"></ng-select>
+          <ng-select [(ngModel)]="data.lunchRecipeIDs[i]" [items]="recipes" bindLabel="recepieName"
+            bindValue="recepieID" [compareWith]="selectedFn" (change)="calculateDayNutrition()"></ng-select>
           <div class="ml-2 d-flex align-items-center">
-            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'" (click)="deleteLunch(lunch)">
+            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'"
+              (click)="deleteLunch(lunch)">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -96,7 +106,8 @@
         <h5>Uzsonna</h5>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'" (click)="addSnack()"><i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'"
+          (click)="addSnack()"><i class="fas fa-plus"></i></button>
       </div>
     </div>
     <ul class="list-group" *ngIf="mode == 'view'">
@@ -105,12 +116,14 @@
     <ng-container *ngIf="mode == 'add' || mode == 'edit'">
       <div *ngFor="let snack of data.afternoonSnackRecipeIDs; let i = index; trackBy:trackByFn">
         <div class="mb-2 d-flex align-items-center">
-          <ng-select [(ngModel)]="data.afternoonSnackRecipeIDs[i]" [items]="recipes" bindLabel="recepieName" bindValue="recepieID" (change)="calculateDayNutrition()">
+          <ng-select [(ngModel)]="data.afternoonSnackRecipeIDs[i]" [items]="recipes" bindLabel="recepieName"
+            bindValue="recepieID" (change)="calculateDayNutrition()">
             <!-- <ng-option *ngFor="let recipe of recipes" [value]="recipe.recepieID">{{recipe.recipeName}}</ng-option>
           <ng-option [value]="'custom'">Custom</ng-option> -->
           </ng-select>
           <div class="ml-2 d-flex align-items-center">
-            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'" (click)="deleteSnack(snack)">
+            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'"
+              (click)="deleteSnack(snack)">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -123,26 +136,29 @@
         <h5>Vacsora</h5>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'" (click)="addDinner()"><i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-outline-secondary btn-circle" *ngIf="mode == 'add' || mode == 'edit'"
+          (click)="addDinner()"><i class="fas fa-plus"></i></button>
       </div>
     </div>
     <ul class="list-group" *ngIf="mode == 'view'">
       <li class="list-group-item" *ngFor="let b of data.dinnerSnackRecipeIDs">{{b | recipeName}}</li>
     </ul>
     <ng-container *ngIf="mode == 'add' || mode == 'edit'">
-    <div *ngFor="let dinner of data.dinnerSnackRecipeIDs; let i = index; trackBy:trackByFn">
-      <div class="mb-2 d-flex align-items-center">
-        <ng-select [(ngModel)]="data.dinnerSnackRecipeIDs[i]" [items]="recipes" bindLabel="recepieName" bindValue="recepieID" (change)="calculateDayNutrition()">
-          <!-- <ng-option *ngFor="let recipe of recipes" [value]="recipe.recepieID">{{recipe.recipeName}}</ng-option>
+      <div *ngFor="let dinner of data.dinnerSnackRecipeIDs; let i = index; trackBy:trackByFn">
+        <div class="mb-2 d-flex align-items-center">
+          <ng-select [(ngModel)]="data.dinnerSnackRecipeIDs[i]" [items]="recipes" bindLabel="recepieName"
+            bindValue="recepieID" (change)="calculateDayNutrition()">
+            <!-- <ng-option *ngFor="let recipe of recipes" [value]="recipe.recepieID">{{recipe.recipeName}}</ng-option>
           <ng-option [value]="'custom'">Custom</ng-option> -->
-        </ng-select>
-        <div class="ml-2 d-flex align-items-center">
-          <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'" (click)="deleteDinner(dinner)">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          </ng-select>
+          <div class="ml-2 d-flex align-items-center">
+            <button type="button" class="close" aria-label="Close" *ngIf="mode == 'add' || mode == 'edit'"
+              (click)="deleteDinner(dinner)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </ng-container>
   </div>
   <hr>
@@ -151,19 +167,21 @@
   <div class="d-flex justify-content-center">
     <h5 style="display: inline-block;">Összesített tápanyagtartalom</h5>
   </div>
-  <div class="d-flex flex-column justify-content-center">
+  <div class="flex-row d-flex flex-column">
     <div class="nutri-list-row pt-2">
       <div class="flex-row d-flex justify-content-center">
         <div id="nutrition-list">
           <div class="nutrition-item row">
             <div class="col component">Zsír</div>
-            <div class="col-4">{{dayNutrition.fat}}</div>
+            <div class="col">{{dayNutrition.fat}} g</div>
           </div>
-          <div class="nutrition-item row sub-row">
-            <i class="fas fa-long-arrow-alt-right col pt-1">
-            </i>
-            <p>ebből telített: </p>
-            <div class="col">{{dayNutrition.saturatedFat}}</div>
+          <div class="flex-row subdetails">
+            <div class="row nutrition-item">
+              <i class="fas fa-long-arrow-alt-right pt-1">&nbsp;&nbsp;
+              </i>
+              <p>ebből telített: &nbsp;&nbsp; </p>
+              <div> {{dayNutrition.saturatedFat}} g</div>
+            </div>
           </div>
         </div>
       </div>
@@ -171,9 +189,9 @@
     <div class="pt-2 pb-2">
       <div class="flex-row d-flex justify-content-center">
         <div id="nutrition-list">
-          <div class="nutrition-item row">
+          <div class="nutrition-item row flex-row">
             <div class="col component">Fehérje</div>
-            <div class="col">{{dayNutrition.protein}}</div>
+            <div>{{dayNutrition.protein}} g</div>
           </div>
         </div>
       </div>
@@ -181,15 +199,17 @@
     <div class="nutri-list-row pt-2">
       <div class="flex-row d-flex justify-content-center">
         <div id="nutrition-list">
-          <div class="nutrition-item row">
+          <div class="nutrition-item row flex-row">
             <div class="col component">Szénhidrát</div>
-            <div class="col-5">{{dayNutrition.carbs | number: ".2-2"}}</div>
+            <div class="col">{{dayNutrition.carbs | number: ".2-2"}} g</div>
           </div>
-          <div class="flex-row nutrition-item row sub-row">
-            <i class="fas fa-long-arrow-alt-right col pt-1">
-            </i>
-            <p>ebből cukor: </p>
-            <div class="col">{{dayNutrition.sugar}}</div>
+          <div class="flex-row subdetails">
+            <div class="nutrition-item row">
+              <i class="fas fa-long-arrow-alt-right pt-1">&nbsp;&nbsp;
+              </i>
+              <p>ebből cukor: &nbsp;&nbsp; </p>
+              <div>{{dayNutrition.sugar}} g</div>
+            </div>
           </div>
         </div>
       </div>
@@ -197,9 +217,9 @@
     <div class="pt-2 pb-2">
       <div class="d-flex flex-row justify-content-center">
         <div id="nutrition-list">
-          <div class="nutrition-item row">
+          <div class="nutrition-item row flex-row">
             <div class="col component">Energia</div>
-            <div class="">{{dayNutrition.kcal}}</div>
+            <div>{{dayNutrition.kcal}} Kcal</div>
           </div>
         </div>
       </div>

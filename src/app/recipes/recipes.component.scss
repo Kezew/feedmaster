@@ -7,7 +7,7 @@
 
 #recipe-selector {
   flex-direction: column;
-  width: 50%;
+  flex-grow: 3;
   height: 85vh;
   padding: 0;
   border-right: 1px solid lightgray;
@@ -21,13 +21,6 @@
   border-bottom: 1px solid lightgray;
   padding-bottom: 5px;
   padding-left: 10px;
-}
-
-label {
-  font-size: 24px;
-  margin: 0;
-  width: 100px;
-  color: lightgray;
 }
 
 #filter-bar>* {
@@ -58,6 +51,36 @@ label {
   border-bottom: 1px solid lightgray;
 }
 
+#title-bar {
+  display: flex;
+  font-size: 50px;
+  font-variant-caps: all-small-caps;
+  line-height: 50px;
+  padding: 0 20px 5px 20px;
+  color: $lettercolor;
+  background-color: $logocolor;
+
+  &>button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 40px;
+    color: $lettercolor;
+    font-variant-caps: all-small-caps;
+    line-height: 50px;
+  }
+
+  &>button:focus {
+    outline: none;
+  }
+
+  &>button>i {
+    font-size: 20px;
+    margin-right: 5px;
+    line-height: 50px;
+  }
+}
+
 #recipe-list {
   display: flex;
   flex-direction: column;
@@ -74,7 +97,10 @@ ul {
 
 li {
   font-size: 50px;
+  text-indent: 5px;
   text-transform: capitalize;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 li:hover {
@@ -100,12 +126,9 @@ li:hover {
 }
 
 
-#recipe-view {
-  width: 100%;
-  background: lightcoral;
-}
+#recipe-view {}
 
 #recipe-card {
-  width: 50%;
+  flex-grow: 5;
   margin: auto;
 }
