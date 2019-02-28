@@ -34,9 +34,7 @@ export class RecipeCardComponent implements OnInit, OnChanges {
     this.calculateNutrition();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   calculateNutrition() {
     this.resetData();
