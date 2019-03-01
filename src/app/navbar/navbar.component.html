@@ -23,10 +23,10 @@
           <button class="btn btn-success"><a class="nav-link" routerLink="/menus">Étlapok</a></button>
         </li>
         <li class="d-flex align-items-center" *ngIf="isLoggedIn$ | async">
-          <button class="btn logout-btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i></button>
+          <button class="btn logout-btn" (click)="logout()"><i class="fas fa-power-off"></i></button>
         </li>
         <li class="d-flex align-items-center" *ngIf="! (isLoggedIn$ | async)">
-          <button class="btn logout-btn" routerLink="/login"><i class="fas fa-door-open"></i></button>
+          <button class="btn logout-btn" routerLink="/login"><i class="fas fa-sign-in-alt"></i></button>
         </li>
       </ul>
     </div>
