@@ -3,6 +3,7 @@ import { Menu, Mode, MenuItem } from '../../interfaces/menu';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { MenuService } from '../../services/menu.service';
+import { RecipeService } from '../../services/recipe.service';
 @Component({
   selector: 'app-addmenu',
   templateUrl: './addmenu.component.html',
@@ -14,16 +15,28 @@ export class AddmenuComponent implements OnInit {
   public mode: Mode;
   public id: number;
   private cloneMenu: Menu;
+  public isLoaded: boolean;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpService, private menuService: MenuService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpService, private menuService: MenuService, private recipeService: RecipeService) {
     this.mode = Mode[this.activatedRoute.snapshot.url[1].path];
     this.menuData = { name: '', items: [] };
+    this.isLoaded = false;
   }
 
   ngOnInit() {
     this.initMenu();
+    this.setIsloaded();
 
+  }
+
+  setIsloaded(){
+    Promise.all([
+      this.recipeService.loadIngredients(),
+      this.recipeService.loadRecipes()
+    ]).then(() => {
+      this.isLoaded = true;
+    });
   }
 
   addDayColumn() {
