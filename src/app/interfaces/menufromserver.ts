@@ -3,5 +3,7 @@ export interface Menufromserver {
     menuName: String,
     averageKcalPerDay: number,
     lastModified?: String,
-    userOwned?: String
+    userOwned?: String,
+    numberOfDays: number,
+
 }
