@@ -35,7 +35,7 @@
 <hr>
 
 <div class="container-fluid">
-  <div class="row" *ngIf="mode == 'view'">
+  <div class="row" *ngIf="isLoaded && mode == 'view'">
     <div class="col-sm-3 mb-2" *ngFor="let menuItem of menuData.items">
       <day-column [data]="menuItem" [mode]="mode"></day-column>
     </div>
