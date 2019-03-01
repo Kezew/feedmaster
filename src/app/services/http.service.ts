@@ -9,7 +9,7 @@ export class HttpService {
 
   readonly SERVER_URL = "https://mysterious-journey-60687.herokuapp.com";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   get(url: string): Promise<any> {
     return this.http
@@ -21,11 +21,7 @@ export class HttpService {
     return this.http
       .post(this.SERVER_URL + url, data, { withCredentials: true })
       .toPromise();
-  }
-  put(url: string, data: any): Promise<any> {
-    return this.http
-      .put(this.SERVER_URL + url, data, { withCredentials: true })
-      .toPromise();
+
   }
 
   postFormData(url: string, data: any): Promise<any> {
@@ -40,6 +36,8 @@ export class HttpService {
   }
 
   put(data: any, url?: string): Promise<any> {
-    return this.http.put(this.SERVER_URL + url, data, { withCredentials: true }).toPromise();
+    return this.http
+      .put(this.SERVER_URL + url, data, { withCredentials: true })
+      .toPromise();
   }
 }

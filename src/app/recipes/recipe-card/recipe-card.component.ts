@@ -80,9 +80,8 @@ export class RecipeCardComponent implements OnInit, OnChanges {
   }
 
   saveRecipe() {
-    this.recipeService.modifyRecipe(this.recipeClone).then(data => {
-      console.log(data);
-      this.recipeService.setRecipe(data);
+    this.recipeService.modifyRecipe(this.recipeClone).then(() => {
+      this.recipeService.setRecipe(this.recipeClone);
     });
     this.editMode = false;
     this.recipeSaved.emit();
