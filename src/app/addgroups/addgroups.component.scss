@@ -5,6 +5,20 @@ h2 {
   color: $lettercolor;
 }
 
+.hero {
+  background-image: url("~/assets/yellow-bg.png");
+  background-size: cover;
+  position: static;
+  overflow: auto;
+
+  h1 {
+    position: absolute;
+    color: white;
+    margin-left: 20px;
+    margin-top: -20px;
+  }
+}
+
 .header .btn {
   margin-left: 10px;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -15,7 +29,7 @@ h2 {
 }
 
 .x-btn {
-    border:none;
+  border: none;
 }
 
 .subgroup-box {

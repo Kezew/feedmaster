@@ -1,5 +1,19 @@
 @import "../../variables";
 
+.hero {
+  background-image: url("~/assets/yellow-bg.png");
+  background-size: cover;
+  position: static;
+  overflow: auto;
+
+  h1 {
+    position: absolute;
+    color: white;
+    margin-left: 20px;
+    margin-top: -20px;
+  }
+}
+
 .header .btn {
   margin-left: 10px;
 }
@@ -43,19 +57,28 @@ tr {
 
 tr th {
   vertical-align: middle;
-  font-weight: bold;
 }
 
 tr td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
-.t-header th, i {
-  background-color: $logocolor;
-  color: white;
+.t-header th,
+i {
+  background-color: #f5faea;
+  color: $lettercolor;
 }
 
 .icon {
   border: none;
   background: transparent;
+}
+
+.btn-outline-warning {
+  background-color: white;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffbb33;
+  color: white;
 }
