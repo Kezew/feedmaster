@@ -10,25 +10,23 @@
             <h2>Felhasználó hozzáadása</h2>
           </div>
         </div>
-
-
         <div class="row success-add justify-content-center" *ngIf="isSuccessAdd">sikeres hozzáadás</div>
         <div class="row error-add justify-content-center" *ngIf="isErrorAdd">sikertelen hozzáadás</div>
+        <div class="row error-add justify-content-center" *ngIf="isWrongEmail">Már létező e-mail cím !</div>
+        <div class="row error-add justify-content-center" *ngIf="isDatabaseError">Adatbázis kapcsolat hiba !</div>
       </div>
       <hr>
 
       <div class="container input-fields">
         <div class="form-group name-group">
           <label for="inputName">Név</label>
-          <input type="name" class="form-control" id="inputName" [ngClass]="{'is-invalid' : isNameInvalid }"
-            [(ngModel)]="user.name" (blur)="checkName()" placeholder="név">
+          <input type="name" class="form-control" id="inputName" [ngClass]="{'is-invalid' : isNameInvalid }" [(ngModel)]="user.name" (blur)="checkName()" placeholder="név">
           <!--  [ngClass]="{'is-invalid' : isNameInvalid }" [(ngModel)]="user.name" (blur)="checkName()" -->
           <div class="invalid-feedback">Kérlek, add meg a neved!</div>
         </div>
         <div class="form-group email-group">
           <label for="inputEmail">E-mail cím</label>
-          <input type="email" class="form-control" id="inputEmail" [ngClass]="{ 'is-invalid' : errors.email }"
-            [(ngModel)]="user.email" (blur)="checkEmail()" placeholder="emailcimed@gmail.com">
+          <input type="email" class="form-control" id="inputEmail" [ngClass]="{ 'is-invalid' : errors.email }" [(ngModel)]="user.email" (blur)="checkEmail()" placeholder="emailcimed@gmail.com">
           <!--  [ngClass]="{ 'is-invalid' : errors.email }" id="inputEmail" [(ngModel)]="user.email" (blur)="checkEmail()" -->
           <div class="invalid-feedback" *ngIf="errors.emailEmpty">Adj meg email címet</div>
           <div class="invalid-feedback" *ngIf="errors.emailInvalid">Nem megfelő email</div>
@@ -48,8 +46,10 @@
 
         </div>
 
+
       </div>
 
     </div>
+
   </div>
 </div>
