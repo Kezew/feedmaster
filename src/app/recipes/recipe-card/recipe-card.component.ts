@@ -18,10 +18,10 @@ import { RecipeService } from "src/app/services/recipe.service";
 })
 export class RecipeCardComponent implements OnInit, OnChanges {
   @Input() recipe: Recipe;
-  @Output() data: NutritionData;
-  editMode: boolean;
+  @Input() editMode: boolean;
   recipeClone: Recipe;
   ingredients: Ingredient[];
+  @Output() data: NutritionData;
   @Output() recipeSaved: EventEmitter<void>;
 
   constructor(private recipeService: RecipeService) {
@@ -31,10 +31,13 @@ export class RecipeCardComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.ingredients = this.recipeService.ingredients;
+    this.cloneRecipe();
     this.calculateNutrition();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    this.calculateNutrition();
+  }
 
   calculateNutrition() {
     this.resetData();
@@ -77,8 +80,11 @@ export class RecipeCardComponent implements OnInit, OnChanges {
   }
 
   saveRecipe() {
-    this.recipeService.setRecipe(this.recipeClone);
-    this.toggleEditMode();
+    this.recipeService.modifyRecipe(this.recipeClone).then(data => {
+      console.log(data);
+      this.recipeService.setRecipe(data);
+    });
+    this.editMode = false;
     this.recipeSaved.emit();
   }
 

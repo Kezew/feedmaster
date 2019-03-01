@@ -22,6 +22,7 @@
         </ul>
       </div>
     </div>
-    <app-recipe-card *ngIf="isDataLoaded" id="recipe-card" class="col" [recipe]="currentRecipe" (recipeSaved)="refreshList()"></app-recipe-card>
+    <app-recipe-card *ngIf="isDataLoaded" id="recipe-card" class="col" [recipe]="currentRecipe" [editMode]="editMode"
+      (recipeSaved)="refreshList()"></app-recipe-card>
   </div>
 </div>
