@@ -29,3 +29,19 @@ export enum Day{
   saturday = 5,
   sunday = 6
 }
+
+export interface ServerData {
+  menuId: number,
+  menuName: string,
+  weekDays: {
+     MONDAY: {},
+     TUESDAY: {},
+     WEDNESDAY: {},
+     THURSDAY: {},
+     FRIDAY: {},
+     SATURDAY: {},
+     SUNDAY: {}
+  },
+  lastModified: string,
+  userOwned: string
+}
