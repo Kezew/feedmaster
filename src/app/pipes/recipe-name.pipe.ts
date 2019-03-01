@@ -12,6 +12,17 @@ export class RecipeNamePipe implements PipeTransform {
     if (recipeId == 0) {
       return "";
     }
-    return this.recipeService.getRecipeById(recipeId).recepieName;
+    if(this.recipeService.recipes == undefined){
+      Promise.all([
+        this.recipeService.loadIngredients(),
+        this.recipeService.loadRecipes()
+      ]).then(() => {
+        return this.recipeService.getRecipeById(recipeId).recepieName;
+
+      });
+    } else{
+      return this.recipeService.getRecipeById(recipeId).recepieName;
+    }
+
   }
 }
