@@ -15,7 +15,7 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class DayColumnComponent implements OnInit {
 
-  public recipes : Recipe[];
+  public recipes: Recipe[];
 
   @Input()
   public mode: Mode;
@@ -35,8 +35,19 @@ export class DayColumnComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.recipes = this.recipeService.recipes;
-    this.calculateDayNutrition();
+    if (this.recipeService.recipes == undefined) {
+      Promise.all([
+        this.recipeService.loadIngredients(),
+        this.recipeService.loadRecipes()
+      ]).then(() => {
+        this.recipes = this.recipeService.recipes;
+        this.calculateDayNutrition();
+      });
+    } else {
+      this.recipes = this.recipeService.recipes;
+      this.calculateDayNutrition();
+    }
+
     // setInterval( () => {
     //   console.log(this.data.lunch);
     // }, 3000 );
@@ -128,12 +139,12 @@ export class DayColumnComponent implements OnInit {
   //   console.log(this.data.breakfast);
   // }
 
-  public selectedFn(a: any, b: any) : boolean {
+  public selectedFn(a: any, b: any): boolean {
     return a.recepieID == b;
   }
 
   public trackByFn(index: any, item: any) {
-     return index;
+    return index;
   }
 
   public calculateDayNutrition(): void {
@@ -147,8 +158,8 @@ export class DayColumnComponent implements OnInit {
     }
 
     for (let meal in this.data) {
-      if(meal != 'dayNumber'){
-        this.data[meal].forEach((e)=>{
+      if (meal != 'dayNumber') {
+        this.data[meal].forEach((e) => {
           let currentNutritionData = this.recipeService.calculateNutritionById(e);
           this.dayNutrition.fat += currentNutritionData.fat;
           this.dayNutrition.saturatedFat += currentNutritionData.saturatedFat;
@@ -157,8 +168,8 @@ export class DayColumnComponent implements OnInit {
           this.dayNutrition.sugar += currentNutritionData.sugar;
           this.dayNutrition.kcal += currentNutritionData.kcal;
         }
-      )
-    };
+        )
+      };
     }
   }
 
