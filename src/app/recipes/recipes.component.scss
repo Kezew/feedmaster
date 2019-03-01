@@ -1,5 +1,17 @@
 @import "src/variables";
 
+.container-fluid {
+  flex-direction: row;
+  background: white;
+  padding: 0;
+  margin: 0;
+
+  &>.row {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .hero {
   height: 128px;
   width: 100%;
@@ -18,25 +30,18 @@
   }
 }
 
-.container-fluid {
-  flex-direction: row;
-  background: white;
-  padding: 0;
-}
-
 #recipe-selector {
   flex-direction: column;
-  flex-grow: 3;
-  height: 85vh;
+  flex-grow: 2;
   padding: 0;
   border-right: 1px solid lightgray;
+  max-height: 900px;
 }
 
 #filter-bar {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 10%;
   min-height: 80px;
   border-bottom: 1px solid lightgray;
   padding-bottom: 5px;
@@ -118,7 +123,7 @@ ul {
 }
 
 li {
-  font-size: 50px;
+  font-size: 35px;
   text-indent: 5px;
   text-transform: capitalize;
   border-radius: 5px;
@@ -150,4 +155,6 @@ li:hover {
 
 #recipe-card {
   flex-grow: 5;
+  margin: 0;
+  padding: 0;
 }

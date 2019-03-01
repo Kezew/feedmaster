@@ -1,97 +1,109 @@
-<!-- view mode -->
-<div id="card" class="container">
-  <h1 *ngIf="!editMode" id="title">{{ recipe.recepieName }}</h1>
-  <input *ngIf="editMode" id="title" type="text" [(ngModel)]="recipeClone.recepieName" autofocus>
-  <div id="ingredients">
-    <span class="small-title">Hozzávalók</span>
-    <div *ngIf="!editMode" id="ingredient-list" class="container">
-      <div *ngFor="let ingredient of recipe.ingredients" class="ingredient-item row">
-        <div class="col-6">
-          {{ getIngredient(ingredient.ingredientId).ingredientName }}
+<div id="card" class="container-fluid">
+  <div class="container">
+
+    <div *ngIf="!editMode" id="title">
+      <h1 class="mr-auto">{{ recipe.recepieName }}</h1>
+      <button><i class="fas fa-edit" (click)="toggleEditMode()"></i></button>
+    </div>
+    <div *ngIf="editMode" id="title">
+      <input type="text" class="mr-auto" [(ngModel)]="recipeClone.recepieName" autofocus>
+      <button><i class="fas fa-times" (click)="toggleEditMode()"></i></button>
+      <button><i class="fas fa-check" (click)="saveRecipe()"></i></button>
+    </div>
+
+    <div *ngIf="!editMode" id="bottom-row">
+      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ recipe.referencePerson }}</span>
+    </div>
+    <div *ngIf="editMode" id="bottom-row">
+      <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i><input id="reference-person" type="text"
+          class="mr-auto" [(ngModel)]="recipeClone.referencePerson"></span>
+    </div>
+
+    <div id="info-field" class="container-fluid">
+      <div id="ingredients" class="col">
+        <span class="small-title">Hozzávalók</span>
+        <div *ngIf="!editMode" id="ingredient-list" class="container">
+          <div *ngFor="let ingredient of recipe.ingredients" class="ingredient-item row">
+            <div class="col-6">
+              {{ getIngredient(ingredient.ingredientId).ingredientName }}
+            </div>
+            <div class="col-4 grams">
+              {{ ingredient.ingredientQuantity | number: ".2-2" }}
+            </div>
+          </div>
         </div>
-        <div class="col-4 grams">
-          {{ ingredient.ingredientQuantity | number: ".2-2" }}
+        <div *ngIf="editMode" id="ingredient-list" class="container">
+          <div *ngFor="let ingredient of recipeClone.ingredients; let i = index;" class="ingredient-item row">
+            <ng-select class="custom col-6" [clearable]="false" [(ngModel)]="recipeClone.ingredients[i].ingredientId"
+              bindLabel="ingredientName" bindValue="ingredientId" [items]="ingredients"></ng-select>
+            <input class=" col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition()">
+            <button class="col-2 delete-button" (click)="deleteIngredient(ingredient.ingredientId)"><i class="fas fa-minus-circle"></i></button>
+          </div>
+          <div class="ingredient-item add-row row"><button id="add-ingredient-button" (click)="addIngredient()"><i
+                class="fas fa-plus-circle"></i></button></div>
         </div>
       </div>
-    </div>
-    <div *ngIf="editMode" id="ingredient-list" class="container">
-      <div *ngFor="let ingredient of recipeClone.ingredients; let i = index;" class="ingredient-item row">
-        <ng-select class="col-6" [clearable]="false" [(ngModel)]="recipeClone.ingredients[i].ingredientId" bindLabel="ingredientName"
-          bindValue="ingredientId" [items]="ingredients"></ng-select>
-        <input class=" col-2 grams" type="number" [(ngModel)]="ingredient.ingredientQuantity" (input)="calculateNutrition()">
-        <button class="col-2 delete-button" (click)="deleteIngredient(ingredient.ingredientId)"><i class="fas fa-minus-circle"></i></button>
-      </div>
-      <div class="ingredient-item add-row row"><button id="add-ingredient-button" (click)="addIngredient()"><i class="fas fa-plus-circle"></i></button></div>
-    </div>
-  </div>
-  <div id="nutrition">
-    <div class="small-title">Tápanyagértékek</div>
-    <div class="container">
-      <div id="nutrition-list" class="row">
-        <div id="nutrition-info" class="col-7">
-          <div class="nutrition-item row">
-            <div class="col fat">
-              Zsír
-            </div>
-            <div class="col grams">
-              {{ data.fat | number: ".2-2" }}
-            </div>
-          </div>
-          <div class="nutrition-item row sub-row">
-            <div class="col">
-              <i class="fas fa-long-arrow-alt-right"></i> ebből telített
-            </div>
-            <div class="col grams">
-              {{ data.saturatedFat | number: ".2-2" }}
-            </div>
-          </div>
-          <div class="nutrition-item row">
-            <div class="col protein">
-              Fehérje
-            </div>
-            <div class="col grams">
-              {{ data.protein | number: ".2-2" }}
-            </div>
-          </div>
-          <div class="nutrition-item row">
-            <div class="col carb">
-              Szénhidrát
-            </div>
-            <div class="col grams">
-              {{ data.carbs | number: ".2-2" }}
-            </div>
-          </div>
-          <div class="nutrition-item row sub-row">
-            <div class="col">
-              <i class="fas fa-long-arrow-alt-right"></i> ebből cukor
-            </div>
-            <div class="col grams">
-              {{ data.sugar | number: ".2-2" }}
-            </div>
-          </div>
-          <div class="nutrition-item row">
-            <div class="col">
-              Energia
-            </div>
-            <div class="col kcal">
-              {{ data.kcal | number: ".0-0" }}
-            </div>
-          </div>
-        </div>
-        <div id="nutrition-pie" class="col">
+
+      <div id="nutrition" class="col">
+        <div class="small-title">Tápanyagértékek</div>
+        <div id="nutrition-pie" class="row">
           <app-nutrition-pie [data]="data"></app-nutrition-pie>
         </div>
+        <div id="nutrition-list" class="row">
+          <div id="nutrition-info">
+            <div class="nutrition-item row">
+              <div class="col fat">
+                Zsír
+              </div>
+              <div class="col grams">
+                {{ data.fat | number: ".2-2" }}
+              </div>
+            </div>
+            <div class="nutrition-item row sub-row">
+              <div class="col">
+                <i class="fas fa-long-arrow-alt-right"></i> ebből telített
+              </div>
+              <div class="col grams">
+                {{ data.saturatedFat | number: ".2-2" }}
+              </div>
+            </div>
+            <div class="nutrition-item row">
+              <div class="col protein">
+                Fehérje
+              </div>
+              <div class="col grams">
+                {{ data.protein | number: ".2-2" }}
+              </div>
+            </div>
+            <div class="nutrition-item row">
+              <div class="col carb">
+                Szénhidrát
+              </div>
+              <div class="col grams">
+                {{ data.carbs | number: ".2-2" }}
+              </div>
+            </div>
+            <div class="nutrition-item row sub-row">
+              <div class="col">
+                <i class="fas fa-long-arrow-alt-right"></i> ebből cukor
+              </div>
+              <div class="col grams">
+                {{ data.sugar | number: ".2-2" }}
+              </div>
+            </div>
+            <div class="nutrition-item row">
+              <div class="col">
+                Energia
+              </div>
+              <div class="col kcal">
+                {{ data.kcal | number: ".0-0" }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!editMode" id="bottom-row">
-    <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i>{{ recipe.referencePerson }}</span>
-    <button><i class="fas fa-edit" (click)="toggleEditMode()"></i></button>
-  </div>
-  <div *ngIf="editMode" id="bottom-row">
-    <span id="reference-person" class="mr-auto"><i class="fas fa-child"></i><input id="reference-person" type="text"
-        class="mr-auto" [(ngModel)]="recipeClone.referencePerson"></span>
-    <button><i class="fas fa-times" (click)="toggleEditMode()"></i></button>
-    <button><i class="fas fa-check" (click)="saveRecipe()"></i></button>
+
+
   </div>
 </div>
