@@ -10,9 +10,12 @@ export class MenuService {
 
   constructor(private httpService : HttpService) { }
 
+  public menusofUser: Menufromserver[];
+
   getMenus() : Promise<Menufromserver[]> {
     return new Promise<Menufromserver[]>((resolve, reject) => {
       this.httpService.get('/menusofuser').then( data => {
+        this.menusofUser = data;
         resolve(data);
       }).catch(reject);
     });

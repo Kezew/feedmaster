@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Menu, Mode, MenuItem } from '../../interfaces/menu';
+import { Menufromserver } from '../../interfaces/menufromserver';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { MenuService } from '../../services/menu.service';
@@ -18,12 +19,15 @@ export class AddmenuComponent implements OnInit {
   public isLoaded: boolean;
   public isloading: boolean;
 
+  public refreshMenus : EventEmitter<Menufromserver[]>;
+
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpService, private menuService: MenuService, private recipeService: RecipeService) {
     this.mode = Mode[this.activatedRoute.snapshot.url[1].path];
     this.menuData = { name: '', items: [] };
     this.isLoaded = false;
     this.isloading = true;
+    this.refreshMenus = new EventEmitter();
   }
 
   ngOnInit() {
@@ -127,11 +131,46 @@ export class AddmenuComponent implements OnInit {
     this.menuService.changeMenu(this.cloneMenu).then(() => {
       this.menuData = this.cloneMenu;
       this.setMode(Mode.view);
+      let menu: Menufromserver = {
+          menuId: null,
+          menuName: '',
+          numberOfDays: null,
+      }
+
+      menu.menuId = this.menuData.id;
+      menu.menuName = this.menuData.name;
+      menu.numberOfDays = this.menuData.items.length;
+
+      this.menuService.menusofUser.forEach((m, i) => {
+        if(m.menuId == this.menuData.id){
+          this.menuService.menusofUser[i] = menu;
+        }
+      });
     }).catch();
   }
 
   addMenu(): void {
-    this.menuService.addMenuToServer(this.cloneMenu).then(() => {
+    this.menuService.addMenuToServer(this.cloneMenu).then((data) => {
+      let menuDays = 0;
+      let menu: Menufromserver = {
+          menuId: null,
+          menuName: '',
+          numberOfDays: null,
+      }
+
+      data.items.forEach((t)=>{
+        for (let key in t) {
+          if(key !== 'dayNumber' && t[key].length != 0){
+            menuDays++;
+          }
+        }
+      });
+
+      menu.menuId = data.id;
+      menu.menuName = data.name;
+      menu.numberOfDays = menuDays;
+
+      this.menuService.menusofUser.push(menu);
       this.router.navigate(['/menus']);
     });
 }
