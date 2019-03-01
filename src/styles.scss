@@ -7,8 +7,10 @@ $fa-font-path: 'assets/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 
-html, body {
-    min-height: 100vh;
+html,
+body {
+  min-height: 100vh;
+  font-size: 20px;
 }
 
 body {
@@ -66,6 +68,7 @@ h1 {
 .modal-content {
   border: none;
 }
+
 app-logout-modal {
   .modal-header {
     background: $modalbackground;
@@ -73,17 +76,17 @@ app-logout-modal {
     font-weight: bold;
   }
 
-  .close{
+  .close {
     color: white;
   }
 
-  .back{
+  .back {
     font-family: 'Open Sans Condensed', sans-serif;
     color: $logocolor;
     border: 1px solid $logocolor;
   }
 
-  .back:hover{
+  .back:hover {
     color: black;
     background-color: $logocolor;
   }
