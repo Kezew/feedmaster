@@ -42,25 +42,13 @@ export class RegistrationComponent implements OnInit {
 
   registration(): void {
     this.isLoginInvalid = false;
-    this.isPasswordValid();
-    this.emptyUserName();
-    if (!this.isPasswordValid && !this.emptyUserName) {
-      this.loginService.registerUser(this.user).then(() => {
-        this.router.navigate(['/dashboard']);
-      }).catch(() => {
-        this.isLoginInvalid = true;
-      });
-    }
+    this.loginService.registerUser(this.user).then(() => {
+      this.router.navigate(['/dashboard']);
+    }).catch(() => {
+      this.isLoginInvalid = true;
+    });
   }
 
-  isPasswordValid(): boolean {
-    return (this.user.password === this.user.password2);
-  }
 
-  emptyUserName(): void {
-    if (this.user.name2 === '') {
-      this.user.name2 = this.user.name;
-    }
-  }
 
 }

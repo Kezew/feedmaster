@@ -6,14 +6,10 @@ $carb: #e4b101;
 #card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  margin: auto;
-  padding: 10px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
   background-color: transparent;
-  // border: 1px solid rgba(128, 128, 128, 0.712);
-  // box-shadow: 6px 6px 30px 1px rgba(128, 128, 128, 0.514);
-  // border-radius: 4%;
   color: $lettercolor;
 }
 
@@ -30,7 +26,32 @@ $carb: #e4b101;
   background-size: 10%;
   background-position: 95% 0;
   background-repeat: no-repeat;
-  line-height: 59px;
+
+}
+
+#ingredients {
+  background-color: lightgreen;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 5px;
+  height: 40%;
+}
+
+#nutrition {
+  background-color: lightcoral;
+  border-bottom: 1px transparent;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+}
+
+#bottom-row {
+  background-color: lightseagreen;
+  display: flex;
+  font-size: 40px;
+  align-items: center;
+  height: 10%;
 }
 
 .small-title {
@@ -42,15 +63,6 @@ $carb: #e4b101;
   margin-bottom: 10px;
   align-self: center;
   color: $lettercolor;
-}
-
-#ingredients {
-  background-color: lightgreen;
-  display: flex;
-  flex-direction: column;
-  height: 40%;
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 5px;
 }
 
 #ingredient-list {
@@ -81,14 +93,6 @@ $carb: #e4b101;
 
 .kcal::after {
   content: " kcal";
-}
-
-#nutrition {
-  background-color: lightcoral;
-  border-bottom: 1px transparent;
-  display: flex;
-  flex-direction: column;
-  height: 40%;
 }
 
 #nutrition-info {
@@ -127,15 +131,6 @@ $carb: #e4b101;
   font-size: 22px;
   margin-top: -1px;
   padding-left: 3px;
-}
-
-#bottom-row {
-  background-color: lightseagreen;
-  display: flex;
-  height: 10%;
-  font-size: 40px;
-  margin: 0 10px;
-  align-items: center;
 }
 
 #bottom-row button {
