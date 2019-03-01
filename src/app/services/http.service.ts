@@ -21,11 +21,7 @@ export class HttpService {
     return this.http
       .post(this.SERVER_URL + url, data, { withCredentials: true })
       .toPromise();
-  }
-  put(url: string, data: any): Promise<any> {
-    return this.http
-      .put(this.SERVER_URL + url, data, { withCredentials: true })
-      .toPromise();
+
   }
 
   postFormData(url: string, data: any): Promise<any> {
