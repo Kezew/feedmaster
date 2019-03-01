@@ -22,25 +22,49 @@
     </div>
   </div>
 </div>
+
+<div class="container" *ngIf="isLoading">
+  <hr>
+    <div class="lds-css loading">
+      <div class="lds-pacman">
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <p class="loadertext">Betöltés folyamatban ... </p>
+    </div>
+</div>
+
+
+
 <div class="card-container">
   <div class="container mt-4 justify-content-center">
     <div class="card-deck">
 
-      <div class="col-auto mt-5 container" *ngFor="let menu of menus">
-        <div class="card clickable-card" [routerLink]="['/menus/view', menu.menuId]">
-          <div class="card-bg">
-            <div class="card-body">
-              <h5 class="card-title">{{menu.menuName}} étlap</h5>
-              <hr>
-              <p class="card-text">Átlagos napi energiamennyiség: </p>
-              <p class="card-text-input">{{menu.averageKcalPerDay}} Kcal</p>
-              <div class="bg-logo">
+      <ng-container *ngIf="!isLoading">
+        <div class="col-auto mt-5 container" *ngFor="let menu of menus">
+          <div class="card clickable-card" [routerLink]="['/menus/view', menu.menuId]">
+            <div class="card-bg">
+              <div class="card-body">
+                <h5 class="card-title">{{menu.menuName}}</h5>
+                <hr>
+                <p class="card-text">Menüterv hossza: </p>
+                <p class="card-text-input">{{menu.numberOfDays}} nap</p>
+                <div class="bg-logo">
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </ng-container>
 
-      </div>
+
     </div>
   </div>
 </div>

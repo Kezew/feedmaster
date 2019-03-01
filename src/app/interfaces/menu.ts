@@ -8,8 +8,8 @@ export interface MenuItem {
 }
 
 export interface Menu {
-  name: String;
-  description?: String;
+  name: string;
+  description?: string;
   id?: number;
   items?: MenuItem[];
 }
@@ -21,11 +21,27 @@ export enum Mode{
 }
 
 export enum Day{
-  monday = 1,
-  tuesday = 2,
-  wednesday = 3,
-  thursday = 4,
-  friday = 5,
-  saturday = 6,
-  sunday = 7
+  monday = 0,
+  tuesday = 1,
+  wednesday = 2,
+  thursday = 3,
+  friday = 4,
+  saturday = 5,
+  sunday = 6
+}
+
+export interface ServerData {
+  menuId: number,
+  menuName: string,
+  weekDays: {
+     MONDAY: {},
+     TUESDAY: {},
+     WEDNESDAY: {},
+     THURSDAY: {},
+     FRIDAY: {},
+     SATURDAY: {},
+     SUNDAY: {}
+  },
+  lastModified: string,
+  userOwned: string
 }

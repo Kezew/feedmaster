@@ -16,6 +16,7 @@ export class AddgroupsComponent implements OnInit {
   groupDisplay: GroupDisplay;
   allergenEnum: any[];
   nutritionEnum: any[];
+  nutritionDisplayEnum: any[];
   ageEnum: any[];
 
   constructor(private groupService: GroupService, private router: Router) {
@@ -36,6 +37,7 @@ export class AddgroupsComponent implements OnInit {
 
     this.allergenEnum = this.groupService.getAllergenArray();
     this.nutritionEnum = this.groupService.getNutritionArray();
+    this.nutritionDisplayEnum = this.groupService.getNutritionDisplayArray();
     this.ageEnum = this.groupService.getAgeGroupArray();
   }
 

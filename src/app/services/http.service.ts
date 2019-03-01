@@ -9,7 +9,7 @@ export class HttpService {
 
   readonly SERVER_URL = "https://mysterious-journey-60687.herokuapp.com";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get(url: string): Promise<any> {
     return this.http
@@ -37,5 +37,9 @@ export class HttpService {
     return this.http
       .post(this.SERVER_URL + url, fd, { withCredentials: true })
       .toPromise();
+  }
+
+  put(data: any, url?: string): Promise<any> {
+    return this.http.put(this.SERVER_URL + url, data, { withCredentials: true }).toPromise();
   }
 }
