@@ -60,7 +60,7 @@ export class GroupService {
       }
 
 
-      gs.id = data[i].mainGroupId;
+      gs.id = data[i].subGroupId
       gs.name = data[i].subGroupName;
       gs.numberOfPersons = data[i].numberOfPersons;
       gs.agegroup = data[i].ageGroup;
@@ -282,6 +282,7 @@ export class GroupService {
 
       let sgd: SubGroupDisplay = {
         name: sg.name,
+        id: sg.id,
         numberOfPersons: sg.numberOfPersons,
         allergens: sg.allergens,
         maxValues: sgdMaxValues,

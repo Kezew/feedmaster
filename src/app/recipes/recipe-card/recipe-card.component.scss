@@ -6,7 +6,6 @@ $carb: #e4b101;
 #card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 0;
   margin: 0;
   background-color: transparent;
@@ -14,48 +13,49 @@ $carb: #e4b101;
 }
 
 #title {
-  background-color: lightblue;
-  margin: 0;
-  height: 10%;
-  padding-left: 10px;
+  margin: 1rem 0;
+  padding-top: 1rem;
   font-size: 50px;
   font-weight: 500;
   text-transform: capitalize;
   border-bottom: 1px solid lightgray;
-  background-image: url("/assets/logo_notext.png");
-  background-size: 10%;
-  background-position: 95% 0;
-  background-repeat: no-repeat;
+  display: flex;
+  // background-image: url("/assets/logo_notext.png");
+  // background-size: contain;
+  // background-position: 95% 0;
+  // background-repeat: no-repeat;
 
+}
+
+#info-field {
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 #ingredients {
-  background-color: lightgreen;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 5px;
-  height: 40%;
+  padding: 10px;
+  border-right: 1px solid lightgray;
 }
 
 #nutrition {
-  background-color: lightcoral;
+  padding: 10px;
   border-bottom: 1px transparent;
   display: flex;
   flex-direction: column;
-  height: 40%;
+  margin-left: 10px;
 }
 
 #bottom-row {
-  background-color: lightseagreen;
   display: flex;
   font-size: 40px;
   align-items: center;
-  height: 10%;
+  margin-bottom: 10px;
 }
 
 .small-title {
-  height: 65px;
   font-variant-caps: all-small-caps;
   letter-spacing: 1px;
   font-size: 50px;
@@ -73,7 +73,6 @@ $carb: #e4b101;
 .ingredient-item {
   font-size: 30px;
   font-weight: 400;
-  height: 50px;
   border-bottom: 1px solid transparent;
 
   &.add-row {
@@ -96,16 +95,22 @@ $carb: #e4b101;
 }
 
 #nutrition-info {
-  border-right: 1px solid lightgray;
+  width: 100%;
 }
 
 #nutrition-list {
   align-items: center;
+  margin: 0;
+  padding: 0;
+
 }
 
 .nutrition-item {
   font-size: 28px;
   font-weight: 300;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
 
   &>:last-child {
     flex-grow: 1;
@@ -133,9 +138,17 @@ $carb: #e4b101;
   padding-left: 3px;
 }
 
-#bottom-row button {
+#nutrition-pie {
+  margin-bottom: 20px;
+}
+
+button {
   width: 80px;
   text-align: center;
+
+  &>i {
+    font-size: 50px;
+  }
 }
 
 #reference-person {
@@ -172,7 +185,9 @@ button:focus {
 // edit mode
 input {
   color: $lettercolor;
-  padding: 0 15px;
+  padding: 0;
+  margin: 0;
+  outline: none;
   border: none;
   border-bottom: solid 1px lightgray;
   text-transform: capitalize;

@@ -45,7 +45,7 @@ export class NutritionPieComponent implements OnInit, OnChanges {
       },
       plotOptions: {
         pie: {
-          size: 180,
+          size: 220,
           allowPointSelect: false,
           cursor: "pointer",
           dataLabels: {

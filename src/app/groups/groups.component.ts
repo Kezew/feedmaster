@@ -28,6 +28,7 @@ export class GroupsComponent implements OnInit {
     this.groupService.getGroups().then(data => {
       this.groups = data;
       this.groupService.groups = data;
+      console.log(this.groups)
     });
   }
 
