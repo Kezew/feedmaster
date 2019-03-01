@@ -73,3 +73,12 @@ i {
   border: none;
   background: transparent;
 }
+
+.btn-outline-warning {
+  background-color: white;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffbb33;
+  color: white;
+}

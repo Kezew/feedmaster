@@ -170,17 +170,15 @@
   <div class="flex-row d-flex flex-column">
     <div class="nutri-list-row pt-2">
       <div class="flex-row d-flex justify-content-center">
-        <div id="nutrition-list">
-          <div class="nutrition-item row">
+        <div id="nutrition-list" class="container">
+          <div class="nutrition-item row flex-row">
             <div class="col component">Zsír</div>
             <div class="col">{{dayNutrition.fat | number: ".2-2"}} g</div>
           </div>
-          <div class="flex-row subdetails">
-            <div class="row nutrition-item">
+          <div class="flex-row row subdetails">
+            <div class="col nutrition-item">
               <i class="fas fa-long-arrow-alt-right pt-1">&nbsp;&nbsp;
-              </i>
-              <p>ebből telített: &nbsp;&nbsp; </p>
-              <div> {{dayNutrition.saturatedFat | number: ".2-2"}} g</div>
+              </i> ebből telített: &nbsp;&nbsp; {{dayNutrition.saturatedFat | number: ".2-2"}} g
             </div>
           </div>
         </div>
@@ -198,7 +196,7 @@
     </div>
     <div class="nutri-list-row pt-2">
       <div class="flex-row d-flex justify-content-center">
-        <div id="nutrition-list">
+        <div id="nutrition-list" class="container">
           <div class="nutrition-item row flex-row">
             <div class="col component">Szénhidrát</div>
             <div class="col">{{dayNutrition.carbs | number: ".2-2"}} g</div>
