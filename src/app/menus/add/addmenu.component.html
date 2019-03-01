@@ -6,20 +6,20 @@
 
 <div class="small-bg pt-4 pb-4">
   <div class="container">
-    <div class="row mt-3 mb-2 justify-content-between">
+    <div class="row mt-3 mb-2">
       <div class="col-sm-3" *ngIf="mode == 'view'">
         <input class="form-control" type="text" [(ngModel)]="menuData.name" name="" [disabled]="mode == 'view'" placeholder="Étlap neve">
       </div>
       <div class="col-sm-3" *ngIf="mode == 'edit' || mode == 'add'">
         <input class="form-control" type="text" [(ngModel)]="cloneMenu.name" name=""  placeholder="Étlap neve">
       </div>
-    <!-- <div class="input-group col-sm-5">
+      <div class="input-group col-sm-5">
         <div class="input-group-prepend">
           <span class="input-group-text">Étlap leírása</span>
         </div>
         <textarea class="form-control" aria-label="With textarea"
           placeholder="Itt megadhatod az étlap specifikációját." [disabled]="mode == 'view'"></textarea>
-      </div> -->
+      </div>
       <div class="colorful-buttons text-right col-sm-3">
         <button type="button" class="btn btn-info mr-2" routerLink="/menus" *ngIf="mode == 'view' || mode == 'add'">Vissza</button>
         <button type="button" class="btn btn-info mr-2" (click)="setMode('view')" *ngIf="mode == 'edit'">Vissza</button>
