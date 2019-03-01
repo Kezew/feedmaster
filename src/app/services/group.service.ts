@@ -192,6 +192,7 @@ export class GroupService {
 
   convertGroupToGroupDisplay(g: Group): GroupDisplay {
     let gd: GroupDisplay = {
+      id: g.id,
       name: g.name,
       subGroups: []
     };
@@ -293,12 +294,14 @@ export class GroupService {
 
   convertGroupDisplayToGroup(gd: GroupDisplay): Group {
     let g: Group = {
+      id: gd.id,
       name: gd.name,
       subGroups: [] = []
     }
     for (let i = 0; i < gd.subGroups.length; i++) {
       let sgDisplay: SubGroupDisplay = gd.subGroups[i];
       let sg: SubGroup = {
+        id: sgDisplay.id,
         name: sgDisplay.name,
         numberOfPersons: sgDisplay.numberOfPersons,
         allergens: sgDisplay.allergens,
