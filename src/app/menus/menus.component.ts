@@ -19,11 +19,17 @@ export class MenusComponent implements OnInit {
    }
 
   ngOnInit() {
-     this.menuService.getMenus().then( menus => {
-       this.menus = menus;
-       this.isLoading = false;
-     } );
-   
+    if(this.menuService.menusofUser == undefined){
+      this.menuService.getMenus().then( menus => {
+        this.menus = menus;
+        this.isLoading = false;
+      } );
+    } else{
+      this.menus = this.menuService.menusofUser;
+      this.isLoading = false;
+    }
+
+
   }
 
 }
