@@ -51,6 +51,8 @@ export class AddgroupsComponent implements OnInit {
       this.router.navigate(['/groups']);
     });
 
+    console.log(this.group);
+
     //TODO adatellenőrzés
   }
 

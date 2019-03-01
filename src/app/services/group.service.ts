@@ -32,7 +32,7 @@ export class GroupService {
   putGroup(group: Group): Promise<object> {
     let data = [];
     data = this.postConvert(group);
-    return this.httpService.post("/updatesubgroup", data);
+    return this.httpService.put(data, "/updatesubgroup");
   }
 
   private getConvert(data: any[]): Group[] {
@@ -104,7 +104,7 @@ export class GroupService {
     for (let i = 0; i < group.subGroups.length; i++) {
       let sg = group.subGroups[i];
       let d = {
-        mainGroupId: group.id,
+        mainGroupId: group.id ? group.id : "",
         groupName: group.name,
         subGroupId: sg.id ? sg.id : "",
         subGroupName: sg.name,
@@ -124,7 +124,7 @@ export class GroupService {
         maxDailyCalcium: 0,
         maxDailyMagnesium: 0,
         allergens: []
-      }
+      };
 
       if (sg.maxDailyEnergyKJ) {
         d.maxDailyEnergyKJ = sg.maxDailyEnergyKJ;
@@ -294,7 +294,7 @@ export class GroupService {
   convertGroupDisplayToGroup(gd: GroupDisplay): Group {
     let g: Group = {
       name: gd.name,
-      subGroups: []
+      subGroups: [] = []
     }
     for (let i = 0; i < gd.subGroups.length; i++) {
       let sgDisplay: SubGroupDisplay = gd.subGroups[i];
@@ -304,6 +304,7 @@ export class GroupService {
         allergens: sgDisplay.allergens,
         agegroup: sgDisplay.agegroup
       }
+      g.subGroups.push(sg);
       for (let j = 0; j < sgDisplay.maxValues.length; j++) {
         let maxV: MaxValue = sgDisplay.maxValues[j];
         if (maxV.type === Nutrition.maxDailyEnergyKJ) {
