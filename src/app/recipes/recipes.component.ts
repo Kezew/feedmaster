@@ -32,16 +32,27 @@ export class RecipesComponent implements OnInit {
   }
 
   ngOnInit() {
-    const loadPromise = Promise.all([
-      this.recipeService.loadIngredients(),
-      this.recipeService.loadRecipes()
-    ]);
-    loadPromise.then(() => {
-      this.recipes = this.recipeService.recipes;
-      this.filteredRecipes = this.recipes.slice(0);
-      this.currentRecipe = this.recipes[0];
-      this.isDataLoaded = true;
-    });
+    if (
+      this.recipeService.ingredients === undefined ||
+      this.recipeService.recipes === undefined
+    ) {
+      const loadPromise = Promise.all([
+        this.recipeService.loadIngredients(),
+        this.recipeService.loadRecipes()
+      ]);
+      loadPromise.then(() => {
+        this.initDefault();
+      });
+    } else {
+      this.initDefault();
+    }
+  }
+
+  initDefault(): void {
+    this.recipes = this.recipeService.recipes;
+    this.filteredRecipes = this.recipes.slice(0);
+    this.currentRecipe = this.recipes[0];
+    this.isDataLoaded = true;
   }
 
   refreshList(): void {
