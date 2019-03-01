@@ -6,6 +6,40 @@
 </div>
 <div class="modal-body">
 
+    <div class="row">
+        <div class="col">
+            Név
+        </div>
+        <div class="col">
+            {{subgroup.name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            Korosztály
+        </div>
+        <div class="col">
+            {{subgroup.agegroup}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            Létszám
+        </div>
+        <div class="col">
+            {{subgroup.numberOfPersons}}
+        </div>
+    </div>
+    <div class="row" *ngFor="let a of subgroup.allergens; let i=index">
+        <div class="col">
+            Allergén
+        </div>
+        <div class="col">
+            {{subgroup.allergens[i]}}
+        </div>
+    </div>
+
+
 
 </div>
 <div class="modal-footer">

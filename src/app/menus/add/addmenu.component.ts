@@ -16,18 +16,24 @@ export class AddmenuComponent implements OnInit {
   public id: number;
   private cloneMenu: Menu;
   public isLoaded: boolean;
+  public isloading: boolean;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpService, private menuService: MenuService, private recipeService: RecipeService) {
     this.mode = Mode[this.activatedRoute.snapshot.url[1].path];
     this.menuData = { name: '', items: [] };
     this.isLoaded = false;
+    this.isloading = true;
   }
 
   ngOnInit() {
     this.initMenu();
     this.setIsloaded();
 
+  }
+
+  setIsloading(loading: boolean){
+    this.isloading = loading;
   }
 
   setIsloaded(){

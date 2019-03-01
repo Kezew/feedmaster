@@ -12,7 +12,7 @@ export class AdduserService {
   constructor(private httpService : HttpService) { }
 
 
-  addUser(user: User) : Promise < object > {
+  addUser(user: User) : Promise<object> {
       // itt csomagoljuk át olyan formátumra ami a szervernek megfelelő formátum
       // Minta input: {“username”:”Kiss János”,“email”:”teszt@gmail.com”,
       // ”roles”:”FEEDING_MANAGER”}

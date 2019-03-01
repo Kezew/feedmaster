@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { AdduserService } from 'src/app/services/adduser.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -17,17 +18,21 @@ export class AdduserComponent implements OnInit {
   isNameInvalid: boolean;
   isSuccessAdd: boolean;
   isErrorAdd: boolean;
+  isWrongEmail: boolean;
+  isDatabaseError: boolean;
   errors: any;
   router: Router;
 
-  constructor(private adduserService : AdduserService) {
-    this.user = { name : '', email: '', password : '', authority : [''] };
+
+  constructor(private adduserService: AdduserService) {
+    this.user = { name: '', email: '', password: '', authority: [''] };
     this.authorities = ['ADMIN', 'FEEDING_MANAGER', 'NUTRITIONIST'];
     this.isNameInvalid = false;
     this.errors = {};
     this.isSuccessAdd = false;
     this.isErrorAdd = false;
-
+    this.isWrongEmail = false;
+    this.isDatabaseError = false;
   }
 
   ngOnInit() {
@@ -40,16 +45,36 @@ export class AdduserComponent implements OnInit {
 
     if (!this.isNameInvalid && !this.errors.email) {
 
+      // sikeres hozzáadás
       this.adduserService.addUser(this.user).then(() => {
-          this.isSuccessAdd = true;     // üzenet div engedélyezése egyből, hogy sikeres volt
-          this.user.name = '';
-          this.user.email = '';
-          this.user.authority = [''];
-          // az input mezők lenullázása
-          setTimeout(() => {
-            this.isSuccessAdd = false;  // 2mp múlva eltüntejük a sikeres hozzásadás div-et a html-ből
-          }, 2000);
-      });
+        this.isSuccessAdd = true;     // üzenet div engedélyezése egyből, hogy sikeres volt
+        this.user.name = '';
+        this.user.email = '';
+        this.user.authority = [''];
+        // az input mezők lenullázása
+        setTimeout(() => {
+          this.isSuccessAdd = false;  // 2mp múlva eltüntejük a sikeres hozzásadás div-et a html-ből
+        }, 2000);
+    }).catch((error: HttpErrorResponse) => {
+        // TODO itt kellene megvizsgálni, hogy mi miatt nem került hozzáadásra a Felhasználó
+        // hibaüzenet alapján engedélyezzük a megfelelő div-et a html-ben
+        //alert(error.error.errors);
+        if (error.error.errors.indexOf('already-existing-email-address') > -1) {
+            this.isWrongEmail = true;
+        }
+        if (error.error.errors.indexOf('database-failure') > -1 ) {
+            this.isDatabaseError = true;
+        }
+
+        // üzenet div engedélyezése egyből, hogy sikertelen volt
+        this.isErrorAdd = true;
+        // az input mezőket nem nullázom le, 3mp múlva eltüntejük a sikertelen hozzásadás div-et a html-ből
+        setTimeout(() => {
+          this.isErrorAdd = false;
+          this.isWrongEmail = false;
+          this.isDatabaseError = false;
+        }, 3000);
+    });
 
       // this.isSuccessAdd = true;
       // setTimeout(() => {
@@ -70,14 +95,6 @@ export class AdduserComponent implements OnInit {
     //     this.isErrorAdd = false;
     //   }, 3000);
     // }
-    //this.router.navigate(['/userlist/adduser']);
-    //this.router.navigate(['/userlist/adduser']);
-    // this.studentService.addStudents(this.student).then(() => {
-    //   this.router.navigate(['/students']);  // hiszen ekkor már visszajött a szerverről a korrekt cucc
-    // });
-    // TODO ha jók az adatok akkor a felhasználót adja hozzá ???
-    // srevice-n keresztül vagy a szerverre küldje fel?
-    // ezután maradjon ezen az oldalon üres mezőkkel
 
 
   }

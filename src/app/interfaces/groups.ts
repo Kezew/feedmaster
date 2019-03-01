@@ -34,20 +34,22 @@ export interface Group {
 }
 
 export interface MaxValue {
-    type: Nutrition;
-    value: number;
+  type: Nutrition;
+  value: number;
 }
 
 
 export interface SubGroupDisplay {
-    name: string;
-    numberOfPersons: number;
-    allergens: string[];
-    maxValues: MaxValue[];
-    agegroup: AgeGroup;
+  id?: number;
+  name: string;
+  numberOfPersons: number;
+  allergens: string[];
+  maxValues: MaxValue[];
+  agegroup: AgeGroup;
 }
 
 export interface GroupDisplay {
-    name: string;
-    subGroups: SubGroupDisplay[];
+  id?: number;
+  name: string;
+  subGroups: SubGroupDisplay[];
 }

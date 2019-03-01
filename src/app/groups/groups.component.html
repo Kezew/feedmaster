@@ -1,5 +1,14 @@
 <app-navbar></app-navbar>
 
+<div class="hero">
+  <div class="container mt-5 mb-5 pt-3 pb-3">
+    <div class="text">
+      <h1>Csoportok</h1>
+    </div>
+  </div>
+</div>
+
+
 <div class="container mt-5 mb-3 header">
   <div class="row">
     <div class="col-6">
@@ -21,7 +30,7 @@
     <thead>
       <tr class="t-header">
         <th scope="col">{{ g.name }}</th>
-        <th scope="col">{{ countTotalNumberOfPersons(g) }}  fő</th>
+        <th scope="col">{{ countTotalNumberOfPersons(g) }} fő</th>
         <th scope="col">
           <button class="icon btn" *ngIf="!g.isOpen" (click)="openSubGroups(g)"> <i class="fas fa-caret-down"></i>
           </button>
@@ -53,12 +62,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let sg of g.subGroups">
+              <tr *ngFor="let sg of g.subGroups; let i=index">
                 <td>{{ sg.name }}</td>
                 <td>{{ sg.agegroup }}</td>
                 <td>{{ sg.numberOfPersons }}</td>
                 <td>
-                  <button class="btn btn-outline-warning info-btn" (click)="openInfoModal()">Tulajdonságok</button>
+                  <button class="btn btn-outline-warning info-btn" (click)="openInfoModal(sg)">Tulajdonságok</button>
                 </td>
               </tr>
             </tbody>

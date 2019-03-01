@@ -60,7 +60,7 @@ export class GroupService {
       }
 
 
-      gs.id = data[i].mainGroupId;
+      gs.id = data[i].subGroupId
       gs.name = data[i].subGroupName;
       gs.numberOfPersons = data[i].numberOfPersons;
       gs.agegroup = data[i].ageGroup;
@@ -192,6 +192,7 @@ export class GroupService {
 
   convertGroupToGroupDisplay(g: Group): GroupDisplay {
     let gd: GroupDisplay = {
+      id: g.id,
       name: g.name,
       subGroups: []
     };
@@ -281,6 +282,7 @@ export class GroupService {
 
       let sgd: SubGroupDisplay = {
         name: sg.name,
+        id: sg.id,
         numberOfPersons: sg.numberOfPersons,
         allergens: sg.allergens,
         maxValues: sgdMaxValues,
@@ -293,12 +295,14 @@ export class GroupService {
 
   convertGroupDisplayToGroup(gd: GroupDisplay): Group {
     let g: Group = {
+      id: gd.id,
       name: gd.name,
       subGroups: [] = []
     }
     for (let i = 0; i < gd.subGroups.length; i++) {
       let sgDisplay: SubGroupDisplay = gd.subGroups[i];
       let sg: SubGroup = {
+        id: sgDisplay.id,
         name: sgDisplay.name,
         numberOfPersons: sgDisplay.numberOfPersons,
         allergens: sgDisplay.allergens,
