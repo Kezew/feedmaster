@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Group } from '../interfaces/groups';
+import { Group, SubGroup } from '../interfaces/groups';
 import { GroupService } from '../services/group.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GroupDeleteModalComponent } from './group-delete-modal/group-delete-modal.component';
@@ -47,8 +47,11 @@ export class GroupsComponent implements OnInit {
     return sum;
   }
 
-  openInfoModal(): void {
-    this.modalService.open(SubgroupInfoModalComponent).result.then();
+  openInfoModal(subgroup : SubGroup): void {
+    const modalRef = this.modalService.open(SubgroupInfoModalComponent);
+    modalRef.componentInstance.subgroup = subgroup;
+    modalRef.result.then();
+
   }
 
   deleteGroup(): void {

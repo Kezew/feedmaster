@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Group, GroupDisplay, SubGroupDisplay } from 'src/app/interfaces/groups';
+import { SubGroup } from 'src/app/interfaces/groups';
 
 @Component({
   selector: 'app-subgroup-info-modal',
@@ -9,10 +9,8 @@ import { Group, GroupDisplay, SubGroupDisplay } from 'src/app/interfaces/groups'
 })
 export class SubgroupInfoModalComponent implements OnInit {
 
-    group: Group;
-    groupDisplay: GroupDisplay;
-    subgroupD: SubGroupDisplay;
-
+  subgroup: SubGroup;
+  
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
