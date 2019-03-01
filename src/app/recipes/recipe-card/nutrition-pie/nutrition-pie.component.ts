@@ -22,14 +22,15 @@ export class NutritionPieComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    this.createChart(this.data);
+    this.createChart();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.createChart(this.data);
+    this.createChart();
+    console.log(this.data);
   }
 
-  createChart(data): void {
+  createChart(): void {
     this.chart = new Chart({
       chart: {
         type: "pie"

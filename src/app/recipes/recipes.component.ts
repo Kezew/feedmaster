@@ -77,7 +77,7 @@ export class RecipesComponent implements OnInit {
       lastModified: null,
       userOwned: null
     };
-    this.currentRecipe = newRecipe;
     this.editMode = true;
+    this.currentRecipe = newRecipe;
   }
 }
