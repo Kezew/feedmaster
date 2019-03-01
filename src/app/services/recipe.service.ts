@@ -36,6 +36,18 @@ export class RecipeService {
     });
   }
 
+  modifyRecipe(newRecipe: Recipe): Promise<Recipe> {
+    return new Promise<Recipe>((resolve, reject) => {
+      this.httpService
+        .put("/updaterecipe", newRecipe)
+        .then(data => {
+          console.log(data);
+          resolve(data);
+        })
+        .catch(reject);
+    });
+  }
+
   getIngredientById(id: number): Ingredient {
     return this.ingredients.find(e => {
       return e.ingredientId === id;

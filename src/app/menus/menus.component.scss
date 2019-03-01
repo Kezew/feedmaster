@@ -65,12 +65,15 @@ h1 {
     font-weight: bold;
 }
 
+.card-text {
+  text-align: center;     
+}
+
 .card-bg {
     background-image: url(~/assets/terito.png);
-    background-size: cover;
+    background-size: contain;
     position: static;
     overflow: auto;
-    background-repeat: no-repeat;
 }
 
 .card-body {
@@ -83,7 +86,7 @@ h1 {
 }
 
 .card-container {
-    background-color: rgba(161, 155, 155, 0.13);
+    background-color: rgba(241, 240, 241, 0.308);
 }
 
 .loading {
