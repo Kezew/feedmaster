@@ -1,8 +1,27 @@
 @import "src/variables";
 
+.hero {
+  height: 128px;
+  width: 100%;
+  background-image: url("/assets/blue-background.png");
+  background-size: cover;
+  position: static;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+
+  & .text {
+    margin-left: 20%;
+    font-size: 2.5rem;
+    color: white;
+  }
+}
+
 .container-fluid {
   flex-direction: row;
   background: white;
+  padding: 0;
 }
 
 #recipe-selector {
