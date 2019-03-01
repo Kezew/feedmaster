@@ -70,14 +70,16 @@ h1 {
 }
 
 .card-bg {
-    background-image: url(~/assets/terito.png);
+    background-image: url(~/assets/cloth.png);
     background-size: contain;
     position: static;
     overflow: auto;
+    background-position: center;
+
 }
 
 .card-body {
-    background-color: rgba(255, 254, 254, 0.801);
+    background-color: rgba(255, 254, 254, 0.63);
 }
 
 .small-bg {
@@ -86,12 +88,16 @@ h1 {
 }
 
 .card-container {
-    background-color: rgba(241, 240, 241, 0.308);
+    background-color: rgba(218, 218, 218, 0.253);
 }
 
 .loading {
     position: fixed;
     left: 45%;
+}
+
+.thehr {
+  border: 0.8px solid $grey;
 }
 
 @keyframes lds-pacman-1 {
