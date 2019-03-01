@@ -24,6 +24,7 @@ export class LogoutModalComponent implements OnInit {
   logout(): void {
     this.loginService.logoutUser().then(() => {
       this.router.navigate(['/login']);
+      this.activeModal.close();
     }).finally(() => {
       this.loginService.clearLoggedInRoles();
     });
