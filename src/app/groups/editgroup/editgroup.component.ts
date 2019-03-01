@@ -47,6 +47,15 @@ export class EditgroupComponent implements OnInit {
     }
   }
 
+  editGroup(){
+      this.group = this.groupService.convertGroupDisplayToGroup(this.groupDisplay);
+      this.groupService.putGroup(this.group).then(() => {
+        this.router.navigate(['/groups']);
+      });
+
+      console.log(this.group);
+  }
+
   editHeader(): void {
     this.isHeaderEditMode = true;
   }
