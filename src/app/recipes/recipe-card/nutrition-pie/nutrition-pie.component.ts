@@ -27,7 +27,6 @@ export class NutritionPieComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.createChart();
-    console.log(this.data);
   }
 
   createChart(): void {
